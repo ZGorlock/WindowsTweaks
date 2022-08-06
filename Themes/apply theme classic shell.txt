@@ -1,0 +1,30 @@
+Navigate to 'Classic Shell'
+
+Run 'ClassicShellSetup_4_3_1.exe' and install
+
+Copy the contents of 'Settings' to 'C:\Program Files\Classic Shell\Settings'
+Copy the contents of 'Skins' to 'C:\Program Files\Classic Shell\Skins'
+Copy the contents of 'Icons' to 'C:\Program Files\Classic Shell\Icons'
+
+Navigate to 'C:\Program Files\Classic Shell'
+
+Run 'Start Menu Settings'
+    Select: Backup / Load from XML File...
+    Browse to 'C:\Program Files\Classic Shell\Settings'
+    Open 'Menu Settings.xml'
+    Click Ok
+    
+Run 'ClassicExplorerSettings.exe'
+    Select: Backup / Load from XML File...
+    Browse to 'C:\Program Files\Classic Shell\Settings'
+    Open 'Explorer Settings.xml'
+    Click Ok
+    
+Run 'IE Settings'
+    Select: Backup / Load from XML File...
+    Browse to 'C:\Program Files\Classic Shell\Settings'
+    Open 'IE Settings.xml'
+    Click Ok
+
+
+//http://www.classicshell.net/

@@ -1,0 +1,5 @@
+Go to This PC
+Right Click Pictures
+Select Properties
+Select the Location Tab
+Change the Path to: 'E:\Pictures'

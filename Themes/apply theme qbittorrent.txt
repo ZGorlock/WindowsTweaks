@@ -1,0 +1,10 @@
+Navigate to 'qBittorrent'
+Copy 'qbittorrent.qbtheme' to the qBittorrent installation directory
+
+Open qBittorrent
+	Go to Tools / Options / Behavior
+	Under Interface select 'Use custom UI Theme'
+	Browse for and select 'qbittorrent.qbtheme' as the 'UI Theme file'
+
+
+//https://github.com/jagannatharjun/qbt-theme#mumble-darkqbtheme

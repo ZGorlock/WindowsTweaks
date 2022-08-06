@@ -1,0 +1,21 @@
+Open RegEdit
+
+For Each of the Following Keys:
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{B4BFCC3A-DB2C-424C-B029-7FE99A87C641}
+	
+Do: 
+	Right click the Key and Select Permissions
+	Click Advanced
+	Change Owner
+	Click Advanced
+	Click Find Now
+	Select 'Administrators'
+	Click OK
+	Click OK
+	Click Apply
+	Click OK
+	Select 'Administrators'
+	Allow 'Full Control'
+
+Run 'tooltip desktop.reg'

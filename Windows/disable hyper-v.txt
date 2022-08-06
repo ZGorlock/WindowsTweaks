@@ -1,0 +1,10 @@
+Open Command Prompt (Admin)
+
+To check if Hyper-V is Enabled Run:
+	bcdedit
+
+To Disable Hyper-V Run:
+	bcdedit /set hypervisorlaunchtype off
+
+
+//https://petri.com/how-to-disable-hyper-v-completely-in-windows-10/

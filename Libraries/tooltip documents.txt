@@ -1,0 +1,23 @@
+Open RegEdit
+
+For Each of the Following Keys:
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{d3162b92-9365-467a-956b-92703aca08af}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{d3162b92-9365-467a-956b-92703aca08af}
+	
+Do: 
+	Right click the Key and Select Permissions
+	Click Advanced
+	Change Owner
+	Click Advanced
+	Click Find Now
+	Select 'Administrators'
+	Click OK
+	Click OK
+	Click Apply
+	Click OK
+	Select 'Administrators'
+	Allow 'Full Control'
+
+Run 'tooltip documents.reg'

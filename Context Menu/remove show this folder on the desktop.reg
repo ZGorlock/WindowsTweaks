@@ -1,0 +1,4 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers\FencesShellExt]
+@="{1984DD45-52CF-49cd-AB77-18F378FEA264}"

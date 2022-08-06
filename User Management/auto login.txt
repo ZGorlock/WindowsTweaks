@@ -1,0 +1,29 @@
+Open an Elevated Command Prompt
+	secedit /configure /cfg %windir%\inf\defltbase.inf /db defltbase.sdb /verbose
+
+Go to Group Policy Editor
+	Under Computer Configuration / Administrative Templates / System / Logon set
+		Allow users to select when a password is required: Enabled
+		Do not display the Getting Started screen: Enabled
+		
+	Under Computer Configuration / Windows Settings / Security Settings / Local Policies / Security Options set
+		Accounts: Limit local account use of blank passwords: Disabled
+		Interactive logon: Machine inactivity limit: 599940
+
+Edit 'enable auto login as User.reg'
+    Change: "<User>" to your username
+    Put your password in the DefaultPassword field
+        Or alternatively set your actual password to an empty string
+        You may need to finish these instructions and restart your computer to be able to
+
+Run 'enable auto login as User.reg'
+
+Go to Settings / Accounts / Sign-in Options
+	Turn off Require Windows Hello Sign-In
+
+Run netplwiz
+	Uncheck 'Users must enter a user name and password'
+
+Go to Settings / Personalization / Lock Screen
+At the bottom click 'Screen saver settings'
+Uncheck 'On resume, display logon screen'

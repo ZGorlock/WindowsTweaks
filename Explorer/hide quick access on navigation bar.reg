@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer]
+"HubMode"=dword:00000001
+
+
+;https://www.winhelponline.com/blog/remove-quick-access-other-shell-folders-file-explorer/#quick_access_v1607

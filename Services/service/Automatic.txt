@@ -1,0 +1,52 @@
+Background Tasks Infrastructure Service
+Base Filtering Engine
+Bitdefender Auxiliary Service
+Bitdefender Desktop Update Service
+Bitdefender Protected Service
+Bitdefender Virus Shield
+CarboniteService
+COM+ Event System
+Connected Devices Platform User Service_86634
+CoreMessaging
+Cryptographic Services
+Data Usage
+DCOM Server Process Launcher
+DHCP Client
+Diagnostic Policy Service
+Distributed Link Tracking Client
+EPOS Gaming Suite
+Intel(R) Dynamic Application Loader Host Interface Service
+Intel(R) TPM Provisioning Service
+IP Helper
+Local Session Manager
+Network Location Awareness
+Network Store Interface Service
+NVIDIA Display Container LS
+Power
+Print Spooler
+ProductAgentService
+Razer Central Service
+Razer Synapse Service
+Realtek Audio Universal Service
+Remote Access Connection Manager
+Remote Procedure Call (RPC)
+RPC Endpoint Mapper
+Security Accounts Manager
+Shell Hardware Detection
+SQL Server VSS Writer
+SysMain
+System Event Notification Service
+Task Scheduler
+Themes
+User Profile Service
+Windows Audio
+Windows Audio Endpoint Builder
+Windows Defender Firewall
+Windows Event Log
+Windows Font Cache Service
+Windows Image Acquisition (WIA)
+Windows Management Instrumentation
+Windows Push Notifications System Service
+Windows Push Notifications User Service_86634
+WLAN AutoConfig
+Workstation

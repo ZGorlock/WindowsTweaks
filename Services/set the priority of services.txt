@@ -1,0 +1,7 @@
+Search for 'Services'
+Compare the Startup Type and Status with the lists in the 'service' folder
+
+To change the Startup Type of a Service:
+    Right click the Service and select Properties
+    Choose the desired type in the 'Startup type' dropdown
+    Click Ok

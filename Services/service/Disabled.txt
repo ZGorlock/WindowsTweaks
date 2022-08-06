@@ -1,0 +1,39 @@
+Adobe Acrobat Update Service
+AllJoyn Router Service
+Auto Time Zone Updater
+Connected User Experiences and Telemetry
+DialogBlockingService
+Downloaded Maps Manager
+Geolocation Service
+HV Host Service
+Hyper-V Data Exchange Service
+Hyper-V Guest Service Interface
+Hyper-V Guest Shutdown Service
+Hyper-V Heartbeat Service
+Hyper-V Host Compute Service
+Hyper-V PowerShell Direct Service
+Hyper-V Remote Desktop Virtualization Service
+Hyper-V Time Synchronization Service
+Hyper-V Volume Shadow Copy Requestor
+Microsoft App-V Client
+Microsoft Keyboard Filter
+Microsoft Update Health Service
+Net.Tcp Port Sharing Service
+OpenSSH Authentication Agent
+Parental Controls
+Razer Game Manager
+Remote Desktop Configuration
+Remote Desktop Services
+Remote Desktop Services UserMode Port Redirector
+Remote Registry
+Retail Demo Service
+Routing and Remote Access
+Shared PC Account Manager
+Touch Keyboard and Handwriting Panel Service
+User Experience Virtualization Service
+Windows Biometric Service
+Windows Insider Service
+Xbox Accessory Management Service
+Xbox Live Auth Manager
+Xbox Live Game Save
+Xbox Live Networking Service

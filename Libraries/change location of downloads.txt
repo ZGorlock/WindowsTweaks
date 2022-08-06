@@ -1,0 +1,5 @@
+Go to This PC
+Right Click Downloads
+Select Properties
+Select the Location Tab
+Change the Path to: 'C:\Users\<User>\Downloads'

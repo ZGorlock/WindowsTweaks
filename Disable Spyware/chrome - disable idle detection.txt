@@ -1,0 +1,4 @@
+Open Google Chrome
+
+Browse to chrome://settings/content/idleDetection
+	Select 'Don't allow sites to know when you're actively using your device'

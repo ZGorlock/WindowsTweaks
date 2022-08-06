@@ -1,0 +1,74 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}]
+@="Coding"
+"DescriptionID"=dword:00000003
+"Infotip"=hex(2):43,00,6f,00,6e,00,74,00,61,00,69,00,6e,00,73,00,20,00,63,00,\
+  6f,00,64,00,65,00,20,00,61,00,6e,00,64,00,20,00,70,00,72,00,6f,00,67,00,72,\
+  00,61,00,6d,00,6d,00,69,00,6e,00,67,00,20,00,70,00,72,00,6f,00,6a,00,65,00,\
+  63,00,74,00,73,00,2e,00
+"System.IsPinnedToNameSpaceTree"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\DefaultIcon]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,69,00,6d,00,\
+  61,00,67,00,65,00,72,00,65,00,73,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,31,\
+  00,39,00,38,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\InProcServer32]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,69,00,6d,00,\
+  61,00,67,00,65,00,72,00,65,00,73,00,2e,00,64,00,6c,00,6c,00
+"ThreadingModel"="Both"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\Instance]
+"CLSID"="{0E5AAE11-A475-4c5b-AB00-C66DE400274E}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\Instance\InitPropertyBag]
+"Attributes"=dword:00000011
+"TargetFolderPath"="E:\\Coding"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\ShellFolder]
+"Attributes"=dword:f080004d
+"FolderValueFlags"=dword:00000029
+"SortOrderIndex"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}]
+@="Coding"
+"DescriptionID"=dword:00000003
+"Infotip"=hex(2):43,00,6f,00,6e,00,74,00,61,00,69,00,6e,00,73,00,20,00,63,00,\
+  6f,00,64,00,65,00,20,00,61,00,6e,00,64,00,20,00,70,00,72,00,6f,00,67,00,72,\
+  00,61,00,6d,00,6d,00,69,00,6e,00,67,00,20,00,70,00,72,00,6f,00,6a,00,65,00,\
+  63,00,74,00,73,00,2e,00
+"System.IsPinnedToNameSpaceTree"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\DefaultIcon]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,69,00,6d,00,\
+  61,00,67,00,65,00,72,00,65,00,73,00,2e,00,64,00,6c,00,6c,00,2c,00,2d,00,31,\
+  00,39,00,38,00,00,00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\InProcServer32]
+@=hex(2):25,00,53,00,79,00,73,00,74,00,65,00,6d,00,52,00,6f,00,6f,00,74,00,25,\
+  00,5c,00,73,00,79,00,73,00,74,00,65,00,6d,00,33,00,32,00,5c,00,69,00,6d,00,\
+  61,00,67,00,65,00,72,00,65,00,73,00,2e,00,64,00,6c,00,6c,00
+"ThreadingModel"="Both"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\Instance]
+"CLSID"="{0E5AAE11-A475-4c5b-AB00-C66DE400274E}"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\Instance\InitPropertyBag]
+"Attributes"=dword:00000011
+"TargetFolderPath"="E:\\Coding"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{15cce91d-ea87-49a3-a82e-391fe7bfee76}\ShellFolder]
+"Attributes"=dword:f080004d
+"FolderValueFlags"=dword:00000029
+"SortOrderIndex"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{15cce91d-ea87-49a3-a82e-391fe7bfee76}]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer\MyComputer\NameSpace\{15cce91d-ea87-49a3-a82e-391fe7bfee76}]
+
+
+;https://www.winhelponline.com/blog/add-custom-folder-this-pc-navigation-pane-windows/

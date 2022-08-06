@@ -1,0 +1,6 @@
+Run windows + R
+Type SystemPropertiesAdvanced
+Click settings in performance group
+In advanced tab, deselect the automatically manage paging file size for all drives
+Select custom size and enter 25% of your RAM for initial size, 100% for maximum size
+Apply changes and restart

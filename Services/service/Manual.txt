@@ -1,0 +1,121 @@
+ActiveX Installer (AxInstSV)
+Agent Activation Runtime_86634
+AnyDesk Service
+App Readiness
+Application Layer Gateway Service
+Application Management
+ASP.NET State Service
+Background Intelligent Transfer Service
+Block Level Backup Engine Service
+BranchCache
+Capability Access Manager Service
+CaptureService_86634
+Clipboard User Service_86634
+COM+ System Application
+ConsentUX_86634
+Contact Data_86634
+Credential Manager
+CredentialEnrollmentManagerUserSvc_86634
+Device Management Enrollment Service
+DeviceAssociationBroker_86634
+DevicePicker_86634
+DevicesFlow_86634
+Diagnostic Service Host
+Diagnostic System Host
+DirMngr
+Distributed Transaction Coordinator
+Docker Desktop Service
+Enterprise App Management Service
+Extensible Authentication Protocol
+Fax
+Function Discovery Provider Host
+GameDVR and Broadcast User Service_86634
+Google Chrome Elevation Service (GoogleChromeElevationService)
+Google Update Service (gupdatem)
+HP Print Scan Doctor Service
+Intel(R) Capability Licensing Service TCP IP Interface
+Language Experience Service
+Link-Layer Topology Discovery Mapper
+LxssManager
+Malwarebytes Service
+Microsoft (R) Diagnostics Hub Standard Collector Service
+Microsoft Cloud Identity Service
+Microsoft Defender Antivirus Network Inspection Service
+Microsoft Defender Antivirus Service
+Microsoft Edge Elevation Service (MicrosoftEdgeElevationService)
+Microsoft iSCSI Initiator Service
+Microsoft Software Shadow Copy Provider
+Microsoft Storage Spaces SMP
+Microsoft Store Install Service
+Mozilla Maintenance Service
+MySQL80
+Netlogon
+Network Connections
+Network List Service
+Network Virtualization Service
+NordSec Update Service
+nordvpn-service
+Optimize drives
+Origin Client Service
+Origin Web Helper Service
+Peer Name Resolution Protocol
+Peer Networking Grouping
+Peer Networking Identity Manager
+Performance Counter DLL Host
+Performance Logs & Alerts
+Plug and Play
+PNRP Machine Name Publication Service
+Printer Extensions and Notifications
+PrintWorkflow_86634
+Problem Reports Control Panel Support
+Program Compatibility Assistant Service
+Quality Windows Audio Video Experience
+Radio Management Service
+Recommended Troubleshooting Service
+Remote Access Auto Connection Manager
+Remote Procedure Call (RPC) Locator
+SAMSUNG Mobile Connectivity Service
+SAMSUNG Mobile Connectivity Service V2
+SAMSUNG Mobile USB Connectivity Launcher
+Secondary Logon
+Secure Socket Tunneling Protocol Service
+Smart Card Removal Policy
+SNMP Trap
+Spatial Data Service
+SSDP Discovery
+State Repository Service
+Steam Client Service
+Still Image Acquisition Events
+Storage Tiers Management
+TeamViewer
+Telephony
+Udk User Service_86634
+UPnP Device Host
+User Data Access_86634
+User Data Storage_86634
+Virtual Disk
+VirtualBox system service
+Visual Studio Standard Collector Service 150
+Volume Shadow Copy
+Volumetric Audio Compositor Service
+WalletService
+Web Account Manager
+Windows Backup
+Windows Connect Now - Config Registrar
+Windows Defender Advanced Threat Protection Service
+Windows Event Collector
+Windows Installer
+Windows Management Service
+Windows Media Player Network Sharing Service
+Windows Mixed Reality OpenXR Service
+Windows Modules Installer
+Windows Perception Simulation Service
+Windows Presentation Foundation Font Cache 3.0.0.0
+Windows Remote Management (WS-Management)
+Windows Security Service
+Windows Update Medic Service
+WinHTTP Web Proxy Auto-Discovery Service
+Wired AutoConfig
+WMI Performance Adapter
+Work Folders
+WWAN AutoConfig

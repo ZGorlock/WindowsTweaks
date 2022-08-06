@@ -1,0 +1,2 @@
+Run all of the desired Library related Tweaks first
+Then run 'set default user folders.reg'

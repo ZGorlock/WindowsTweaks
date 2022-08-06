@@ -1,0 +1,14 @@
+Run "set up windows backup.reg"
+Search "Backup and Restore (Windows 7)"
+Select Change settings
+Click Save on a network
+	Enter "\\localhost\I$\Windows"
+	Username: "guest"
+	Password: "guest"
+Click Ok
+Click Next
+Select Let me choose
+	Include Boot (C:)
+	Include a system image of drives
+Click Next
+Click Save settings and exit

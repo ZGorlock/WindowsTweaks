@@ -1,0 +1,8 @@
+caffeine:
+	Prevent your computer from sleeping
+	Made by Zhorn Software
+	https://www.zhornsoftware.co.uk/caffeine
+
+Navigate to 'Tools\caffeine'
+Copy 'caffeine32.exe' and 'caffeine64.exe' to: 'C:\Program Files\Caffeine'
+Create a shortcut to 'caffeine.bat' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'

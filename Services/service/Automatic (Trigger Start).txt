@@ -1,0 +1,8 @@
+Device Association Service
+DNS Client
+Group Policy Client
+IKE and AuthIP IPsec Keying Modules
+Server
+System Events Broker
+User Manager
+Windows Connection Manager

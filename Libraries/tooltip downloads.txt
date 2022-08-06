@@ -1,0 +1,23 @@
+Open RegEdit
+
+For Each of the Following Keys:
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{374DE290-123F-4565-9164-39C4925E467B}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{374DE290-123F-4565-9164-39C4925E467B}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{088e3905-0323-4b02-9826-5d99428e115f}
+	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Classes\CLSID\{088e3905-0323-4b02-9826-5d99428e115f}
+	
+Do: 
+	Right click the Key and Select Permissions
+	Click Advanced
+	Change Owner
+	Click Advanced
+	Click Find Now
+	Select 'Administrators'
+	Click OK
+	Click OK
+	Click Apply
+	Click OK
+	Select 'Administrators'
+	Allow 'Full Control'
+
+Run 'tooltip download.reg'

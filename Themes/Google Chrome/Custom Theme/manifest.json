@@ -1,0 +1,83 @@
+{
+	"author": "Zachary Gill",
+	"name": "Custom Theme",
+	"description": "Custom Theme",
+	"homepage_url": "",
+	"key": "",
+	"manifest_version": 27,
+	
+	"chrome_url_overrides": {
+		"newtab": "manifest.json"
+	},
+	
+	"images": {
+		"theme_frame": "black.png",
+		"theme_toolbar": "black.png",
+		"theme_ntp_background": "black.png",
+		"theme_tab_background": "black.png",
+		"theme_ntp_attribution": "black.png"
+	},
+	
+	"icons": {
+	},
+	
+	"theme": {
+	
+		"colors": {
+			"frame": [ 34, 34, 34 ],
+			"frame_inactive": [ 34, 34, 34 ],
+			"frame_incognito": [ 34, 34, 34 ],
+			"frame_incognito_inactive": [ 34, 34, 34 ],
+			"control_background": [ 34, 34, 34 ],
+			
+			"toolbar": [ 57, 57, 57 ],
+			"button_background": [ 34, 34, 34 ],
+			"toolbar_button_icon": [ 237, 237, 237 ],
+			"toolbar_text": [ 237, 237, 237 ],
+			"toolbar_background_text": [ 237, 237, 237 ],
+			"bookmark_text": [ 255, 255, 255 ],
+			
+			"tab_text": [ 255, 255, 255 ],
+			"tab_background_text": [ 255, 255, 255 ],
+			"tab_background_text_inactive": [ 160, 160, 160 ],
+			"tab_background_text_incognito": [ 255, 255, 255 ],
+			"tab_background_text_incognito_inactive": [ 160, 160, 160 ],
+			
+			"ntp_background": [ 34, 34, 34 ],
+			"ntp_text": [ 255, 255, 255 ],
+			"ntp_link": [ 255, 255, 255 ],
+			"ntp_link_underline": [ 34, 34, 34 ],
+			"ntp_header": [ 34, 34, 34 ],
+			"ntp_section": [ 34, 34, 34 ],
+			"ntp_section_text": [ 255, 255, 255 ],
+			"ntp_section_link": [ 255, 255, 255 ],
+			"ntp_section_link_underline": [ 34, 34, 34 ],
+			
+			"omnibox_background": [ 34, 34, 34 ],
+			"omnibox_text": [ 255, 255, 255 ]
+		},
+		
+		"tint": {
+			"frame": [ 0.0, 0.0, 0.0 ],
+			"frame_inactive": [ 0.0, 0.0, 0.0 ],
+			"frame_incognito": [ 0.0, 0.0, 0.0 ],
+			"frame_incognito_inactive": [ 0.0, 0.0, 0.0 ],
+			
+			"background_tab": [ 0.0, 0.0, 0.0 ],
+			"background_tab_inactive": [ 0.0, 0.0, 0.0 ],
+			"background_tab_incognito": [ 0.0, 0.0, 0.0 ],
+			"background_tab_incognito_inactive": [ 0.0, 0.0, 0.0 ],
+			
+			"buttons": [ 0.0, 0.0, 0.0 ]
+		},
+		
+		"properties": {
+			"ntp_background_alignment": "bottom",
+			"ntp_background_repeat": "no-repeat"
+		}
+		
+	},
+	
+	"update_url": "https://clients2.google.com/service/update2/crx",
+	"version": "1.0.0"
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Settings component="Explorer" version="4.3.1">
+	<TreeStyle value="Vista"/>
+	<UseBigButtons value="0"/>
+	<SmallIconSize value="0"/>
+	<ResizeableToolbar value="0"/>
+	<ToolbarItems>
+		<Line>Items=SEPARATOR</Line>
+	</ToolbarItems>
+	<ShowStatusBar value="0"/>
+</Settings>

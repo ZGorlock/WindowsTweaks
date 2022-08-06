@@ -1,0 +1,10 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Search]
+"BingSearchEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowSearchToUseLocation"=dword:00000000
+"DisableWebSearch"=dword:00000001
+"ConnectedSearchUseWeb"=dword:00000000
+"AllowCloudSearch"=dword:00000000

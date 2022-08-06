@@ -1,0 +1,5 @@
+Open File Explorer
+Click On View
+Select Options
+Select Change Folder and Search Options
+Set Open File Explorer to: This PC

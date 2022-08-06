@@ -1,0 +1,18 @@
+ShellMenuView:
+	Enable or disable Windows and program right click menu entries
+	Made by Nir Sofer
+	https://www.nirsoft.net/utils/shell_menu_view.html
+
+ShellExView:
+	Enable or disable Windows and program right click menu entries (Different options than ShMnView)
+	Made by Nir Sofer
+	https://www.nirsoft.net/utils/shexview.html
+
+ShellNewHandler:
+	Enable or disable options from the right click New menu
+	Made by einsundnull
+	https://sourceforge.net/projects/shellnewhandler/
+
+Navigate to 'Tools'
+Run 'ShellMenuView\shmnview.exe', 'ShellExView\shexview.exe', or 'ShellNewHandler\ShellNewHandler.exe'
+Disable the menu options you do not want

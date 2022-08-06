@@ -1,0 +1,6 @@
+Run 'remove razer game manager service dependency.reg'
+Restart Computer
+Go to Services
+Right Click Razer Game Manager and Select Properties
+Set Startup Type to Disabled
+Click Apply

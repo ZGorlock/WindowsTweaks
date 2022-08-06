@@ -1,0 +1,8 @@
+Open Google Chrome
+
+Browse to chrome://settings/system
+	Disable 'Continue running background apps when Google Chrome is closed'
+	
+Browse to chrome://settings/reset
+	Select 'Clean up computer'
+	Turn off the checkbox 'Report details to Google ...'

@@ -1,0 +1,4 @@
+Run 'disable adobe update and sync.reg'
+
+Rename 'C:\Program Files\Adobe\Acrobat DC\Acrobat\AdobeCollabSync.exe'
+	to 'C:\Program Files\Adobe\Acrobat DC\Acrobat\AdobeCollabSync.exe.bak'

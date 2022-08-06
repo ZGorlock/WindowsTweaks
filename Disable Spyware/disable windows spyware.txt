@@ -1,0 +1,9 @@
+O&O ShutUp10++:
+	Disables Windows spyware
+	Made by O&O Software GmbH
+	https://www.oo-software.com/en/shutup10
+
+Navigate to 'Tools\O&O ShutUp10++'
+Run 'OOSU10.exe'
+Turn on the recommended changes and any others you like
+Exit

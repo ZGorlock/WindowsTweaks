@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM]
+"Composition"=dword:00000001
+"ColorizationColor"=dword:c44c4a48
+"ColorizationColorBalance"=dword:00000059
+"ColorizationAfterglow"=dword:c44c4a48
+"ColorizationAfterglowBalance"=dword:0000000a
+"ColorizationBlurBalance"=dword:00000001
+"EnableWindowColorization"=dword:00000001
+"ColorizationGlassAttribute"=dword:00000001
+"AccentColor"=dword:ff484a4c
+"ColorPrevalence"=dword:00000000
+"EnableAeroPeek"=dword:00000001
+"AlwaysHibernateThumbnails"=dword:00000000
+"UseDpiScaling"=dword:00000001

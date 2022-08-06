@@ -1,0 +1,3 @@
+Open Command Prompt (Admin)
+Run:
+	powercfg -h off

@@ -1,0 +1,15 @@
+Search for Power Settings
+Click 'Change plan settings' for Current Plan
+Click 'Change advanced power settings'
+Set
+	Hard disk / Turn off hard disk after: 9999
+	Sleep / Sleep after: 9999
+	Sleep / Hibernate after: 9999
+	Processor power management / Minimum processor state: 100%
+	Processor power management / Maximum processor state: 100%
+	Display / Turn off display after: 9999
+
+Go to Settings / Personalizaion / Lock Screen
+At Bottom Select Screen Saver Settings
+Set Wait to: 9999
+Set Screensaver to: None

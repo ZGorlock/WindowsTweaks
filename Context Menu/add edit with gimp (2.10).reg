@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\image\shell\Edit with GIMP]
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\image\shell\Edit with GIMP\command]
+@="\"C:\\Program Files\\GIMP 2\\bin\\gimp-2.10.exe\" \"%1\""
+
+
+;https://superuser.com/a/1189875/1284716

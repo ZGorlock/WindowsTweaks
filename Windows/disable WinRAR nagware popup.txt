@@ -1,0 +1,7 @@
+Navigate to: 'C:\Program Files\WinRAR'
+Make a copy of WinRAR.exe named WinRAR.exe.bak
+Copy WinRAR.exe to some other folder
+Open WinRAR.exe in ResourceHacker
+	To download ResourceHacker go to: http://www.angusj.com/resourcehacker/
+Delete 'Dialog / REMINDER : 1033'
+Copy the new WinRAR.exe back to the original folder

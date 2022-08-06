@@ -1,0 +1,4 @@
+Search 'netplwiz'
+Select User
+Go to Properties
+Check Administrator

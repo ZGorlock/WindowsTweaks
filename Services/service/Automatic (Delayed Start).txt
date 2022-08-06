@@ -1,0 +1,18 @@
+Connected Devices Platform Service
+Microsoft Edge Update Service (edgeupdate)
+Software Protection
+Storage Service
+System Guard Runtime Monitor Broker
+Bitdefender Agent RedLine Service
+Bitdefender RedLine Service
+Display Policy Service
+Google Update Service (gupdate)
+Logi Facecam Service
+Security Center
+Sync Host_86634
+Update Orchestrator Service
+VMware Authorization Service
+VMware DHCP Service
+VMware NAT Service
+VMware USB Arbitration Service
+Windows Search

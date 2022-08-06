@@ -1,0 +1,69 @@
+Application Identity
+Application Information
+AppX Deployment Service (AppXSVC)
+AssignedAccessManager Service
+AVCTP service
+BitLocker Drive Encryption Service
+Bluetooth Audio Gateway Service
+Bluetooth Support Service
+Bluetooth User Support Service_86634
+Cellular Time
+Certificate Propagation
+Client License Service (ClipSVC)
+CNG Key Isolation
+Data Sharing Service
+Delivery Optimization
+Device Install Service
+Device Management Wireless Application Protocol (WAP) Push message Routing Service
+Device Setup Manager
+DevQuery Background Discovery Broker
+Diagnostic Execution Service
+Display Enhancement Service
+Embedded Mode
+Encrypting File System (EFS)
+File History Service
+Function Discovery Resource Publication
+GraphicsPerfSvc
+Host Network Service
+Human Interface Device Service
+Internet Connection Sharing (ICS)
+IP Translation Configuration Service
+IPsec Policy Agent
+KtmRm for Distributed Transaction Coordinator
+Local Profile Assistant Service
+LxssManagerUser_86634
+MessagingService_86634
+Microsoft Account Sign-in Assistant
+Microsoft Edge Update Service (edgeupdatem)
+Microsoft Passport
+Microsoft Passport Container
+Microsoft Windows SMS Router Service.
+Natural Authentication
+Network Connected Devices Auto-Setup
+Network Connection Broker
+Network Connectivity Assistant
+Network Setup Service
+Offline Files
+Payments and NFC/SE Manager
+Phone Service
+Portable Device Enumerator Service
+Sensor Data Service
+Sensor Monitoring Service
+Sensor Service
+Smart Card
+Smart Card Device Enumeration Service
+Spot Verifier
+TCP/IP NetBIOS Helper
+Time Broker
+WarpJITSvc
+WebClient
+Wi-Fi Direct Services Connection Manager Service
+Windows Camera Frame Server
+Windows Encryption Provider Host Service
+Windows Error Reporting Service
+Windows License Manager Service
+Windows Mobile Hotspot Service
+Windows Perception Service
+Windows PushToInstall Service
+Windows Time
+Windows Update

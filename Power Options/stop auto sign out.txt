@@ -1,0 +1,39 @@
+Run 'stop auto sign out.reg'
+
+Go to Power Options
+Click 'Change plan settings' for Current Plan
+Click 'Change advanced power settings'
+Set
+	Sleep / System unattended sleep timeout: 9999
+
+Run Group Policy Edit
+	Under Computer Configuration / Windows Settings / Local Policies / Security Options set
+		Interactive logon: Machine inactivity limit: 599940
+		
+	Under Computer Configuration / Administrative Templates / Control Panel / Personalization set
+		Do not display the lock screen: Enabled
+		
+	Under Computer Configuration / Administrative Templates / System / Power Management / Sleep Settings set
+		Specify the system hibernate timeout (plugged in): Enabled (599940)
+		Require a password when a computer wakes (plugged in): Disabled
+		Specify the system sleep timeout (plugged in): Enabled (599940)
+		Allow applications to prevent automatic sleep (plugged in): Enabled
+		Allow applications to prevent automatic sleep (on battery): Enabled
+		Allow automatic sleep with Open Network Files (plugged in): Disabled
+		Allow automatic sleep with Open Network Files (on battery): Disabled
+		Specify the system hibernate timeout (on battery): Enabled (599940)
+		Require a password when a computer wakes (on battery): Disabled
+		Specify the system sleep timeout (on battery): Enabled (599940)
+		Specify the unattended sleep timeout (plugged in): Enabled (599940)
+		Specify the unattended sleep timeout (on battery): Enabled (599940)
+		
+	Under Computer Configuration / Administrative Templates / System / Power Management / Video and Display Settings set
+		Turn off the display (plugged in): Enabled (599940)
+		Turn off the display (on battery): Enabled (599940)
+		
+	Under User Configuration / Administrative Templates / Control Panel / Personalization set
+		Enable screen saver: Not configred
+		Password protect the screen saver: Disabled
+
+If it isn't fixed by now, Give up
+	See "install caffeine.txt"

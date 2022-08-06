@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown]
+"bUpdater"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown]
+"bUpdater"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown\cServices]
+"bUpdater"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Policies\Adobe\Adobe Acrobat\DC\FeatureLockDown\cServices]
+"bUpdater"=dword:00000000
+
+
+;https://community.adobe.com/t5/acrobat-discussions/permanently-disable-adobe-collab-sync/m-p/11733706
