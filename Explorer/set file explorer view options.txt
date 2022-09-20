@@ -1,0 +1,17 @@
+Open File Explorer
+Click On View
+Select Options
+Select Change Folder and Search Options
+Go to View 
+Enable the following options:
+	'Display file icon on thumbnails'
+	'Display file size on information in folder tips'
+	'Hidden files and folders / Show hidden files, folders, and drives'
+	'Hide folder merge conflicts'
+	'Hide protected operating system files (Recommended)'
+	'Show drive letters'
+	'Show pop-up description for folder and desktop items'
+	'Show preview handlers in preview pane'
+	'Show status bar'
+	'When typing into list view / Select the typed item in the view'
+Disable all other options
