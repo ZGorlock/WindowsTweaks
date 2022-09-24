@@ -1,0 +1,42 @@
+Run 'disable windows telemetry.reg'
+
+Open Local Group Policy Editor
+Set:
+	Computer Configuration / Administrative Templates / System / Internet Communication Management / Internet Communication settings
+		Turn off handwriting recognition error reporting: Enabled
+		Turn off Windows Customer Experience Improvement Program: Enabled
+		Turn off Windows Messenger Customer Experience Improvement Program: Enabled
+		Turn off handwriting personalization data sharing: Enabled
+	Computer Configuration / Administrative Templates / Windows Components / Data Collection and Preview Builds
+		Allow commercial data pipeline: Disabled
+		Allow Desktop Analytics Processing: Disabled
+		Allow device name to be sent in Windows diagnostic data: Disabled
+		Allow Telemetry: Disabled
+		Allow Update Compliance Processing: Disabled
+		Allow WUfB Cloud Processing: Disabled
+		Configure diagnostic data uploda endpoint for Desktop Analytics: Disabled
+		Configure telemetry opt-in change notifications: Enabled / Disable telemetry change notifications
+		Configure telemetry opt-in setting user interface: Enabled / Disable telemetry opt-in Settings
+		Configure Authenticated Proxy usage for the Connected User Experience and Telemetry service: Enabled / Disable Authenticated Proxy usage
+		Limit Enhanced diagnostic data to the minimum required by Windows Analytics: Enabled / Disable Windows Analytics connection
+		Configure Connected User Experience and Telemetry: Disabled
+		Do not show feedback notifications: Enabled
+		Configure collection of browsing data for Desktop Analytics: Enabled / Do not allow sending intranet or internet history
+
+Open Task Scheduler
+Navigate to Task Scheduler Library / Windows
+Disable the following tasks:
+	Application Experience
+		Microsoft Compatibility Appraiser
+		ProgramDataUpdater
+		StartupAppTask
+	Autochk
+		Proxy
+	Customer Experience Improvement Program
+		Consolidator
+		UsbCeip
+
+
+//https://www.ghacks.net/2016/10/26/turn-off-the-windows-customer-experience-program/
+//https://answers.microsoft.com/en-us/windows/forum/all/task-manager-application-experience-how-to-disable/fc50fa91-e5d4-47c5-ac24-c5e6ce57a8c2
+//https://www.askwoody.com/forums/topic/windows-10-tasks-safe-to-disable/
