@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\.txt\ShellNew\Config]
+"BeforeSeparator"=""
+
+
+;https://answers.microsoft.com/en-us/windows/forum/all/new-text-file-keyboard-shortcut-changed/b21289b8-311e-4edf-82c5-51132cd8df65
