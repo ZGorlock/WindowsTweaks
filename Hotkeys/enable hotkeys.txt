@@ -1,0 +1,8 @@
+AutoHotkey:
+	Allows hotkey scripts to be installed
+	Made by AutoHotkey Foundation LLC
+	https://www.autohotkey.com/
+
+Navigate to 'Tools\AutoHotkey'
+Run 'AutoHotkey_1.1.34.04_setup.exe'
+	Install AutoHotkey

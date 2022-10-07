@@ -1,0 +1,10 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'NewTextDocument.ahk'
+
+To run at startup:
+	Create a shortcut to 'NewTextDocument.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
+
+
+//https://super-unix.com/superuser/how-to-create-a-new-text-document-txt-file-by-a-hotkey/
