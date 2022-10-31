@@ -1,0 +1,7 @@
+Search 'Manage audio devices'
+Select the speaker
+Click Properties
+Switch tabs to Enhancements
+
+
+//https://www.ghacks.net/2014/04/02/enable-sound-loudness-equalization-windows/
