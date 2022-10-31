@@ -8,7 +8,7 @@ Run 'iconsext.exe'
 	Browse and find the executable or nearby dll that has the icons
 	Click 'Search for Icons'
 	Save the icon you want to another folder
-After editing the icon, right click the program or shortcut and select Properties
+After editing the icon, right click the shortcut and select Properties
 	Select 'Change Icon'
 	Browse for your new icon and select Ok
 	Click Apply
