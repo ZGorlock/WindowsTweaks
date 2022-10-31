@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\BRUMenuHandler]
+
+[HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers\BRUMenuHandler]
+@="{5D924130-4CB1-11DB-B0DE-0800200C9A66}"

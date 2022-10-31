@@ -1,0 +1,12 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Unknown\shell]
+@="Open"
+
+[-HKEY_CLASSES_ROOT\Unknown\shell\open]
+
+[HKEY_CLASSES_ROOT\Unknown\shell\open\command]
+@="\"C:\\Program Files\\Notepad++\\notepad++.exe\" \"%1\""
+
+
+;https://superuser.com/questions/13653/how-to-set-the-default-program-for-opening-files-without-an-extension-in-windows
