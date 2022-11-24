@@ -1,0 +1,3 @@
+Right click the Desktop
+	Select View / Small Icons
+Zoom as desired using Ctrl-Scroll on the Desktop
