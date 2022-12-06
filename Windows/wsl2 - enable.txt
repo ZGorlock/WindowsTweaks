@@ -1,0 +1,18 @@
+This will:
+	Enable Windows Subsystem for Linux
+	Prevent VMWare from running
+
+Run Command Prompt (Administrator)
+	bcdedit /set hypervisorlaunchtype auto
+
+Open Turn Windows features on or off
+	Enable 'Hyper-V'
+	Enable 'Virtual Machine Platform'
+	Enable 'Windows Hypervisor Platform'
+	Enable 'Windows Subsystem for Linux'
+
+Open Services
+	Set 'Hyper-V Host Compute Service' to Manual
+	Set 'Hyper-V Virtual Machine Management' to Auto
+
+Reboot
