@@ -1,0 +1,9 @@
+Superfly's Mouse Assisted Color Chooser:
+	Select a color scheme and save it to the registry or create a theme pack
+	Made by Superfly Inc
+	https://github.com/Superfly-Inc/SMACC/releases/tag/Color-Chooser
+
+Navigate to 'Tools'
+Run 'Superfly's Mouse Assisted Color Chooser\SMACC_1.0.7034.exe'
+Choose the colors you want for various components
+Click Save and apply your changes to the registry, or export them as a theme

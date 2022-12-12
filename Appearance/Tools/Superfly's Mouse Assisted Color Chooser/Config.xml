@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+   <version>0.0.0</version>  
+  <url>https://github.com/Superfly-Inc/Color-Changer/releases/download/v1.2.6955/SMACC6955.zip</url>  
+    <startup> 
+        <supportedRuntime version="v4.7" sku=".NETFramework,Version=v4.7,Profile=Client"/>
+    </startup>
+</configuration>
