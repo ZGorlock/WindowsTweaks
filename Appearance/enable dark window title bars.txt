@@ -3,7 +3,8 @@ First ensure that dark mode is enabled:
 
 Run 'enable dark window title bars.reg'
 	This will enable dark title bars for all windows
-	If any changes are made to the theme or color scheme this will have to be run again
+	If any changes are made to the theme or color scheme, or if a UAC dialog is opened, this will have to be run again
+	Alternatively, read: 'lock dwn registry settings.txt'
 
 To remove the accent color from the border of Explorer windows after this change:
 	Run 'disable explorer border accents.reg'

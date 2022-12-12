@@ -1,0 +1,22 @@
+Open RegEdit
+Navigate to: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM'
+Right click the key: 'DWM'
+	Select 'Permissions...'
+	Click 'Advanced'
+	Change the Owner:
+		Click 'Change' next to Owner
+		Click 'Advanced'
+		Click 'Find Now'
+		Double click the entry for your user account
+		Click 'Ok'
+	Disable Inheritance:
+		Click 'Disable Inheritance'
+		Choose: 'Convert inherited permissions to explict permissions'
+	Limit Access for each of: 'SYSTEM', 'Administrators' and your user account:
+		Click the Permission entry
+		Click 'Edit'
+		Uncheck: 'Full Control'
+		Click 'Ok'
+	Click 'Ok'
+Click 'Apply'
+Click 'Ok'
