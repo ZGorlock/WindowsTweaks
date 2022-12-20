@@ -1,0 +1,9 @@
+Right click the .bat file
+	Select 'Create shortcut'
+
+Right click the shortcut
+	Select 'Properties'
+	Edit Target to start with: "cmd.exe /C "
+	Click Ok
+
+Drag the shortcut to the taskbar

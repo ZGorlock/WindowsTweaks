@@ -1,0 +1,9 @@
+Right click the .bat file
+	Select 'Create shortcut'
+
+Right click the shortcut
+	Select 'Properties'
+	Click Advanced
+		Check: 'Run as administrator'
+		Click Ok
+	Click Ok

@@ -1,0 +1,4 @@
+Right click the .bat file
+	Select 'Create shortcut'
+
+Copy the shortcut to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'

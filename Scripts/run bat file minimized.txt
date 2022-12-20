@@ -1,0 +1,7 @@
+Right click the .bat file
+	Select 'Create shortcut'
+
+Right click the shortcut
+	Select 'Properties'
+	Set Run to 'Minimized'
+	Click Ok
