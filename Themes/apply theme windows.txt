@@ -1,2 +1,3 @@
 Navigate to 'Windows'
+
 Run 'Custom.deskthemepack'

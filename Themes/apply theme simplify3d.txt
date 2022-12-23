@@ -1,0 +1,11 @@
+Navigate to 'Simplify3D'
+
+Copy 'Simplify3D-DarkTheme.qss' to 'C:\Program Files\Simplify3D-4.1.2\'
+Right click the Simplify 3D shortcut
+	Select 'Properties'
+	Edit Target to end with: " -stylesheet Simplify3D-DarkTheme.qss"
+	Click Ok
+
+To enable god mode:
+	Rename the original 'C:\Program Files\Simplify3D-4.1.2\Interface.dll' to 'Interface.dl1'
+	Copy the provided 'Interface.dll' to 'C:\Program Files\Simplify3D-4.1.2\'

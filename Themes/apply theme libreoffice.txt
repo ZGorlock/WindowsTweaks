@@ -1,20 +1,24 @@
 Navigate to 'LibreOffice'
 
-To import the color palettes:
-	Copy the files from 'LibreOffice\palette' to 'C:\Program Files\LibreOffice\share\palette'
-	Run 'LibreOffice'
-		Click: Background Color
-		Select: favorite
+Open LibreOffice
+	Open: Tools / Options
+	Under: LibreOffice / Advanced
+		Check 'Enable experimental features'
+		Click Ok
 
-To import the color scheme:
-	Edit 'C:\Users\<User>\AppData\Roaming\LibreOffice\4\user\registrymodifications.xcu'
-		Find the "ColorScheme/ColorSchemes" section in registrymodifications.xcu
-		Copy and paste the content from 'LibreOffice\scheme\dracula.xcu'
-	Run 'LibreOffice'
-		Open: Tools / Options
-		Under: LibreOffice / Application Colors
-			Select: Dracula
-			Click Ok
+Copy the files from 'LibreOffice\palette\' to 'C:\Program Files\LibreOffice\share\palette\'
+Open LibreOffice
+	Click: Background Color
+	Select: favorite
+
+Edit 'C:\Users\<User>\AppData\Roaming\LibreOffice\4\user\registrymodifications.xcu'
+	Find the "ColorScheme/ColorSchemes" section in 'registrymodifications.xcu'
+	Copy and paste the content from 'LibreOffice\scheme\dracula.xcu'
+Open LibreOffice
+	Open: Tools / Options
+	Under: LibreOffice / Application Colors
+		Select: 'Dracula'
+		Click Ok
 
 
 //https://draculatheme.com/libreoffice

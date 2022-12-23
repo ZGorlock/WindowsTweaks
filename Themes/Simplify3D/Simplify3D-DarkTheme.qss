@@ -1,0 +1,265 @@
+/* DIY styling of qt5 apps (simplify3d) to some kind of dark mode 
+  06/2020 - parallyze
+*/
+
+
+* {
+  color: #eee;
+}
+
+
+/* the buttons for adding/removing auto-configure options (material/quality) */
+*#toolButtonAddAutoConfigureMaterial, *#toolButtonAddAutoConfigureQuality,
+*#toolButtonRemoveAutoConfigureMaterial, *#toolButtonRemoveAutoConfigureQuality {
+  background: #444;
+}
+
+*#toolButtonAddAutoConfigureMaterial::hover, *#toolButtonAddAutoConfigureQuality::hover,
+*#toolButtonRemoveAutoConfigureMaterial::hover, *#toolButtonRemoveAutoConfigureQuality::hover {
+  background: #666;
+}
+
+
+/* areas like between FFF window/advanced and background of model modification bar (rotate, scale, position) */
+*#scrollAreaModelSettingsContents, *#widgetModelsAndProcesses, *#scrollAreaWidgetContents, *#toolBar {
+  background-color: #222;
+}
+
+
+
+/* brighten up temperature plot background because of black text labels */
+*#tabTemperaturePlot {
+  background-color: #666;
+}
+
+
+
+/* save to disk / usb buttons in preview mode */
+*#toolButtonSaveGcodeToDisk, *#toolButtonPrintGcodeOverUSB {
+  background-color: #444;
+}
+
+*#toolButtonSaveGcodeToDisk::hover, *#toolButtonPrintGcodeOverUSB::hover {
+  background-color: #666;
+}
+
+
+
+/* main window background */
+QMainWindow {
+  background-color: #222;
+}
+
+
+
+/* many input fields (% and stuff like layer height values, process name...) */
+QLineEdit, QSpinBox, QDoubleSpinBox {
+  border: 1px solid #666;
+  color: #eee;
+  background-color: #222;
+  selection-color: #222;
+  selection-background-color: #aaa;
+}
+
+QLineEdit::disabled, QSpinBox::disabled, QDoubleSpinBox::disabled {
+  color: #666;
+  background-color: #222;
+}
+
+
+
+/* combo boxes / drop down boxes like auto-configure material/quality */
+QComboBox {
+  /*border: 1px solid #666;*/
+  color: #eee;
+  background-color: #222;
+  selection-color: #222;
+  selection-background-color: #aaa;
+}
+
+
+
+/* Dialog windows (Tools -> Options, Edit Process settings...) */
+QDialog {
+  border: 2px solid #000;
+  background-color: #222;
+}
+
+
+
+/* Main menu bar (File, Edit, View, Mesh...) */
+QMenuBar {
+  color: #eee;
+  background-color: #222;
+}
+
+QMenuBar::item:selected {
+  background-color: #444;
+}
+
+QMenuBar::item:pressed {
+  background-color: #666;
+}
+
+
+QMenu {
+  background-color: #333;
+}
+
+QMenu::item:selected {
+  background-color: #666;
+}
+
+
+
+/* tab elements, like extruder, layer, additions when editing a process */
+QTabWidget::pane {
+  border: 1px solid #888;
+  background-color: #222;
+}
+
+QTabBar::tab {
+  color: #eee;
+  background-color: #222;
+  padding: 8px;
+}
+
+QTabBar::tab:selected {
+  background-color: #888;
+}
+
+QTabBar::tab:!selected {
+  border: 1px solid #111;
+}
+
+QTabBar::tab:selected:hover {
+  background-color: #aaa;
+}
+
+QTabBar::tab:!selected:hover {
+  background-color: #666;
+}
+
+
+
+/* group boxes around things like the different options on "additions" tab */
+QGroupBox {
+  background-color: #222;
+  margin-top: 0.5em;
+  border: 1px solid #444;
+}
+
+QGroupBox::title {
+  subcontrol-origin: margin;
+  left: 8px;
+  padding: 0px 4px 0px 4px;
+}
+
+
+
+/* list headers/titles (models, processes, temperature lists and so on... */
+QHeaderView::section {
+  padding: 4px;
+  background-color: #666;
+  border: 1px solid #444;
+}
+
+
+
+/* tool tips appearing after a moment when hovering the pointer over a setting */
+QToolTip {
+  color: #222;
+  background-color: #888;
+}
+
+
+
+/* regular buttons (edit process, import model....) */
+QPushButton {
+  margin: 0.05em;
+  border: 1px solid #666;
+  padding: 0.4em;
+  background-color: #444;
+}
+
+QPushButton:hover {
+  background-color: #666;
+}
+
+QPushButton:pressed {
+  background-color: #aaa;
+}
+
+
+
+/* sliders like layer in preview mode or infill in the process settings */ 
+QSlider::groove:horizontal {
+  height: 16px;
+  background-color: #444;
+}
+
+QSlider::handle:horizontal {
+  width: 16px;
+  background-color: #eee;
+}
+
+
+
+/* boxes and elements (edit scripts, )*/
+QAbstractScrollArea {
+  color: #eee;
+  background-color: #222;
+  selection-color: #222;
+  selection-background-color: #aaa;
+  border: 1px solid #666;
+}
+
+QAbstractScrollArea::item:selected, QAbstractScrollArea::item:selected {
+  color: #eee;
+  background-color: #444;
+}
+
+QAbstractScrollArea::item:hover, QAbstractScrollArea::item:hover {
+  color: #eee;
+  background-color: #666;
+}
+
+QAbstractScrollArea::item:selected:hover, QAbstractScrollArea::item:selected:hover {
+  color: #eee;
+  background-color: #888;
+}
+
+
+
+/* splitter for resizing things like the bar with models/processes */
+QSplitter::handle {
+  background-color: #888;
+}
+
+QSplitter::handle:horizontal {
+  width: 4px;
+}
+
+QSplitter::handle:vertical {
+  height: 4px;
+}
+
+
+/* other possible objects (tested MultipleProcessDialog, works)
+GcodeSettingsDialog
+SectionDialog
+Image2STLDialog
+AboutDialog
+DuplicateDialog
+SplitProcessDialog
+SupportGenerationDialog
+MeshReductionDialog
+LoginDialog
+myGLWidget
+showAdvanced
+ModelSettings
+QDialog#MultipleProcessDialog
+QWidget#MainOptionsDialog
+QWidget#FFFSettingsDialog
+QWidget#EditModelDialog
+*/

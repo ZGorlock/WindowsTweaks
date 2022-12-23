@@ -1,7 +1,8 @@
-Open Google Chrome
-Browse to chrome://extensions/
-
 Navigate to 'Google Chrome'
+
+Open Google Chrome
+Browse to: chrome://extensions/
+
 Drag 'Custom Theme.crx' to the browser
 Select 'Add theme'
 
@@ -9,6 +10,6 @@ You can customize the theme by editing 'Custom Theme\manifest.json'
 	Every time you pack the extension increment manifest_version
 
 To pack the extension:
-	Browse to 'chrome://extensions/'
+	Browse to: chrome://extensions/
 	Select 'Pack extension'
 	For the 'Extension root directory' choose the 'Custom Theme' folder
