@@ -5,3 +5,12 @@ Open WinRAR.exe in ResourceHacker
 	To download ResourceHacker go to: http://www.angusj.com/resourcehacker/
 Delete 'Dialog / REMINDER : 1033'
 Copy the new WinRAR.exe back to the original folder
+
+Download: https://mega.nz/#!DD53DY7T#8jRACIhNoVJ9jKhK3sABdWhAziOFIfATjz5YM1tbj9A
+Open 'WinRAR crack.rar'
+	Extract 'rarreg.key'
+	Copy 'rarreg.key' to 'C:\Program Files\WinRAR\'
+
+
+//https://www.youtube.com/watch?v=YYxskChMQzI
+//https://www.youtube.com/watch?v=7j5OAT-6F94
