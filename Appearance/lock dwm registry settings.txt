@@ -20,3 +20,12 @@ Right click the key: 'DWM'
 	Click 'Ok'
 Click 'Apply'
 Click 'Ok'
+
+After locking, to re-enable or re-disable modification:
+	Open RegEdit
+	Navigate to: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM'
+	Right click the key: 'DWM'
+		Select 'Permissions...'
+			Select the Permission entry for your user account
+			Check or Uncheck: 'Full Control'
+			Click Ok
