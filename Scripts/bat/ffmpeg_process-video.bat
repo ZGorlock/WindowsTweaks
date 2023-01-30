@@ -1,28 +1,73 @@
 @echo off
-
-set video=a.mp4
-set subs=a.srt
-
-set title=b
+setlocal enabledelayedexpansion
 
 
-#set in= -i "%video%" 
-set in= -i "%video%" -i "%subs%" 
+set SOURCE=a.mp4
+set   SUBS=a.srt
 
-#set params= -map 0 -c copy 
-#set params= -map 0 -c:v copy -c:a copy -c:s mov_text 
-set params= -map 0 -map 1 -c:v copy -c:a copy -c:s mov_text 
-#set params= -map 0 -map 1 -map -0:a:0 -map -0:s -c:v copy -c:a copy -c:s mov_text 
-#set params= -map 0 -map 1 -c:v libx264 -c:a copy -c:s mov_text -b:v 2000k -maxrate 2000k -bufsize 2000k 
-
-set baseParams= -y -hide_banner -map_metadata -1 -map_chapters -1 
-
-set out="%title%.mp4"
+set TARGET=b.mp4
 
 
-@echo on
+echo.
+echo --------------------------------------------------
+echo.
 
-ffmpeg %in% %baseParams% %params% %out%
+if exist "!SOURCE!" (
+	
+	echo Processing: "!SOURCE!"
+	echo         to: "!TARGET!"
+	
+	if exist "!SUBS!" (
+		set in=-i "!SOURCE!" -i "!SUBS!"
+		echo      +subs: "!SUBS!"
+	) else (
+		set in=-i "!SOURCE!"
+	)
+	
+	set out="!TARGET!"
+	
+	set baseParams=-y -hide_banner -map_metadata -1 -map_chapters -1
+	
+	
+REM	Copy source streams; Keep encoding
+REM	set params=-map 0 -c copy
+	
+REM	Copy source streams; Keep video and audio encoding; Encode subtitles as mov_text
+REM	set params=-map 0 -c:v copy -c:a copy -c:s mov_text
+	
+REM	Copy source streams; Mux subtitle stream from second file; Keep video and audio encoding; Encode subtitles as mov_text
+REM	set params=-map 0 -map 1 -c:v copy -c:a copy -c:s mov_text
+	
+REM	Copy source video and audio streams only; Mux subtitle stream from second file; Keep video and audio encoding
+	set params=-map 0 -map 1 -map -0:s -c:v copy -c:a copy -c:s mov_text
+	
+REM	Copy source video and audio streams only; Drop first audio stream from source; Mux subtitle stream from second file; Keep video and audio encoding; Encode subtitles as mov_text
+REM	set params=-map 0 -map 1 -map -0:a:0 -map -0:s -c:v copy -c:a copy -c:s mov_text
+	
+REM	Copy source streams; Mux subtitle stream from second file; Keep audio encoding; Re-encode video streams to libx264 with a target video bitrate of 2MB/s; Encode subtitles as mov_text
+REM	set params=-map 0 -map 1 -c:v libx264 -c:a copy -c:s mov_text -b:v 2000k -maxrate 2000k -bufsize 2000k
+	
+	
+	set ffmpeg_cmd=ffmpeg !in! !baseParams! !params! !out!
+	
+	echo.
+	echo !ffmpeg_cmd!
+	echo.
+	echo --------------------------------------------------
+	echo.
+	
+	!ffmpeg_cmd!
+	
+) else (
+	echo "!SOURCE!" does not exist
+)
 
-ffmpeg -i %out%
+echo.
+echo --------------------------------------------------
+echo.
+
+
+endlocal
+
+echo Done
 pause
