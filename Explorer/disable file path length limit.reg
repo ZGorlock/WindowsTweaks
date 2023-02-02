@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem]
+"LongPathsEnabled"=dword:00000001
+
+
+;https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/
