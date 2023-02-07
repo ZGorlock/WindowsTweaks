@@ -8,7 +8,7 @@
 ### † † † _USE AT YOUR OWN RISK_ † † †
 
 
- 
+&nbsp;
 
 ----
 
@@ -20,7 +20,7 @@ More than anything, this is a backup of my notes on how I set my computer up the
 And if someone else is able to benefit from it as well, then that is even better.
 
 
- 
+&nbsp;
 
 ----
 
@@ -44,6 +44,6 @@ Some other points to keep in mind:
 - These were run on a _Windows 10 Pro_ operating system; if you do not have _Pro_ you will not have the _Group Policy Editor_
 
 
- 
+&nbsp;
 
 ----
