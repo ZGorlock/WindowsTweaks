@@ -2,15 +2,29 @@
 setlocal enabledelayedexpansion
 
 
-for %%f in (*.mp4) do (
+set file=%~1
+
+
+if "%file%"=="" (
+	for %%f in (*.mp4) do (call :mp4ToGif "%%f")
+) else (
+	call :mp4ToGif "%file%"
+)
+
+echo.
+echo --------------------------------------------------
+echo.
+
+goto :end
+
+
+:mp4ToGif
 	
-	set fn=%%~nf
+	set fn=%~n1
 	
 	set mp4="!fn!.mp4"
 	set png="!fn!.png"
-	
 	set gif="!fn!.gif"
-	
 	
 	echo.
 	echo --------------------------------------------------
@@ -45,14 +59,10 @@ for %%f in (*.mp4) do (
 		echo !mp4! does not exist
 	)
 	
-)
-
-echo.
-echo --------------------------------------------------
-echo.
+	exit /b 0
 
 
-endlocal
-
-echo Done
-pause
+:end
+	echo Done
+	endlocal
+	pause

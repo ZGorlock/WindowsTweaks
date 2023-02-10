@@ -10,13 +10,13 @@ echo --------------------
 
 set url=https://use1-wap.tplinkcloud.com
 
-set username=<TPLINK USERNAME>
-set password=<TPLINK PASSWORD>
+set username=%1
+set password=%2
 
-set uuid=<RANDOM UUID>
-set deviceId=<TPLINK DEVICEID>
+set uuid=%3
+set deviceId=%4
 
-set toggle=<on OR off>
+set toggle=%5
 
 
 echo url          = %url%
@@ -26,8 +26,7 @@ echo uuid         = %uuid%
 echo toggle       = %toggle%
 
 
-set state=0
-if "%toggle%"=="off" (set state=1) else (set state=0)
+if "%toggle%"=="off" (set state=0) else (set state=1)
 
 
 echo --------------------
@@ -42,7 +41,6 @@ set "token_curl=%token_curl:"=%"
 set "token_curl=%token_curl::==%"
 set "%token_curl:,=" & set "%"
 
-
 echo accountId    = %accountId%
 echo nickname     = %nickname%
 echo email        = %email%
@@ -53,7 +51,6 @@ echo token        = %token%
 :: for /f "tokens=1 delims=" %%a in ('curl -X POST -H "Content-Type: application/json" -d "{ \"method\" : \"getDeviceList\" }" "%url%?token=%token%"') do set deviceId_curl=%%a
 :: echo %deviceId_curl%
 :: echo --------------------
-
 
 echo deviceId     = %deviceId%
 
