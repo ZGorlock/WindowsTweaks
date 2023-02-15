@@ -1,8 +1,30 @@
 Open Google Chrome
 
-Browse to chrome://settings/system
-	Disable 'Continue running background apps when Google Chrome is closed'
-	
-Browse to chrome://settings/reset
-	Select 'Clean up computer'
-	Turn off the checkbox 'Report details to Google ...'
+	Browse to chrome://settings/system
+		Disable 'Continue running background apps when Google Chrome is closed'
+		
+	Browse to chrome://settings/reset
+		Select 'Clean up computer'
+		Turn off the checkbox 'Report details to Google ...'
+
+Open File Explorer
+
+	Navigate to: '%localappdata%\Google\Chrome\User Data'
+	Right click the folder: 'SwReporter'
+		Select 'Properties'
+		Switch to the 'Security' tab
+			Click 'Advanced'
+			Click 'Disable inheritance'
+				Choose 'Remove all inherited permissions from this object'
+			Click 'Apply'
+				Click 'Yes'
+			Click 'OK'
+		Click 'OK'
+
+Run 'chrome - disable background reporting.reg'
+
+You may also want to read: 'restrict certain programs from ever being executed.txt'
+	If you do, use the executable name: "software_reporter_tool.exe"
+
+
+//https://www.softwaretestinghelp.com/software-reporter-tool/
