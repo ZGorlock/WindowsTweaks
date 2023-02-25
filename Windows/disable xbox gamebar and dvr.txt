@@ -1,0 +1,23 @@
+Open RegEdit
+Navigate to: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId'
+Right click the key: 'Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter'
+	Select 'Permissions...'
+	Click 'Advanced'
+	Change the Owner:
+		Click 'Change' next to Owner
+		Click 'Advanced'
+		Click 'Find Now'
+		Double click the entry for your user account
+		Click 'Ok'
+	Click the Permission entry for your user account
+		Click 'Edit'
+		Check 'Full Control'
+		Click 'Ok'
+	Click 'Ok'
+Click 'Apply'
+Click 'Ok'
+
+Run 'disable xbox gamebar and dvr.reg'
+
+
+//https://www.partitionwizard.com/partitionmanager/gamebar-presence-writer.html
