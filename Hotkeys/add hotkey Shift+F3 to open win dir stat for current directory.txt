@@ -1,0 +1,10 @@
+Read 'enable hotkeys.txt'
+
+This assumes you have WinDirStat installed at: 'C:\Program Files (x86)\WinDirStat'
+	You can download this program from: https://windirstat.net/
+
+Navigate to 'ahk'
+Run 'DirStatHere.ahk'
+
+To run at startup:
+	Create a shortcut to 'DirStatHere.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
