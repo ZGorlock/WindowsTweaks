@@ -1,12 +1,5 @@
 #NoTrayIcon
 
-F1::
-EditWithNotepad++:
-selectedFile := Explorer_GetSelection()
-FileGetAttrib, Attributes, % selectedFile
-IfNotInString, Attributes, D
-	Run, C:\Program Files\Notepad++\notepad++.exe "%selectedFile%"
-Return
 
 Explorer_GetSelection() {
     WinGetClass, winClass, % "ahk_id" . hWnd := WinExist("A")
@@ -27,3 +20,12 @@ Explorer_GetSelection() {
         result := shellFolderView.Folder.Self.Path
     Return result
 }
+
+
+F1::
+EditWithNotepad++:
+selectedFile := Explorer_GetSelection()
+FileGetAttrib, Attributes, % selectedFile
+IfNotInString, Attributes, D
+	Run, C:\Program Files\Notepad++\notepad++.exe "%selectedFile%"
+Return

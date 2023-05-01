@@ -3,6 +3,9 @@ Read 'enable hotkeys.txt'
 Navigate to 'ahk'
 Run 'CommandPromptHere.ahk'
 
+This will add the following hotkeys:
+	Ctrl+Shift+C		Open command prompt in open explorer directory
+
 To run at startup:
 	Create a shortcut to 'CommandPromptHere.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
 

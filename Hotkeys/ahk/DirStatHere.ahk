@@ -1,11 +1,5 @@
 #NoTrayIcon
 
-+F3::
-DirStatHere:
-activeFolder := Explorer_GetActiveFolder()
-if activeFolder
-	Run, "C:\Program Files (x86)\WinDirStat\windirstat.exe" "%activeFolder%"
-Return
 
 Explorer_GetActiveFolder() {
     WinGetClass, winClass, % "ahk_id" . hWnd := WinExist("A")
@@ -22,3 +16,11 @@ Explorer_GetActiveFolder() {
     }
     Return shellFolderView.Folder.Self.Path
 }
+
+
++F3::
+DirStatHere:
+activeFolder := Explorer_GetActiveFolder()
+if activeFolder
+	Run, "C:\Program Files (x86)\WinDirStat\windirstat.exe" "%activeFolder%"
+Return

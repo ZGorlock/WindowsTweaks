@@ -1,5 +1,6 @@
 #NoTrayIcon
 
+
 ^+C::
 CommandPromptHere:
 Send, !d

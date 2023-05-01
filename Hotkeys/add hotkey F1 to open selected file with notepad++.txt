@@ -6,6 +6,9 @@ This assumes you have Notepad++ installed at: 'C:\Program Files\Notepad++'
 Navigate to 'ahk'
 Run 'EditWithNotepad++.ahk'
 
+This will add the following hotkeys:
+	F1					Open selected file in Notepad++
+
 To run at startup:
 	Create a shortcut to 'EditWithNotepad++.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
 

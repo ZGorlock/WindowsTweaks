@@ -1,5 +1,6 @@
 #NoTrayIcon
 
+
 ^+M::
 NewTextDocument:
 Send, {Esc}{Up}{Down}^{Space}
