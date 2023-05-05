@@ -4,10 +4,10 @@ Navigate to 'ahk'
 Run 'WinrarArchiveActions.ahk'
 
 This will add the following hotkeys:
-	Ctrl+Shift+R		Add selected file to winrar archive
-	Ctrl+Shift+Alt+R	Add selected file to winrar archive and delete
-	Ctrl+Shift+E		Extract selected winrar archive
-	Ctrl+Shift+Alt+R	Extract selected winrar archive and delete (NOT WORKING)
+	Ctrl+Shift+P		Add selected file to winrar archive
+	Ctrl+Shift+Alt+P	Add selected file to winrar archive and delete
+	Ctrl+Shift+O		Extract selected winrar archive
+	Ctrl+Shift+Alt+O	Extract selected winrar archive and delete (NOT WORKING)
 
 To run at startup:
 	Create a shortcut to 'WinrarArchiveActions.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'

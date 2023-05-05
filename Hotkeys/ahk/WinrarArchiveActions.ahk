@@ -22,7 +22,7 @@ Explorer_GetSelection() {
 }
 
 
-^+R::
+^+P::
 ArchiveWithWinrar:
 selectedFile := Explorer_GetSelection()
 if selectedFile
@@ -31,7 +31,7 @@ if selectedFile
 Return
 
 
-^+!R::
+^+!P::
 ArchiveAndDeleteWithWinrar:
 selectedFile := Explorer_GetSelection()
 if selectedFile
@@ -40,7 +40,7 @@ if selectedFile
 Return
 
 
-^+E::
+^+O::
 ExtractWithWinrar:
 selectedFile := Explorer_GetSelection()
 if selectedFile
@@ -51,7 +51,7 @@ if selectedFile
 Return
 
 
-^+!E::
+^+!O::
 ExtractAndDeleteWithWinrar:
 selectedFile := Explorer_GetSelection()
 if selectedFile
