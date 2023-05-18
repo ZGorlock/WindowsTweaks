@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\Applications\firefox.exe\DefaultIcon]
+@="C:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\FirefoxHTML-308046B0AF4A39CB\DefaultIcon]
+@="C:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Classes\FirefoxURL-308046B0AF4A39CB\DefaultIcon]
+@="C:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+
+[HKEY_USERS\S-1-5-21-3021478349-2699161414-456072820-1001\SOFTWARE\Classes\Applications\firefox.exe\DefaultIcon]
+@="C:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
+
+[HKEY_USERS\S-1-5-21-3021478349-2699161414-456072820-1001_Classes\Applications\firefox.exe\DefaultIcon]
+@="C:\\Program Files\\Mozilla Firefox\\firefox.exe,0"
