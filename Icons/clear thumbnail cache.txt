@@ -1,0 +1,10 @@
+Navigate to '..\Scripts\bat'
+Run as Administrator: 'clear_thumbnail_cache.bat'
+
+Alternatively, Run 'cleanmgr.exe'
+	Choose: 'C:' (or your boot drive)
+	Select: 'Thumbnails'
+	Click 'Clean up system files'
+
+
+//https://www.winhelponline.com/blog/clear-thumbnail-cache-windows/

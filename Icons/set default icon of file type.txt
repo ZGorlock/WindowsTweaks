@@ -1,0 +1,10 @@
+Run RegEdit
+	Navigate to 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts'
+	Find the key associated with the file exension you want to change
+		Navigate to 'HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\FileExts\<file exension>\UserChoice'
+		Get the value of the subkey 'ProgId'
+	Navigate to 'HKEY_CLASSES_ROOT\<ProgId>\DefaultIcon'
+		Modify the default key to point to the icon you want
+
+
+//https://www.winhelponline.com/blog/change-default-icon-file-type-windows/
