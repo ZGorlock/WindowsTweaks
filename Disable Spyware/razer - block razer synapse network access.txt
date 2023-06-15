@@ -1,0 +1,1 @@
+Run 'razer - block razer synapse network access.bat' as Admin
