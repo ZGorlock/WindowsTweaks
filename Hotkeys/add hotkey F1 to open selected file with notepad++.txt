@@ -1,5 +1,8 @@
 Read 'enable hotkeys.txt'
 
+Disable the existing F1 functionality
+	See 'disable f1 help.txt'
+
 This assumes you have Notepad++ installed at: 'C:\Program Files\Notepad++'
 	You can download this program from: https://notepad-plus-plus.org/downloads/
 
