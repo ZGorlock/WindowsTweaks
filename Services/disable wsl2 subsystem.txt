@@ -2,8 +2,7 @@ This will:
 	Disable Windows Subsystem for Linux
 	Allow VMWare to run
 
-Run Command Prompt (Administrator)
-	bcdedit /set hypervisorlaunchtype off
+Run 'set hypervisor launch type to disabled.bat' as Admin
 
 Launch: Turn Windows features on or off
 	Disable 'Hyper-V'

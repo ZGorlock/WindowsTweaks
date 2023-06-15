@@ -1,3 +1,1 @@
-Open Command Prompt (Admin)
-Run:
-	powercfg -h off
+Run 'disable hibernation.bat' as Admin

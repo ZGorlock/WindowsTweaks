@@ -1,5 +1,6 @@
-Open an Elevated Command Prompt
-	secedit /configure /cfg %windir%\inf\defltbase.inf /db defltbase.sdb /verbose
+Reset the Windows Security Settings to default values
+	Navigate to '..\Windows'
+	Run 'reset windows security settings to default.bat' as Admin
 
 Launch: Group Policy Editor
 	Under Computer Configuration / Administrative Templates / System / Logon set

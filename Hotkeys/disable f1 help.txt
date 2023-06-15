@@ -1,0 +1,1 @@
+Run 'disable f1 help.bat' as Admin

@@ -1,0 +1,4 @@
+Run 'reset windows security settings to default.bat' as Admin
+
+
+//https://www.thewindowsclub.com/how-to-reset-windows-security-settings-to-its-defaults
