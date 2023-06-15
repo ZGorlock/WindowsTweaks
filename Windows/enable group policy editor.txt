@@ -1,0 +1,4 @@
+Run 'enable group policy editor.bat' as Admin
+
+
+//https://www.ghacks.net/2019/01/07/how-to-enable-gpedit-msc-group-policy-on-windows-10-home-devices/
