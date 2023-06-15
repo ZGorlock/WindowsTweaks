@@ -1,7 +1,7 @@
 Open an Elevated Command Prompt
 	secedit /configure /cfg %windir%\inf\defltbase.inf /db defltbase.sdb /verbose
 
-Go to Group Policy Editor
+Launch: Group Policy Editor
 	Under Computer Configuration / Administrative Templates / System / Logon set
 		Allow users to select when a password is required: Enabled
 		Do not display the Getting Started screen: Enabled
@@ -21,7 +21,7 @@ Run 'enable auto login as User.reg'
 Go to Settings / Accounts / Sign-in Options
 	Turn off Require Windows Hello Sign-In
 
-Run netplwiz
+Launch: netplwiz
 	Uncheck 'Users must enter a user name and password'
 
 Go to Settings / Personalization / Lock Screen

@@ -1,4 +1,4 @@
-Search for Power Settings
+Launch: Power Options
 Click 'Change plan settings' for Current Plan
 Click 'Change advanced power settings'
 Set

@@ -1,4 +1,4 @@
-Search for 'Services'
+Launch: Services
 Compare the Startup Type and Status with the lists in the 'service' folder
 
 To change the Startup Type of a Service:

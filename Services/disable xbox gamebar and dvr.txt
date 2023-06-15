@@ -1,4 +1,4 @@
-Open RegEdit
+Launch: RegEdit
 Navigate to: 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsRuntime\ActivatableClassId'
 Right click the key: 'Windows.Gaming.GameBar.PresenceServer.Internal.PresenceWriter'
 	Select 'Permissions...'

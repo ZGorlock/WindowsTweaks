@@ -1,6 +1,6 @@
 Navigate to 'Google Chrome'
 
-Open Google Chrome
+Launch: Google Chrome
 Browse to: chrome://extensions/
 
 Drag 'Custom Theme.crx' to the browser

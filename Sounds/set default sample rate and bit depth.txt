@@ -1,5 +1,5 @@
-Search 'Manage audio devices'
+Launch: Manage audio devices
 Select the speaker
-Click Properties
-Switch tabs to Advanced
-	Select the highest available bit depth at 48000 Hz
+	Click Properties
+	Switch tabs to Advanced
+		Select the highest available bit depth at 48000 Hz

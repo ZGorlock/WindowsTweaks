@@ -1,4 +1,4 @@
-Open RegEdit
+Launch: RegEdit
 
 For Each of the Following Keys:
 	Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}

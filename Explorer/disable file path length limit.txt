@@ -1,6 +1,6 @@
 Run 'disable file path length limit.reg'
 
-Open Local Group Policy Editor
+Launch: Group Policy Editor
 Set:
 	Computer Configuration / Administrative Templates / System / Filesystem
 		Enable Win32 long paths: Enabled

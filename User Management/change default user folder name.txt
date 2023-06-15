@@ -1,4 +1,4 @@
-Run 'enable default administrator account.bat' as Administrator
+Run 'enable default administrator account.bat' as Admin
 Sign out and log in as Administrator
 Rename User Folder in 'C:\Users'
 Regedit to 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList\' and find the SID for your User

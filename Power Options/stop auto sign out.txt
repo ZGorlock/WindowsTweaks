@@ -6,7 +6,7 @@ Click 'Change advanced power settings'
 Set
 	Sleep / System unattended sleep timeout: 9999
 
-Run Group Policy Edit
+Launch: Group Policy Editor
 	Under Computer Configuration / Windows Settings / Local Policies / Security Options set
 		Interactive logon: Machine inactivity limit: 599940
 		
@@ -36,4 +36,4 @@ Run Group Policy Edit
 		Password protect the screen saver: Disabled
 
 If it isn't fixed by now, Give up
-	See "install caffeine.txt"
+	See 'install caffeine.txt'

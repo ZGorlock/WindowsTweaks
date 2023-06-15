@@ -1,5 +1,5 @@
 Navigate to '..\Scripts\bat'
-Run as Administrator: 'clear_thumbnail_cache.bat'
+Run 'clear_thumbnail_cache.bat' as Admin
 
 Alternatively, Run 'cleanmgr.exe'
 	Choose: 'C:' (or your boot drive)

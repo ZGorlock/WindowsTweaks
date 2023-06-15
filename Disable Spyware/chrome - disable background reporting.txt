@@ -1,4 +1,4 @@
-Open Google Chrome
+Launch: Google Chrome
 
 	Browse to chrome://settings/system
 		Disable 'Continue running background apps when Google Chrome is closed'
@@ -7,7 +7,7 @@ Open Google Chrome
 		Select 'Clean up computer'
 		Turn off the checkbox 'Report details to Google ...'
 
-Open File Explorer
+Launch: File Explorer
 
 	Navigate to: '%localappdata%\Google\Chrome\User Data'
 	Right click the folder: 'SwReporter'

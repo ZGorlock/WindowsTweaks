@@ -1,6 +1,6 @@
 Run 'disable windows telemetry.reg'
 
-Open Local Group Policy Editor
+Launch: Group Policy Editor
 Set:
 	Computer Configuration / Administrative Templates / System / Internet Communication Management / Internet Communication settings
 		Turn off handwriting recognition error reporting: Enabled
@@ -23,7 +23,7 @@ Set:
 		Do not show feedback notifications: Enabled
 		Configure collection of browsing data for Desktop Analytics: Enabled / Do not allow sending intranet or internet history
 
-Open Task Scheduler
+Launch: Task Scheduler
 Navigate to Task Scheduler Library / Windows
 Disable the following tasks:
 	Application Experience

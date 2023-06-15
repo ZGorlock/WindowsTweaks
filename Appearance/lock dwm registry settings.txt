@@ -1,4 +1,4 @@
-Open RegEdit
+Launch: RegEdit
 Navigate to: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM'
 Right click the key: 'DWM'
 	Select 'Permissions...'
@@ -22,7 +22,7 @@ Click 'Apply'
 Click 'Ok'
 
 After locking, to re-enable or re-disable modification:
-	Open RegEdit
+	Launch: RegEdit
 	Navigate to: 'HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\DWM'
 	Right click the key: 'DWM'
 		Select 'Permissions...'

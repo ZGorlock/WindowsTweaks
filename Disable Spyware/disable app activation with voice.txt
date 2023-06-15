@@ -1,4 +1,4 @@
-Go to Local Group Policy Editor
-Under "Computer Configuration/Administrative Templates/Windows Components/App Privacy":
-	Disable: "Let Windows apps activate with voice"
-	Disable: "Let Windows apps activate with voice while the system is locked"
+Launch: Group Policy Editor
+Under 'Computer Configuration/Administrative Templates/Windows Components/App Privacy':
+	Disable: 'Let Windows apps activate with voice'
+	Disable: 'Let Windows apps activate with voice while the system is locked'

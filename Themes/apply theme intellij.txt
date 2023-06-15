@@ -2,7 +2,7 @@ Navigate to 'IntelliJ'
 
 Copy 'Dark Custom.icls' and 'Darcula.icls' to: 'C:\Users\<User>\AppData\Roaming\JetBrains\IdeaIC2022.3\colors\'
 
-Open IntelliJ
+Launch: IntelliJ
 	Open: File / Settings
 	Under: Editor / Color Scheme / General
 		For 'Scheme' Select: 'Dark Custom'

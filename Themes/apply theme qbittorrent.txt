@@ -2,7 +2,7 @@ Navigate to 'qBittorrent'
 
 Copy 'qbittorrent.qbtheme' to 'C:\Program Files\qBittorrent\'
 
-Open qBittorrent
+Launch: qBittorrent
 	Go to: Tools / Options / Behavior
 	Under Interface select: 'Use custom UI Theme'
 	Browse for and select 'qbittorrent.qbtheme' as the 'UI Theme file'

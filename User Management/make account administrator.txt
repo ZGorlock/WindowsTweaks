@@ -1,4 +1,7 @@
-Search 'netplwiz'
-Select User
-Go to Properties
-Check Administrator
+Launch: netplwiz
+Select the User
+	Click Properties
+		Switch tabs to Group Membership
+			Check Administrator
+			Click Apply
+		Click Ok

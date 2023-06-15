@@ -1,5 +1,6 @@
-Run "set up windows backup.reg"
-Search "Backup and Restore (Windows 7)"
+Run 'set up windows backup.reg'
+
+Launch: Backup and Restore (Windows 7)
 Select Change settings
 Click Save on a network
 	Enter "\\localhost\I$\Windows"

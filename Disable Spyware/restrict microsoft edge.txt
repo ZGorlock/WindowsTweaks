@@ -1,5 +1,5 @@
-Go to Local Group Policy Editor
-Under "Computer Configuration/Administrative Templates/Windows Components/Microsoft Edge"
-	Enable:  "Configure Do Not Track"
-	Disable: "Allow Microsoft Edge to pre-launch at Windows startup"
-	Disable: "Allow Microsoft Edge to start and load the Start and New Tab page at Windows startup"
+Launch: Group Policy Editor
+Under 'Computer Configuration/Administrative Templates/Windows Components/Microsoft Edge'
+	Enable:  'Configure Do Not Track'
+	Disable: 'Allow Microsoft Edge to pre-launch at Windows startup'
+	Disable: 'Allow Microsoft Edge to start and load the Start and New Tab page at Windows startup'

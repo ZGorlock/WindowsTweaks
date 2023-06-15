@@ -16,7 +16,7 @@ Using a text editor, Open: 'restrict certain programs from ever being executed.r
 	Replace the fake executable name(s) with those of the programs you want to block
 		Then save the script
 
-Run: 'restrict certain programs from ever being executed.reg'
+Run 'restrict certain programs from ever being executed.reg'
 
 To allow a program to be executed again, delete its value from the key:
 	[HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun]
