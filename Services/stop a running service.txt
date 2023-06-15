@@ -1,0 +1,7 @@
+Launch: Services
+Select a Service
+Right Click the Service and Click Stop
+	Wait for the Service to be stopped
+
+Alternatively:
+	sc stop "<Service Name>"

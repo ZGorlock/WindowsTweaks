@@ -1,0 +1,7 @@
+Launch: Services
+Select a Service
+Right Click the Service and Click Properties
+	If the Service is currently running:
+		See 'stop a running service.txt'
+	Set 'Startup type' to 'Disabled'
+	Click Ok

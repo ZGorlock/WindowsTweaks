@@ -1,0 +1,17 @@
+Launch: Group Policy Editor
+Under 'Computer Configuration/Windows Settings/Policy-based QoS'
+	Right Click and Select 'Create new policy...'
+		Enter a Policy Name
+		Uncheck 'Specify DSCP Value'
+		Check 'Specify Outbound Throttle Rate'
+			Set the desired limit
+		Click Next
+		Select 'Only applications with this executable name:'
+			Enter the executable name
+		Click Next
+		Click Next
+		Set 'Select the protocol the QoS policy applies to' to 'TCP and UDP'
+		Click Finish
+
+
+//https://superuser.com/questions/135719/way-to-limit-bandwidth-of-programs-on-windows/1376409#1376409
