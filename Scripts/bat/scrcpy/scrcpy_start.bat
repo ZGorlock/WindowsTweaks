@@ -1,1 +1,1 @@
-scrcpy %~1
+scrcpy -d %*
