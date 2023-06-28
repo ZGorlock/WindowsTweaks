@@ -1,0 +1,18 @@
+Click Start Button
+	Click Power
+	Hold Shift and Click Restart
+	
+The computer will boot to a recovery screen
+	Select 'Troubleshoot'
+	Select 'Advanced Options'
+	Select 'Startup Settings'
+		Choose 6: 'Safe Mode with Command Prompt'
+
+The computer will boot to a Safe Mode command prompt with Admin rights
+	Run 'Netplwiz.exe'
+	See 'make account administrator.txt'
+		Configure the account settings
+	Push the Power button to Reboot
+
+
+//https://answers.microsoft.com/en-us/windows/forum/all/with-no-user-account-having-administrator/eb0788f0-7113-4766-9b7d-e6601b83e395
