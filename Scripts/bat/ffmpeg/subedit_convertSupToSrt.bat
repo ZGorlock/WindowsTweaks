@@ -6,9 +6,9 @@ set file=%~1
 
 
 if "%file%"=="" (
-	for %%f in (*.mkv) do (call :mkvToMp4 "%%f")
+	for %%f in (*.sup) do (call :supToSrt "%%f")
 ) else (
-	call :mkvToMp4 "%file%"
+	call :supToSrt "%file%"
 )
 
 echo.
@@ -18,34 +18,34 @@ echo.
 goto :end
 
 
-:mkvToMp4
+:supToSrt
 	
 	set fn=%~n1
 	
-	set mkv="!fn!.mkv"
-	set mp4="!fn!.mp4"
+	set sup="!fn!.sup"
+	set srt="!fn!.srt"
 	
 	echo.
 	echo --------------------------------------------------
 	echo.
 	
-	if exist !mkv! (
+	if exist !sup! (
 		
-		echo Converting: !mkv!
-		echo         to: !mp4!
+		echo Converting: !sup!
+		echo         to: !srt!
 		
-		set ffmpeg_cmd=ffmpeg -hide_banner -i !mkv! -map 0:v:0 -map 0:a:0 -map 0:s:0 -c:v copy -c:a copy -c:s mov_text -y !mp4!
+		set subedit_cmd=subedit /convert !sup! subrip /fps:25
 		
 		echo.
-		echo !ffmpeg_cmd!
+		echo !subedit_cmd!
 		echo.
 		echo --------------------------------------------------
 		echo.
 		
-		!ffmpeg_cmd!
+		!subedit_cmd!
 		
 	) else (
-		echo !mkv! does not exist
+		echo !sup! does not exist
 	)
 	
 	exit /b 0

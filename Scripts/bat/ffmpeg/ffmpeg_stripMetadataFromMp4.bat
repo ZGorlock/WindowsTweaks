@@ -34,7 +34,7 @@ goto :end
 		echo Stripping: !mp4!
 		echo        to: !out!
 		
-		set ffmpeg_cmd=ffmpeg -hide_banner -i !mp4! -map_metadata -1 -map_chapters -1 -map 0 -c copy -y !out!
+		set ffmpeg_cmd=ffmpeg -hide_banner -strict -2 -i !mp4! -map 0 -c copy -map_metadata -1 -map_chapters -1 -write_xing 0 -id3v2_version 0 -write_id3v2 0 -write_apetag 0 -y !out!
 		
 		echo.
 		echo !ffmpeg_cmd!

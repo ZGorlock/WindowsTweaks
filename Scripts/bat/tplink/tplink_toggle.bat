@@ -10,13 +10,13 @@ echo --------------------
 
 set url=https://use1-wap.tplinkcloud.com
 
-set username=%1
-set password=%2
+set username=%~1
+set password=%~2
 
-set uuid=%3
-set deviceId=%4
+set uuid=%~3
+set deviceId=%~4
 
-set toggle=%5
+set toggle=%~5
 
 
 echo url          = %url%
