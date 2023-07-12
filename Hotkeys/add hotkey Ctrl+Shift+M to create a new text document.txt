@@ -4,10 +4,8 @@ Navigate to 'ahk'
 Run 'NewTextDocument.ahk'
 
 This will add the following hotkeys:
-	Ctrl+Shift+M		Create new .txt document in open explorer directory
-
-To run at startup:
-	Create a shortcut to 'NewTextDocument.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
+	
+	Ctrl+Shift+M		->	Create new .txt document in current directory
 
 
 //https://super-unix.com/superuser/how-to-create-a-new-text-document-txt-file-by-a-hotkey/

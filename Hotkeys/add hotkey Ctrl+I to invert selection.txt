@@ -1,0 +1,8 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'InvertSelection.ahk'
+
+This will add the following hotkeys:
+	
+	Ctrl+I				->	Invert the current selection in Explorer

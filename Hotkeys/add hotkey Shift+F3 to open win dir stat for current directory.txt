@@ -7,7 +7,5 @@ Navigate to 'ahk'
 Run 'DirStatHere.ahk'
 
 This will add the following hotkeys:
-	Shift+F3			Open WinDirStat for open explorer directory
-
-To run at startup:
-	Create a shortcut to 'DirStatHere.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
+	
+	Shift+F3			->	Open WinDirStat in current directory

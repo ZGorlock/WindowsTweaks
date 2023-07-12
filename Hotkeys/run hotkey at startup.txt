@@ -1,0 +1,4 @@
+Navigate to 'ahk'
+Find the hotkey you want to run at startup
+Right click and select Create Shortcut
+Move the shortcut to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'

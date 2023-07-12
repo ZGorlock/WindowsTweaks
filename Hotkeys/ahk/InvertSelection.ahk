@@ -1,8 +1,8 @@
 ;--------------------------------------------------------------------------------
-; NewTextDocument.ahk
+; InvertSelection.ahk
 ;--------------------------------------------------------------------------------
 ;
-; Ctrl+Shift+M		->	Create new .txt document in current directory
+; Ctrl+I			->	Invert the current selection in Explorer
 ;
 ;--------------------------------------------------------------------------------
 
@@ -39,29 +39,16 @@ Explorer_GetActiveView() {
     Return shellFolderView
 }
 
-Explorer_CreateFile(itemPath) {
-	FileAppend,, %itemPath%
-}
-
-Explorer_RenameItem(itemPath) {
-	Explorer_GetActiveView().SelectItem(itemPath, 0x1F)
-}
-
 
 ;--------------------------------------------------------------------------------
 
 
-^+M::
-NewTextDocument:
+^I::
+InvertSelection:
 shellFolderView := Explorer_GetActiveView()
 if shellFolderView {
-	activeFolder := shellFolderView.Folder.Self.Path
-	txtFile := activeFolder . "\New Text Document.txt"
-	while FileExist( txtFile ) {
-		txtFile := activeFolder . "\New Text Document (" . (A_Index + 1) . ").txt"
-	}
-	Explorer_CreateFile( txtFile )
-	Explorer_RenameItem( txtFile )
+	KeyWait Ctrl
+	Send !HSI
 }
 Return
 

@@ -1,4 +1,24 @@
+;--------------------------------------------------------------------------------
+; BulkRenameHere.ahk
+;--------------------------------------------------------------------------------
+;
+; Shift+F2			->	Open BulkRenameUtility in current directory
+;
+;--------------------------------------------------------------------------------
+
+#Requires AutoHotkey v1.1
+
+#Persistent
+#SingleInstance Force
 #NoTrayIcon
+#NoEnv
+
+SetKeyDelay, 0, 50
+SetBatchLines 10ms
+SetTitleMatchMode RegEx
+
+
+;--------------------------------------------------------------------------------
 
 
 Explorer_GetActiveFolder() {
@@ -18,9 +38,19 @@ Explorer_GetActiveFolder() {
 }
 
 
+global BULK_RENAME_UTILITY_EXE := "C:\Program Files\Bulk Rename Utility\Bulk Rename Utility.exe"
+
+
+;--------------------------------------------------
+
+
 +F2::
 BulkRenameHere:
 activeFolder := Explorer_GetActiveFolder()
-if activeFolder
-	Run, "C:\Program Files\Bulk Rename Utility\Bulk Rename Utility.exe" "%activeFolder%"
+if activeFolder {
+	Run "%BULK_RENAME_UTILITY_EXE%" "%activeFolder%"
+}
 Return
+
+
+;--------------------------------------------------

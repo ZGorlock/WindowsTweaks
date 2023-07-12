@@ -1,4 +1,24 @@
+;--------------------------------------------------------------------------------
+; EditWithNotepad++.ahk
+;--------------------------------------------------------------------------------
+;
+; F1				->	Open selected file in Notepad++
+;
+;--------------------------------------------------------------------------------
+
+#Requires AutoHotkey v1.1
+
+#Persistent
+#SingleInstance Force
 #NoTrayIcon
+#NoEnv
+
+SetKeyDelay, 0, 50
+SetBatchLines 10ms
+SetTitleMatchMode RegEx
+
+
+;--------------------------------------------------------------------------------
 
 
 Explorer_GetSelection() {
@@ -22,10 +42,24 @@ Explorer_GetSelection() {
 }
 
 
+Explorer_IsDir(path) {
+	Return InStr(FileExist(path), "D")
+}
+
+
+global NOTEPAD_PLUS_PLUS_EXE := "C:\Program Files\Notepad++\notepad++.exe"
+
+
+;--------------------------------------------------------------------------------
+
+
 F1::
 EditWithNotepad++:
 selectedFile := Explorer_GetSelection()
-FileGetAttrib, Attributes, % selectedFile
-IfNotInString, Attributes, D
-	Run, C:\Program Files\Notepad++\notepad++.exe "%selectedFile%"
+if !Explorer_IsDir( selectedFile ) {
+	Run "%NOTEPAD_PLUS_PLUS_EXE%" "%selectedFile%"
+}
 Return
+
+
+;--------------------------------------------------------------------------------

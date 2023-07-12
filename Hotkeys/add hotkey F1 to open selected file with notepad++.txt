@@ -10,10 +10,8 @@ Navigate to 'ahk'
 Run 'EditWithNotepad++.ahk'
 
 This will add the following hotkeys:
-	F1					Open selected file in Notepad++
-
-To run at startup:
-	Create a shortcut to 'EditWithNotepad++.ahk' and copy to: 'C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp'
+	
+	F1					->	Open selected file in Notepad++
 
 
 //https://superuser.com/questions/205359/how-can-i-open-a-command-prompt-in-current-folder-with-a-keyboard-shortcut/289459#289459

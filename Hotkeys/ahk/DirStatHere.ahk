@@ -1,4 +1,24 @@
+;--------------------------------------------------------------------------------
+; DirStatHere.ahk
+;--------------------------------------------------------------------------------
+;
+; Shift+F3			->	Open WinDirStat in current directory
+;
+;--------------------------------------------------------------------------------
+
+#Requires AutoHotkey v1.1
+
+#Persistent
+#SingleInstance Force
 #NoTrayIcon
+#NoEnv
+
+SetKeyDelay, 0, 50
+SetBatchLines 10ms
+SetTitleMatchMode RegEx
+
+
+;--------------------------------------------------------------------------------
 
 
 Explorer_GetActiveFolder() {
@@ -18,9 +38,19 @@ Explorer_GetActiveFolder() {
 }
 
 
+global WIN_DIR_STAT_EXE := "C:\Program Files (x86)\WinDirStat\windirstat.exe"
+
+
+;--------------------------------------------------------------------------------
+
+
 +F3::
 DirStatHere:
 activeFolder := Explorer_GetActiveFolder()
-if activeFolder
-	Run, "C:\Program Files (x86)\WinDirStat\windirstat.exe" "%activeFolder%"
+if activeFolder {
+	Run "%WIN_DIR_STAT_EXE%" "%activeFolder%"
+}
 Return
+
+
+;--------------------------------------------------------------------------------
