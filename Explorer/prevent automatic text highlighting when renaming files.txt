@@ -1,0 +1,6 @@
+Launch: Turn Windows features on or off
+Uncheck: "Media Features"
+Click Ok
+
+
+//https://answers.microsoft.com/en-us/windows/forum/all/re-renaming-files-annoying-automatic-re-selection/dcb71281-f617-4417-8f5c-d33e36835a1a
