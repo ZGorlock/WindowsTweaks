@@ -1,0 +1,2 @@
+Run 'carbonite - restart the carbonite backup service.bat' as Admin
+	This will kill the service and then start it again
