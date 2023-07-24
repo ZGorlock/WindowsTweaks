@@ -6,6 +6,7 @@
 ;
 ;--------------------------------------------------------------------------------
 
+
 #Requires AutoHotkey v1.1
 
 #Persistent
@@ -21,23 +22,7 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
-Explorer_GetActiveView() {
-	WinGetClass, winClass, % "ahk_id" . hWnd := WinExist("A")
-	if !(winClass ~= "^(Progman|WorkerW|(Cabinet|Explore)WClass)$") {
-		Return
-	}
-	shellWindows := ComObjCreate("Shell.Application").Windows
-	if (winClass ~= "Progman|WorkerW") {
-		shellFolderView := shellWindows.Item( ComObject(VT_UI4 := 0x13, SWC_DESKTOP := 0x8) ).Document
-	} else {
-		for window in shellWindows {
-			if (hWnd = window.HWND) && (shellFolderView := window.Document) {
-				break
-			}
-		}
-	}
-    Return shellFolderView
-}
+#Include lib\Explorer.ahk
 
 
 ;--------------------------------------------------------------------------------
@@ -45,8 +30,7 @@ Explorer_GetActiveView() {
 
 ^I::
 InvertSelection:
-shellFolderView := Explorer_GetActiveView()
-if shellFolderView {
+if Explorer_IsActive() {
 	KeyWait Ctrl
 	Send !HSI
 }

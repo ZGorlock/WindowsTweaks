@@ -1,0 +1,8 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'SelectNextFileAfterDelete.ahk'
+
+This will add the following hotkeys:
+	
+	~Del				->	Selects the next file after deleting a file

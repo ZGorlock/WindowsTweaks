@@ -6,6 +6,7 @@
 ;
 ;--------------------------------------------------------------------------------
 
+
 #Requires AutoHotkey v1.1
 
 #Persistent
@@ -21,24 +22,12 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
-Explorer_GetActiveFolder() {
-    WinGetClass, winClass, % "ahk_id" . hWnd := WinExist("A")
-    if !(winClass ~="Progman|WorkerW|(Cabinet|Explore)WClass")
-        Return
+#Include lib\Explorer.ahk
 
-    shellWindows := ComObjCreate("Shell.Application").Windows
-    if (winClass ~= "Progman|WorkerW")
-        shellFolderView := shellWindows.FindWindowSW(0, 0, SWC_DESKTOP := 8, 0, SWFO_NEEDDISPATCH := 1).Document
-    else {
-        for window in shellWindows
-            if (hWnd = window.HWND) && (shellFolderView := window.Document)
-            break
-    }
-    Return shellFolderView.Folder.Self.Path
+
+WinDirStatExe() {
+	Return "C:\Program Files (x86)\WinDirStat\windirstat.exe"
 }
-
-
-global WIN_DIR_STAT_EXE := "C:\Program Files (x86)\WinDirStat\windirstat.exe"
 
 
 ;--------------------------------------------------------------------------------
@@ -46,9 +35,10 @@ global WIN_DIR_STAT_EXE := "C:\Program Files (x86)\WinDirStat\windirstat.exe"
 
 +F3::
 DirStatHere:
-activeFolder := Explorer_GetActiveFolder()
-if activeFolder {
-	Run "%WIN_DIR_STAT_EXE%" "%activeFolder%"
+activePath := Explorer_GetActivePath()
+if activePath {
+	exe := WinDirStatExe()
+	Run "%exe%" "%activePath%"
 }
 Return
 

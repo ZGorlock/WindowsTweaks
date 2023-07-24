@@ -6,6 +6,7 @@
 ;
 ;--------------------------------------------------------------------------------
 
+
 #Requires AutoHotkey v1.1
 
 #Persistent
@@ -21,33 +22,12 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
-Explorer_GetSelection() {
-    WinGetClass, winClass, % "ahk_id" . hWnd := WinExist("A")
-    if !(winClass ~="Progman|WorkerW|(Cabinet|Explore)WClass")
-        Return
+#Include lib\Explorer.ahk
 
-    shellWindows := ComObjCreate("Shell.Application").Windows
-    if (winClass ~= "Progman|WorkerW")
-        shellFolderView := shellWindows.FindWindowSW(0, 0, SWC_DESKTOP := 8, 0, SWFO_NEEDDISPATCH := 1).Document
-    else {
-        for window in shellWindows
-            if (hWnd = window.HWND) && (shellFolderView := window.Document)
-            break
-    }
-    for item in shellFolderView.SelectedItems
-        result .= (result = "" ? "" : "`n") . item.Path
-    if !result
-        result := shellFolderView.Folder.Self.Path
-    Return result
+
+NotepadPlusPlusExe() {
+	Return "C:\Program Files\Notepad++\notepad++.exe"
 }
-
-
-Explorer_IsDir(path) {
-	Return InStr(FileExist(path), "D")
-}
-
-
-global NOTEPAD_PLUS_PLUS_EXE := "C:\Program Files\Notepad++\notepad++.exe"
 
 
 ;--------------------------------------------------------------------------------
@@ -55,9 +35,10 @@ global NOTEPAD_PLUS_PLUS_EXE := "C:\Program Files\Notepad++\notepad++.exe"
 
 F1::
 EditWithNotepad++:
-selectedFile := Explorer_GetSelection()
-if !Explorer_IsDir( selectedFile ) {
-	Run "%NOTEPAD_PLUS_PLUS_EXE%" "%selectedFile%"
+selectedItemPath := Explorer_GetSelectedItemPath()
+if Explorer_IsFile( selectedItemPath ) {
+	exe := NotepadPlusPlusExe()
+	Run "%exe%" "%selectedItemPath%"
 }
 Return
 

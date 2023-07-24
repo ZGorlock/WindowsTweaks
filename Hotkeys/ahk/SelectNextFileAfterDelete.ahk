@@ -1,9 +1,8 @@
 ;--------------------------------------------------------------------------------
-; CommandPromptHere.ahk
+; SelectNextFileAfterDelete.ahk
 ;--------------------------------------------------------------------------------
 ;
-; Ctrl+Shift+C		->	Open command prompt in current directory
-; Ctrl+Shift+Alt+C	->	Open command prompt in current directory as Admin
+; ~Del				->	Selects the next file after deleting a file
 ;
 ;--------------------------------------------------------------------------------
 
@@ -26,30 +25,13 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
-CmdExe() {
-	Return "C:\Windows\System32\cmd.exe"
-}
-
-
 ;--------------------------------------------------------------------------------
 
 
-^+C::
-CommandPromptHere:
-activePath := Explorer_GetActivePath()
-if activePath {
-	exe := CmdExe()
-	Run "%exe%" /k cd /d "%activePath%"
-}
-Return
-
-
-^+!C::
-AdminCommandPromptHere:
-activePath := Explorer_GetActivePath()
-if activePath {
-	exe := CmdExe()
-	Run *RunAs "%exe%" /k cd /d "%activePath%"
+~Del::
+if Explorer_IsActive() && !Explorer_IsEnteringText() {
+	KeyWait Del
+	Send {Space}
 }
 Return
 
