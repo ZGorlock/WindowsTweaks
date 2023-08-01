@@ -19,12 +19,12 @@ This will add the following hotkeys:
 	
 	Ctrl+Shift+M		->	Create new .txt document in current directory
 	
-	Ctrl+Shift+P		->	Add selectedItemPath file to winrar rar archive
-	Ctrl+Shift+Alt+P	->	Add selectedItemPath file to winrar rar archive and delete
-	Ctrl+Shift+I		->	Add selectedItemPath file to winrar gzip archive
-	Ctrl+Shift+Alt+I	->	Add selectedItemPath file to winrar gzip archive and delete
-	Ctrl+Shift+O		->	Extract selectedItemPath winrar archive
-	Ctrl+Shift+Alt+O	->	Extract selectedItemPath winrar archive and delete (NOT WORKING)
+	~Ctrl+Shift+P		->	Add selectedItemPath file to winrar rar archive
+	~Ctrl+Shift+Alt+P	->	Add selectedItemPath file to winrar rar archive and delete
+	~Ctrl+Shift+I		->	Add selectedItemPath file to winrar gzip archive
+	~Ctrl+Shift+Alt+I	->	Add selectedItemPath file to winrar gzip archive and delete
+	~Ctrl+Shift+O		->	Extract selectedItemPath winrar archive
+	~Ctrl+Shift+Alt+O	->	Extract selectedItemPath winrar archive and delete (NOT WORKING)
 	
 	Ctrl+I				->	Invert the current selection in Explorer
 	

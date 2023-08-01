@@ -2,14 +2,14 @@
 ; WinrarArchiveActions.ahk
 ;--------------------------------------------------------------------------------
 ;
-; Ctrl+Shift+P		->	Add selectedItemPath file to winrar rar archive
-; Ctrl+Shift+Alt+P	->	Add selectedItemPath file to winrar rar archive and delete
+; ~Ctrl+Shift+P		->	Add selectedItemPath file to winrar rar archive
+; ~Ctrl+Shift+Alt+P	->	Add selectedItemPath file to winrar rar archive and delete
 ;
-; Ctrl+Shift+I		->	Add selectedItemPath file to winrar gzip archive
-; Ctrl+Shift+Alt+I	->	Add selectedItemPath file to winrar gzip archive and delete
+; ~Ctrl+Shift+I		->	Add selectedItemPath file to winrar gzip archive
+; ~Ctrl+Shift+Alt+I	->	Add selectedItemPath file to winrar gzip archive and delete
 ;
-; Ctrl+Shift+O		->	Extract selectedItemPath winrar archive
-; Ctrl+Shift+Alt+O	->	Extract selectedItemPath winrar archive and delete (NOT WORKING)
+; ~Ctrl+Shift+O		->	Extract selectedItemPath winrar archive
+; ~Ctrl+Shift+Alt+O	->	Extract selectedItemPath winrar archive and delete (NOT WORKING)
 ;
 ;--------------------------------------------------------------------------------
 
@@ -45,7 +45,7 @@ Winrar_CheckFileIsArchive(ext) {
 ;--------------------------------------------------------------------------------
 
 
-^+P::
+~^+P::
 ArchiveWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
@@ -56,7 +56,7 @@ if selectedItemPath {
 Return
 
 
-^+!P::
+~^+!P::
 ArchiveAndDeleteWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
@@ -67,7 +67,7 @@ if selectedItemPath {
 Return
 
 
-^+I::
+~^+I::
 GZipWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
@@ -78,7 +78,7 @@ if selectedItemPath {
 Return
 
 
-^+!I::
+~^+!I::
 GZipAndDeleteWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
@@ -89,7 +89,7 @@ if selectedItemPath {
 Return
 
 
-^+O::
+~^+O::
 ExtractWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
@@ -102,7 +102,7 @@ if selectedItemPath {
 Return
 
 
-^+!O::
+~^+!O::
 ExtractAndDeleteWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
