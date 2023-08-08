@@ -1,9 +1,7 @@
 ;--------------------------------------------------------------------------------
 ; SelectNextFileAfterDelete.ahk
 ;--------------------------------------------------------------------------------
-;
-; ~Del				->	Selects the next file after deleting a file
-;
+; ~Del               ; Selects the next file after deleting a file              ;
 ;--------------------------------------------------------------------------------
 
 
@@ -29,6 +27,7 @@ SetTitleMatchMode RegEx
 
 
 ~Del::
+SelectNextFileAfterDelete:
 if Explorer_IsActive() && !Explorer_IsEnteringText() {
 	KeyWait Del
 	Send {Space}

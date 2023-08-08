@@ -1,9 +1,7 @@
 ;--------------------------------------------------------------------------------
 ; EditWithNotepad++.ahk
 ;--------------------------------------------------------------------------------
-;
-; F1				->	Open selected file in Notepad++
-;
+; F1                 ; Open selected file in Notepad++                          ;
 ;--------------------------------------------------------------------------------
 
 
@@ -23,6 +21,7 @@ SetTitleMatchMode RegEx
 
 
 #Include lib\Explorer.ahk
+#Include lib\Filesystem.ahk
 
 
 NotepadPlusPlusExe() {
@@ -36,7 +35,7 @@ NotepadPlusPlusExe() {
 F1::
 EditWithNotepad++:
 selectedItemPath := Explorer_GetSelectedItemPath()
-if Explorer_IsFile( selectedItemPath ) {
+if Filesystem_IsFile(selectedItemPath) {
 	exe := NotepadPlusPlusExe()
 	Run "%exe%" "%selectedItemPath%"
 }

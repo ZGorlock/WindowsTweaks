@@ -1,7 +1,7 @@
 ;--------------------------------------------------------------------------------
-; InvertSelection.ahk
+; DisableCloseExplorerHotkey.ahk
 ;--------------------------------------------------------------------------------
-; ~Ctrl+I            ; Invert the current selection in Explorer                 ;
+; $Ctrl+W            ; Disables the 'Close Window' shortcut in Explorer         ;
 ;--------------------------------------------------------------------------------
 
 
@@ -26,12 +26,12 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
-~^I::
-InvertSelection:
+$^W::
+DisableCloseExplorerHotkey:
 if Explorer_IsActive() {
-	KeyWait Ctrl
-	Send !HSI
+	Return
 }
+Send ^w
 Return
 
 

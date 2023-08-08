@@ -1,16 +1,14 @@
 ;--------------------------------------------------------------------------------
 ; WinrarArchiveActions.ahk
 ;--------------------------------------------------------------------------------
-;
-; ~Ctrl+Shift+P		->	Add selectedItemPath file to winrar rar archive
-; ~Ctrl+Shift+Alt+P	->	Add selectedItemPath file to winrar rar archive and delete
-;
-; ~Ctrl+Shift+I		->	Add selectedItemPath file to winrar gzip archive
-; ~Ctrl+Shift+Alt+I	->	Add selectedItemPath file to winrar gzip archive and delete
-;
-; ~Ctrl+Shift+O		->	Extract selectedItemPath winrar archive
-; ~Ctrl+Shift+Alt+O	->	Extract selectedItemPath winrar archive and delete (NOT WORKING)
-;
+; ~Ctrl+Shift+P      ; Add selected file to winrar rar archive                  ;
+; ~Ctrl+Shift+Alt+P  ; Add selected file to winrar rar archive and delete       ;
+;                    ;                                                          ;
+; ~Ctrl+Shift+I      ; Add selected file to winrar gzip archive                 ;
+; ~Ctrl+Shift+Alt+I  ; Add selected file to winrar gzip archive and delete      ;
+;                    ;                                                          ;
+; ~Ctrl+Shift+O      ; Extract selected winrar archive                          ;
+; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete (NOT WORKING) ;
 ;--------------------------------------------------------------------------------
 
 
@@ -94,7 +92,7 @@ ExtractWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
-	if Winrar_CheckFileIsArchive( ext ) {
+	if Winrar_CheckFileIsArchive(ext) {
 		exe := WinrarExe()
 		Run "%exe%" x "%selectedItemPath%" -ibck "%dir%"
 	}
@@ -107,7 +105,7 @@ ExtractAndDeleteWithWinrar:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
-	if Winrar_CheckFileIsArchive( ext ) {
+	if Winrar_CheckFileIsArchive(ext) {
 		exe := WinrarExe()
 		Run "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
 	}

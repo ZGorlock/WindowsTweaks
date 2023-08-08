@@ -1,0 +1,17 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'StashSelection.ahk'
+
+This will add the following hotkeys:
+	
+	|--------------------|----------------------------------------------------------|
+	| ~Ctrl+Q            | Copy the selected file(s) to the defined stash location  |
+	| ~Ctrl+Shift+Q      | Move the selected file(s) to the defined stash location  |
+	|--------------------|----------------------------------------------------------|
+
+To define the stash location:
+	Edit the User Environment Variables
+	Add a new variable:
+		Set the name to: "STASH_DIR"
+		Set the value to the path you want to serve as the stash location: "C:\Users\User\Stash"

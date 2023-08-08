@@ -5,4 +5,6 @@ Run 'SelectNextFileAfterDelete.ahk'
 
 This will add the following hotkeys:
 	
-	~Del				->	Selects the next file after deleting a file
+	|--------------------|----------------------------------------------------------|
+	| ~Del               | Selects the next file after deleting a file              |
+	|--------------------|----------------------------------------------------------|

@@ -5,8 +5,10 @@ Run 'CommandPromptHere.ahk'
 
 This will add the following hotkeys:
 	
-	Ctrl+Shift+C		->	Open command prompt in current directory
-	Ctrl+Shift+Alt+C	->	Open command prompt in current directory as Admin
+	|--------------------|----------------------------------------------------------|
+	| ~Ctrl+Shift+C      | Open command prompt in current directory                 |
+	| ~Ctrl+Shift+Alt+C  | Open command prompt in current directory as Admin        |
+	|--------------------|----------------------------------------------------------|
 
 
 //https://superuser.com/questions/205359/how-can-i-open-a-command-prompt-in-current-folder-with-a-keyboard-shortcut/289459#289459

@@ -1,5 +1,5 @@
 ;--------------------------------------------------------------------------------
-; _Explorer.ahk
+; Explorer.ahk
 ;--------------------------------------------------------------------------------
 
 
@@ -10,7 +10,7 @@ Explorer_GetActiveView() {
 	}
 	shellWindows := ComObjCreate("Shell.Application").Windows
 	if (winClass ~= "Progman|WorkerW") {
-		shellFolderView := shellWindows.Item( ComObject(VT_UI4 := 0x13, SWC_DESKTOP := 0x8) ).Document
+		shellFolderView := shellWindows.Item(ComObject(VT_UI4 := 0x13, SWC_DESKTOP := 0x8)).Document
 	} else {
 		for window in shellWindows {
 			if (hWnd = window.HWND) && (shellFolderView := window.Document) {
@@ -35,7 +35,7 @@ Explorer_IsActive() {
 Explorer_GetItemList() {
 	items := []
 	for item in Explorer_GetActiveView().Folder.Items {
-		items.Push( item )
+		items.Push(item)
 	}
 	Return items
 }
@@ -44,7 +44,7 @@ Explorer_GetItemList() {
 Explorer_GetItemPathList() {
 	paths := []
 	for index, item in Explorer_GetItemList() {
-		paths.Push( item.Path )
+		paths.Push(item.Path)
 	}
 	Return paths
 }
@@ -58,7 +58,7 @@ Explorer_CountItems() {
 Explorer_GetSelectedItemList() {
 	items := []
 	for item in Explorer_GetActiveView().SelectedItems {
-		items.Push( item )
+		items.Push(item)
 	}
 	Return items
 }
@@ -67,7 +67,7 @@ Explorer_GetSelectedItemList() {
 Explorer_GetSelectedItemPathList() {
 	paths := []
 	for index, item in Explorer_GetSelectedItemList() {
-		paths.Push( item.Path )
+		paths.Push(item.Path)
 	}
 	Return paths
 }
@@ -108,26 +108,6 @@ Explorer_IsEnteringText() {
 Explorer_IsRenamingItem() {
 	ControlGet, vCtlStyle, Style, , % vCtlClassNN, A
 	Return Explorer_IsEnteringText() && !(vCtlStyle = 0x54000080)
-}
-
-
-Explorer_IsDir(path) {
-	Return InStr(FileExist(path), "D")
-}
-
-
-Explorer_IsFile(path) {
-	Return FileExist(path) ~= "^[^D]+$"
-}
-
-
-Explorer_CreateFile(path) {
-	FileAppend,, %path%
-}
-
-
-Explorer_DeleteFile(path) {
-	FileRecycle, %path%
 }
 
 

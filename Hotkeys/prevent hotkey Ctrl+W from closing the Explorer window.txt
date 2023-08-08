@@ -1,13 +1,10 @@
 Read 'enable hotkeys.txt'
 
 Navigate to 'ahk'
-Run 'NewTextDocument.ahk'
+Run 'DisableCloseExplorerHotkey.ahk'
 
 This will add the following hotkeys:
 	
 	|--------------------|----------------------------------------------------------|
-	| ~Ctrl+Shift+M      | Create new .txt document in current directory            |
+	| $Ctrl+W            | Disables the 'Close Window' shortcut in Explorer         |
 	|--------------------|----------------------------------------------------------|
-
-
-//https://super-unix.com/superuser/how-to-create-a-new-text-document-txt-file-by-a-hotkey/

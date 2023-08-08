@@ -1,17 +1,19 @@
 Read 'enable hotkeys.txt'
 
-Disable the existing F1 functionality
+To disable the existing F1 functionality:
 	See 'disable f1 help.txt'
-
-This assumes you have Notepad++ installed at: 'C:\Program Files\Notepad++'
-	You can download this program from: https://notepad-plus-plus.org/downloads/
 
 Navigate to 'ahk'
 Run 'EditWithNotepad++.ahk'
 
 This will add the following hotkeys:
 	
-	F1					->	Open selected file in Notepad++
+	|--------------------|----------------------------------------------------------|
+	| F1                 | Open selected file in Notepad++                          |
+	|--------------------|----------------------------------------------------------|
+
+This assumes you have Notepad++ installed at: 'C:\Program Files\Notepad++'
+	You can download this program from: https://notepad-plus-plus.org/downloads/
 
 
 //https://superuser.com/questions/205359/how-can-i-open-a-command-prompt-in-current-folder-with-a-keyboard-shortcut/289459#289459

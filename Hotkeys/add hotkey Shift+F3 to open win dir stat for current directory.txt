@@ -1,11 +1,13 @@
 Read 'enable hotkeys.txt'
 
-This assumes you have WinDirStat installed at: 'C:\Program Files (x86)\WinDirStat'
-	You can download this program from: https://windirstat.net/
-
 Navigate to 'ahk'
 Run 'DirStatHere.ahk'
 
 This will add the following hotkeys:
 	
-	Shift+F3			->	Open WinDirStat in current directory
+	|--------------------|----------------------------------------------------------|
+	| Shift+F3           | Open WinDirStat in current directory                     |
+	|--------------------|----------------------------------------------------------|
+
+This assumes you have WinDirStat installed at: 'C:\Program Files (x86)\WinDirStat'
+	You can download this program from: https://windirstat.net/

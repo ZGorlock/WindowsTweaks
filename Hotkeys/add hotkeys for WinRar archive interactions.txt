@@ -5,11 +5,16 @@ Run 'WinrarArchiveActions.ahk'
 
 This will add the following hotkeys:
 	
-	~Ctrl+Shift+P		->	Add selected file to winrar rar archive
-	~Ctrl+Shift+Alt+P	->	Add selected file to winrar rar archive and delete
-	
-	~Ctrl+Shift+I		->	Add selected file to winrar gzip archive
-	~Ctrl+Shift+Alt+I	->	Add selected file to winrar gzip archive and delete
-	
-	~Ctrl+Shift+O		->	Extract selected winrar archive
-	~Ctrl+Shift+Alt+O	->	Extract selected winrar archive and delete (NOT WORKING)
+	|--------------------|----------------------------------------------------------|
+	| ~Ctrl+Shift+P      | Add selected file to winrar rar archive                  |
+	| ~Ctrl+Shift+Alt+P  | Add selected file to winrar rar archive and delete       |
+	|                    |                                                          |
+	| ~Ctrl+Shift+I      | Add selected file to winrar gzip archive                 |
+	| ~Ctrl+Shift+Alt+I  | Add selected file to winrar gzip archive and delete      |
+	|                    |                                                          |
+	| ~Ctrl+Shift+O      | Extract selected winrar archive                          |
+	| ~Ctrl+Shift+Alt+O  | Extract selected winrar archive and delete (NOT WORKING) |
+	|--------------------|----------------------------------------------------------|
+
+This assumes you have WinRAR installed at: 'C:\Program Files\WinRAR'
+	You can download this program from: https://www.win-rar.com/download.html

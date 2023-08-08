@@ -1,9 +1,7 @@
 ;--------------------------------------------------------------------------------
 ; NewTextDocument.ahk
 ;--------------------------------------------------------------------------------
-;
-; Ctrl+Shift+M		->	Create new .txt document in current directory
-;
+; ~Ctrl+Shift+M      ; Create new .txt document in current directory            ;
 ;--------------------------------------------------------------------------------
 
 
@@ -28,17 +26,17 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
-^+M::
+~^+M::
 NewTextDocument:
 activeView := Explorer_GetActiveView()
 if activeView {
 	activeFolder := activeView.Folder.Self.Path
 	txtFile := activeFolder . "\New Text Document.txt"
-	while FileExist( txtFile ) {
+	while FileExist(txtFile) {
 		txtFile := activeFolder . "\New Text Document (" . (A_Index + 1) . ").txt"
 	}
-	Explorer_CreateFile( txtFile )
-	Explorer_RenameItem( txtFile )
+	Filesystem_CreateFile(txtFile)
+	Explorer_RenameItem(txtFile)
 }
 Return
 

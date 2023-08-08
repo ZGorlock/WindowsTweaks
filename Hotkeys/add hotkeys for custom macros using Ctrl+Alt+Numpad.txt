@@ -1,0 +1,24 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'CustomNumpadMacros.ahk'
+
+This will add the following hotkeys:
+	
+	|--------------------|----------------------------------------------------------|
+	| ~Ctrl+Alt+Numpad#  | Runs the custom macro defined for Numpad0, ..., Numpad9  |
+	|--------------------|----------------------------------------------------------|
+
+To define custom macros:
+	Create some or all of the following bat files:
+		'CustomMacro_0.bat'
+		'CustomMacro_1.bat'
+		'CustomMacro_2.bat'
+		'CustomMacro_3.bat'
+		'CustomMacro_4.bat'
+		'CustomMacro_5.bat'
+		'CustomMacro_6.bat'
+		'CustomMacro_7.bat'
+		'CustomMacro_8.bat'
+		'CustomMacro_9.bat'
+	Place these bat files in a location that is accessible on the system path
