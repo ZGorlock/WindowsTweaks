@@ -1,3 +1,6 @@
 @echo off
+setlocal
 
-start "C:\Program Files\VideoLAN\VLC\vlc.exe" %*
+set vlc="C:\Program Files\VideoLAN\VLC\vlc.exe"
+
+start "" %vlc% %*

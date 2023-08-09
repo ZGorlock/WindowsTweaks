@@ -1,3 +1,3 @@
 @echo off
 
-start chrome %*
+start /ABOVENORMAL "" "http://"

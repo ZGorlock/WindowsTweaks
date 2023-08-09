@@ -1,3 +1,6 @@
 @echo off
+setlocal
 
-start "C:\Program Files\Notepad++\notepad++.exe" %*
+set notepad++="C:\Program Files\Notepad++\notepad++.exe"
+
+start "" %notepad++% %*

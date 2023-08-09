@@ -1,3 +1,6 @@
 @echo off
+setlocal
 
-C:\cygwin64\bin\rsync %*
+set rsync="C:\cygwin64\bin\rsync"
+
+%rsync% %*
