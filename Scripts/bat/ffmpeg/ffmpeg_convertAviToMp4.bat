@@ -1,9 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-
 set file=%~1
-
 
 if "%file%"=="" (
 	for %%f in (*.avi) do (call :aviToMp4 "%%f")
@@ -53,5 +51,4 @@ goto :end
 
 :end
 	echo Done
-	endlocal
 	pause

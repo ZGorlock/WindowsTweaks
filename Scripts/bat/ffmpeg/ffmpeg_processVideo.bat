@@ -1,12 +1,10 @@
 @echo off
 setlocal enabledelayedexpansion
 
-
 set SOURCE=a.mp4
 set   SUBS=a.srt
 
 set TARGET=b.mp4
-
 
 echo.
 echo --------------------------------------------------
@@ -28,7 +26,6 @@ if exist "!SOURCE!" (
 	
 	set baseParams=-y -hide_banner -map_metadata -1 -map_chapters -1
 	
-	
 REM	Copy source streams; Keep encoding
 REM	set params=-map 0 -c copy
 	
@@ -47,7 +44,6 @@ REM	set params=-map 0 -map 1 -map -0:a:0 -map -0:s -c:v copy -c:a copy -c:s mov_
 REM	Copy source streams; Mux subtitle stream from second file; Keep audio encoding; Re-encode video streams to libx264 with a target video bitrate of 2MB/s; Encode subtitles as mov_text
 REM	set params=-map 0 -map 1 -c:v libx264 -c:a copy -c:s mov_text -b:v 2000k -maxrate 2000k -bufsize 2000k
 	
-	
 	set ffmpeg_cmd=ffmpeg !in! !baseParams! !params! !out!
 	
 	echo.
@@ -65,9 +61,6 @@ REM	set params=-map 0 -map 1 -c:v libx264 -c:a copy -c:s mov_text -b:v 2000k -ma
 echo.
 echo --------------------------------------------------
 echo.
-
-
-endlocal
 
 echo Done
 pause

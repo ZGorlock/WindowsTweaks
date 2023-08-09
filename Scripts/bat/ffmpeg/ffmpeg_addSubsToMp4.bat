@@ -1,9 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-
 set file=%~1
-
 
 if "%file%"=="" (
 	for %%f in (*.mp4) do (call :addSubsToMp4 "%%f")
@@ -59,5 +57,4 @@ goto :end
 
 :end
 	echo Done
-	endlocal
 	pause

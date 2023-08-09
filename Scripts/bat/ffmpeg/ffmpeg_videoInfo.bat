@@ -1,9 +1,7 @@
 @echo off
 setlocal enabledelayedexpansion
 
-
 set file=%~1
-
 
 if "%file%"=="" (
 	for %%f in (*.*) do (call :vInfo "%%f")
@@ -32,4 +30,5 @@ goto :end
 
 
 :end
-	endlocal
+	echo Done
+	pause

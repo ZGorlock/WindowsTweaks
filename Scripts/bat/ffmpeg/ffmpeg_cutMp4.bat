@@ -1,11 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 
-
 set file=%~1
 set startTime=%~2
 set stopTime=%~3
-
 
 if "%stopTime%"=="" (
 	set stopTime=%startTime%
@@ -15,7 +13,6 @@ if "%stopTime%"=="" (
 	echo Start and stop time not provided
 	goto :end
 )
-
 
 if "%file%"=="" (
 	for %%f in (*.mp4) do (call :cutMp4 "%%f" "%startTime%" "%stopTime%")
@@ -68,5 +65,4 @@ goto :end
 
 :end
 	echo Done
-	endlocal
 	pause
