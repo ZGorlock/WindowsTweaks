@@ -4,6 +4,8 @@
 
 ## This is a collection of registry changes and step-by-step instructions on how to make modifications to Windows 10
 
+## It also includes a number of useful 3rd party tools as well as custom scripts and hotkeys
+
 
 ### † † † _USE AT YOUR OWN RISK_ † † †
 
