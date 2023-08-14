@@ -1,7 +1,7 @@
 Read 'enable hotkeys.txt'
 
 Navigate to 'ahk'
-Run '_ExplorerActions.ahk'
+Run '_Hotkeys.ahk'
 
 This is a combination of all the other hotkeys
 	Do not run this hotkey along with the other ones
@@ -29,8 +29,8 @@ This will add the following hotkeys:
 	|                    |                                                          |
 	| ~Ctrl+I            | Invert the current selection in Explorer                 |
 	|                    |                                                          |
-	| ~Ctrl+Q            | Copy the selected file(s) to the defined stash location  |
-	| ~Ctrl+Shift+Q      | Move the selected file(s) to the defined stash location  |
+	| ~Ctrl+S            | Copy the selected file(s) to the defined stash location  |
+	| ~Ctrl+Alt+S        | Move the selected file(s) to the defined stash location  |
 	|                    |                                                          |
 	| ~Del               | Selects the next file after deleting a file              |
 	|                    |                                                          |

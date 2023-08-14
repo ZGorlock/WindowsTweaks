@@ -1,8 +1,8 @@
 ;--------------------------------------------------------------------------------
 ; StashSelection.ahk
 ;--------------------------------------------------------------------------------
-; ~Ctrl+Q            ; Copy the selected file(s) to the defined stash location  ;
-; ~Ctrl+Shift+Q      ; Move the selected file(s) to the defined stash location  ;
+; ~Ctrl+S            ; Copy the selected file(s) to the defined stash location  ;
+; ~Ctrl+Alt+S        ; Move the selected file(s) to the defined stash location  ;
 ;--------------------------------------------------------------------------------
 
 
@@ -51,12 +51,13 @@ PlayCompletionSound() {
 ;--------------------------------------------------------------------------------
 
 
-~^Q::
+~^S::
 CopySelectionToStash:
 if Explorer_IsActive() {
 	selectedFiles := Explorer_GetSelectedItemPathList()
 	stashDir := StashDir()
 	if selectedFiles && stashDir {
+		Filesystem_CreateDir(stashDir)
 		for index, path in selectedFiles {
 			Filesystem_Copy(path, stashDir)
 		}
@@ -66,12 +67,13 @@ if Explorer_IsActive() {
 Return
 
 
-~^+Q::
+~^!S::
 MoveSelectionToStash:
 if Explorer_IsActive() {
 	selectedFiles := Explorer_GetSelectedItemPathList()
 	stashDir := StashDir()
 	if selectedFiles && stashDir {
+		Filesystem_CreateDir(stashDir)
 		for index, path in selectedFiles {
 			Filesystem_Move(path, stashDir)
 		}

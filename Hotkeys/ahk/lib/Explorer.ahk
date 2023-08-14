@@ -101,13 +101,25 @@ Explorer_RenameItem(itemPath) {
 
 Explorer_IsEnteringText() {
 	ControlGetFocus, vCtlClassNN, A
-	Return (SubStr(vCtlClassNN, 1, 4) = "Edit")
+	Return (SubStr(vCtlClassNN, 1, 4) = "Edit") || (SubStr(vCtlClassNN, 1, 27) = "Windows.UI.Core.CoreWindow1")
 }
 
 
 Explorer_IsRenamingItem() {
 	ControlGet, vCtlStyle, Style, , % vCtlClassNN, A
-	Return Explorer_IsEnteringText() && !(vCtlStyle = 0x54000080)
+	Return Explorer_IsEnteringText() && ((vCtlStyle = 0x50000080) || (vCtlStyle = 0x540000C5))
+}
+
+
+Explorer_IsTypingInSearchBar() {
+	ControlGet, vCtlStyle, Style, , % vCtlClassNN, A
+	Return Explorer_IsEnteringText() && (vCtlStyle = 0x48000080)
+}
+
+
+Explorer_IsTypingInAddressBar() {
+	ControlGet, vCtlStyle, Style, , % vCtlClassNN, A
+	Return Explorer_IsEnteringText() && (vCtlStyle = 0x54000080)
 }
 
 

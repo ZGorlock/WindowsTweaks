@@ -21,8 +21,8 @@
 ;                    ;                                                          ;
 ; ~Ctrl+I            ; Invert the current selection in Explorer                 ;
 ;                    ;                                                          ;
-; ~Ctrl+Q            ; Copy the selected file(s) to the defined stash location  ;
-; ~Ctrl+Shift+Q      ; Move the selected file(s) to the defined stash location  ;
+; ~Ctrl+S            ; Copy the selected file(s) to the defined stash location  ;
+; ~Ctrl+Alt+S        ; Move the selected file(s) to the defined stash location  ;
 ;                    ;                                                          ;
 ; ~Del               ; Selects the next file after deleting a file              ;
 ;                    ;                                                          ;
