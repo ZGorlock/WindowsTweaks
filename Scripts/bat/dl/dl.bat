@@ -22,10 +22,10 @@ goto :end
 	if not '%url%'=='%url:/watch=%'      (set video=true)
 	if not '%url%'=='%url:/playlist=%'   (set video=true)
 	if not '%url%'=='%url:/episode=%'    (set video=true)
-
+	
 	if not exist %out% (mkdir %out%)
 	cd /D %out%
-
+	
 	if "%video%"=="true" (
 		echo Using yt-dlp...
 		yt-dlp -f mp4 -S res:720 %url%

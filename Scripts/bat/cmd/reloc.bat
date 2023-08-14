@@ -1,3 +1,3 @@
 @echo off
 
-dir /b %*
+loc /s %*
