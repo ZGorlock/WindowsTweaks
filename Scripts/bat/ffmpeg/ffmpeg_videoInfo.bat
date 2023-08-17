@@ -31,4 +31,3 @@ goto :end
 
 :end
 	echo Done
-	pause
