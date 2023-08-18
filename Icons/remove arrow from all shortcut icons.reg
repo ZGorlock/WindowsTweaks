@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons]
+"29"="C:\\Windows\\System32\\blank.ico"
+
+
+;https://www.elevenforum.com/t/remove-shortcut-arrow-icon-in-windows-11.3814/

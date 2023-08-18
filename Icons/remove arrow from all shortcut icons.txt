@@ -1,0 +1,7 @@
+Navigate to 'ico'
+Copy 'blank.ico' to: 'C:\Windows\System32'
+
+Run 'remove arrow from all shortcut icons.reg'
+
+
+//https://www.elevenforum.com/t/remove-shortcut-arrow-icon-in-windows-11.3814/
