@@ -19,10 +19,13 @@
 ; ~Ctrl+Shift+O      ; Extract selected winrar archive                          ;
 ; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete (NOT WORKING) ;
 ;                    ;                                                          ;
-; ~Ctrl+I            ; Invert the current selection in Explorer                 ;
-;                    ;                                                          ;
 ; ~Ctrl+S            ; Copy the selected file(s) to the defined stash location  ;
 ; ~Ctrl+Alt+S        ; Move the selected file(s) to the defined stash location  ;
+;                    ;                                                          ;
+; ~Ctrl+Shift+/      ; Empty selected sub-folder(s) into the current directory  ;
+; ~Ctrl+Shift+Alt+/  ; Empty all sub-folders into the current directory         ;
+;                    ;                                                          ;
+; ~Ctrl+I            ; Invert the current selection in Explorer                 ;
 ;                    ;                                                          ;
 ; ~Del               ; Selects the next file after deleting a file              ;
 ;                    ;                                                          ;
@@ -56,8 +59,10 @@ SetTitleMatchMode RegEx
 
 #Include WinrarArchiveActions.ahk
 
-#Include InvertSelection.ahk
 #Include StashSelection.ahk
+#Include UnfolderSelection.ahk
+
+#Include InvertSelection.ahk
 #Include SelectNextFileAfterDelete.ahk
 
 #Include DisableCloseExplorerHotkey.ahk
