@@ -51,19 +51,20 @@ UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
 }
 
 
+#If Explorer_IsActive()
+
+
 ;--------------------------------------------------------------------------------
 
 
 ~^+/::
 EmptySelectedSubFolders:
-if Explorer_IsActive() {
-	activeDir := Explorer_GetActivePath()
-	selectedFolders := Explorer_GetSelectedItemPathList("D")
-	if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
-		if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
-			for index, path in selectedFolders {
-				EmptySubFolder(activeDir, path)
-			}
+activeDir := Explorer_GetActivePath()
+selectedFolders := Explorer_GetSelectedItemPathList("D")
+if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
+	if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
+		for index, path in selectedFolders {
+			EmptySubFolder(activeDir, path)
 		}
 	}
 }
@@ -72,14 +73,12 @@ Return
 
 ~^+!/::
 EmptyAllSubFolders:
-if Explorer_IsActive() {
-	activeDir := Explorer_GetActivePath()
-	selectedFolders := Filesystem_ListDirs(activeDir)
-	if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
-		if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
-			for index, path in selectedFolders {
-				EmptySubFolder(activeDir, path)
-			}
+activeDir := Explorer_GetActivePath()
+selectedFolders := Filesystem_ListDirs(activeDir)
+if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
+	if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
+		for index, path in selectedFolders {
+			EmptySubFolder(activeDir, path)
 		}
 	}
 }

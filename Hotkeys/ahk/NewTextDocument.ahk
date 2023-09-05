@@ -24,15 +24,17 @@ SetTitleMatchMode RegEx
 #Include lib\Filesystem.ahk
 
 
+#If Explorer_IsActive()
+
+
 ;--------------------------------------------------------------------------------
 
 
 ~^+M::
 NewTextDocument:
-activeView := Explorer_GetActiveView()
-if activeView {
-	activeFolder := activeView.Folder.Self.Path
-	txtFile := Filesystem_GetUnusedFilename(activeFolder, "New Text Document", "txt")
+activeDir := Explorer_GetActivePath()
+if activeDir {
+	txtFile := Filesystem_GetUnusedFilename(activeDir, "New Text Document", "txt")
 	if txtFile {
 		Filesystem_CreateFile(txtFile)
 		Explorer_RenameItem(txtFile)

@@ -23,12 +23,15 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+#If Explorer_IsActive()
+
+
 ;--------------------------------------------------------------------------------
 
 
 ~Del::
 SelectNextFileAfterDelete:
-if Explorer_IsActive() && !Explorer_IsEnteringText() {
+if !Explorer_IsEnteringText() {
 	KeyWait Del
 	Send {Space}
 }

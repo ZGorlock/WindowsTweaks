@@ -28,6 +28,9 @@ BulkRenameUtilityExe() {
 }
 
 
+#If Explorer_IsActive()
+
+
 ;--------------------------------------------------
 
 

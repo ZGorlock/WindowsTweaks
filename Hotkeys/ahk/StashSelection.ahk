@@ -48,37 +48,36 @@ PlayCompletionSound() {
 }
 
 
+#If Explorer_IsActive()
+
+
 ;--------------------------------------------------------------------------------
 
 
 ~^S::
 CopySelectionToStash:
-if Explorer_IsActive() {
-	selectedFiles := Explorer_GetSelectedItemPathList()
-	stashDir := StashDir()
-	if selectedFiles && stashDir {
-		Filesystem_CreateDir(stashDir)
-		for index, path in selectedFiles {
-			Filesystem_Copy(path, stashDir)
-		}
-		;PlayCompletionSound()
+selectedFiles := Explorer_GetSelectedItemPathList()
+stashDir := StashDir()
+if selectedFiles && stashDir {
+	Filesystem_CreateDir(stashDir)
+	for index, path in selectedFiles {
+		Filesystem_Copy(path, stashDir)
 	}
+	;PlayCompletionSound()
 }
 Return
 
 
 ~^!S::
 MoveSelectionToStash:
-if Explorer_IsActive() {
-	selectedFiles := Explorer_GetSelectedItemPathList()
-	stashDir := StashDir()
-	if selectedFiles && stashDir {
-		Filesystem_CreateDir(stashDir)
-		for index, path in selectedFiles {
-			Filesystem_Move(path, stashDir)
-		}
-		;PlayCompletionSound()
+selectedFiles := Explorer_GetSelectedItemPathList()
+stashDir := StashDir()
+if selectedFiles && stashDir {
+	Filesystem_CreateDir(stashDir)
+	for index, path in selectedFiles {
+		Filesystem_Move(path, stashDir)
 	}
+	;PlayCompletionSound()
 }
 Return
 

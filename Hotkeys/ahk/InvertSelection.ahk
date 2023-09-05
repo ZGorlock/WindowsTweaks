@@ -23,6 +23,9 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+#If Explorer_IsActive()
+
+
 ;--------------------------------------------------------------------------------
 
 
