@@ -4,15 +4,23 @@
 
 
 #Include lib\Desktop.ahk
+#Include lib\Filesystem.ahk
+#Include lib\String.ahk
+
+
+Explorer_IsActive(includeDesktop:=FALSE) {
+	winClass := Desktop_GetActiveWindowClass()
+	pattern := (includeDesktop ? "Progman|WorkerW|" : "") . "(Cabinet|Explore)WClass"
+	Return String_RegexMatches(winClass, pattern)
+}
 
 
 Explorer_GetActiveView() {
-	winClass := Desktop_GetActiveWindowClass()
-	if !(winClass ~= "^(Progman|WorkerW|(Cabinet|Explore)WClass)$") {
+	if !Explorer_IsActive() {
 		Return
 	}
 	shellWindows := ComObjCreate("Shell.Application").Windows
-	if (winClass ~= "Progman|WorkerW") {
+	if (String_RegexMatches(Desktop_GetActiveWindowClass(), "Progman|WorkerW")) {
 		shellFolderView := shellWindows.Item(ComObject(VT_UI4 := 0x13, SWC_DESKTOP := 0x8)).Document
 	} else {
 		hWnd := Desktop_GetActiveWindowId()
@@ -31,54 +39,53 @@ Explorer_GetActivePath() {
 }
 
 
-Explorer_IsActive() {
-	Return Explorer_GetActiveView() ? true : false
-}
-
-
-Explorer_GetItemList() {
+Explorer_GetItemList(type:="") {
 	items := []
 	for item in Explorer_GetActiveView().Folder.Items {
-		items.Push(item)
+		if Filesystem_IsType(item.Path, type) {
+			items.Push(item)
+		}
 	}
 	Return items
 }
 
 
-Explorer_GetItemPathList() {
+Explorer_GetItemPathList(type:="") {
 	paths := []
-	for index, item in Explorer_GetItemList() {
+	for index, item in Explorer_GetItemList(type) {
 		paths.Push(item.Path)
 	}
 	Return paths
 }
 
 
-Explorer_CountItems() {
-	Return Explorer_GetItemList().Length()
+Explorer_CountItems(type:="") {
+	Return Explorer_GetItemList(type).Length()
 }
 
 
-Explorer_GetSelectedItemList() {
+Explorer_GetSelectedItemList(type:="") {
 	items := []
 	for item in Explorer_GetActiveView().SelectedItems {
-		items.Push(item)
+		if Filesystem_IsType(item.Path, type) {
+			items.Push(item)
+		}
 	}
 	Return items
 }
 
 
-Explorer_GetSelectedItemPathList() {
+Explorer_GetSelectedItemPathList(type:="") {
 	paths := []
-	for index, item in Explorer_GetSelectedItemList() {
+	for index, item in Explorer_GetSelectedItemList(type) {
 		paths.Push(item.Path)
 	}
 	Return paths
 }
 
 
-Explorer_CountSelectedItems() {
-	Return Explorer_GetSelectedItemList().Length()
+Explorer_CountSelectedItems(type:="") {
+	Return Explorer_GetSelectedItemList(type).Length()
 }
 
 
