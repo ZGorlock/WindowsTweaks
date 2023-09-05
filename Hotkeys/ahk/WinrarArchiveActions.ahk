@@ -28,6 +28,7 @@ SetTitleMatchMode RegEx
 
 
 #Include lib\Explorer.ahk
+#Include lib\String.ahk
 
 
 WinrarExe() {
@@ -36,7 +37,7 @@ WinrarExe() {
 
 
 Winrar_CheckFileIsArchive(ext) {
-	return (ext ~= "^(?i:rar|zip|cab|arj|lzh|tar|gz|zst|ace|uue|bz2|jar|iso|7z|z|zipx)$")
+	Return String_RegexMatches(ext, "rar|zip|cab|arj|lzh|tar|gz|zst|ace|uue|bz2|jar|iso|7z|z|zipx")
 }
 
 

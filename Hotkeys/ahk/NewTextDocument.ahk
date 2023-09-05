@@ -21,6 +21,7 @@ SetTitleMatchMode RegEx
 
 
 #Include lib\Explorer.ahk
+#Include lib\Filesystem.ahk
 
 
 ;--------------------------------------------------------------------------------
@@ -31,12 +32,11 @@ NewTextDocument:
 activeView := Explorer_GetActiveView()
 if activeView {
 	activeFolder := activeView.Folder.Self.Path
-	txtFile := activeFolder . "\New Text Document.txt"
-	while FileExist(txtFile) {
-		txtFile := activeFolder . "\New Text Document (" . (A_Index + 1) . ").txt"
+	txtFile := Filesystem_GetUnusedFilename(activeFolder, "New Text Document", "txt")
+	if txtFile {
+		Filesystem_CreateFile(txtFile)
+		Explorer_RenameItem(txtFile)
 	}
-	Filesystem_CreateFile(txtFile)
-	Explorer_RenameItem(txtFile)
 }
 Return
 
