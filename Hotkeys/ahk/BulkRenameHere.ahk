@@ -28,10 +28,10 @@ BulkRenameUtilityExe() {
 }
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 +F2::
@@ -42,6 +42,9 @@ if activePath {
 	Run "%exe%" "%activePath%"
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------

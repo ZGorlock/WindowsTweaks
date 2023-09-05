@@ -48,10 +48,10 @@ PlayCompletionSound() {
 }
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 ~^S::
@@ -80,6 +80,9 @@ if selectedFiles && stashDir {
 	;PlayCompletionSound()
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

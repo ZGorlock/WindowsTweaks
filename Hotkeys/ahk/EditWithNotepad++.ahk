@@ -29,10 +29,10 @@ NotepadPlusPlusExe() {
 }
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 F1::
@@ -43,6 +43,9 @@ if Filesystem_IsFile(selectedItemPath) {
 	Run "%exe%" "%selectedItemPath%"
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

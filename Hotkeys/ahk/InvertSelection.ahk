@@ -23,10 +23,10 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 ~^I::
@@ -36,6 +36,9 @@ if Explorer_IsActive() {
 	Send !HSI
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

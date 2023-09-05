@@ -23,10 +23,10 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 ~Del::
@@ -36,6 +36,9 @@ if !Explorer_IsEnteringText() {
 	Send {Space}
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

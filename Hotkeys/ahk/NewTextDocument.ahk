@@ -24,10 +24,10 @@ SetTitleMatchMode RegEx
 #Include lib\Filesystem.ahk
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 ~^+M::
@@ -41,6 +41,9 @@ if activeDir {
 	}
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

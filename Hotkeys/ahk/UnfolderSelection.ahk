@@ -51,10 +51,10 @@ UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
 }
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 ~^+/::
@@ -83,6 +83,9 @@ if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
 	}
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

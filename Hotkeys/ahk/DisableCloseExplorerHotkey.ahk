@@ -23,10 +23,10 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
-#If Explorer_IsActive()
-
-
 ;--------------------------------------------------------------------------------
+
+
+#If Explorer_IsActive()
 
 
 $^W::
@@ -35,6 +35,9 @@ if !Explorer_IsActive() {
 	Send ^w
 }
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------
