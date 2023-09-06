@@ -1,0 +1,16 @@
+Launch: Windows Defender Firewall
+Click: Advanced settings
+Click: Inbound Rules
+
+Create a backup of the HNS Container Networking rules:
+	Rename one instance of: 
+			"HNS Container Networking - DNS (UDP-In) - <UUID> - 0"  
+		to:	"HNS Container Networking - Manual - DNS (UDP-In)"
+	Rename one instance of: 
+			"HNS Container Networking - ICS DNS (TCP-In) - <UUID> - 0" 
+		to:	"HNS Container Networking - Manual - ICS DNS (TCP-In)"
+
+Run 'delete hns container networking firewall rules.ps1' as Admin
+
+
+//https://answers.microsoft.com/en-us/windows/forum/all/when-is-microsoft-going-to-issue-a-fix-for-hns/ab54a12d-dc6c-44c2-a4d8-9c4a2df498a5
