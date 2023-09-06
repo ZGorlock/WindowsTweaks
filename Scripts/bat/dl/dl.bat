@@ -8,8 +8,12 @@ echo.
 echo --------------------------------------------------
 echo.
 
-if %url%==""      (goto :end)
-if %url%=="start" (goto :listen)
+if %url%==""       (goto :end)
+if %url%=="start"  (goto :listen)
+if %url%=="server" (goto :listen)
+if %url%=="listen" (goto :listen)
+if %url%=="pop"    (goto :open)
+if %url%=="open"   (goto :open)
 
 call :download
 goto :end
@@ -51,6 +55,14 @@ goto :end
 	echo.
 	
 	goto :listen
+
+
+:open
+	if not exist %out% (mkdir %out%)
+	
+	explorer %out%
+	
+	goto :end
 
 
 :end
