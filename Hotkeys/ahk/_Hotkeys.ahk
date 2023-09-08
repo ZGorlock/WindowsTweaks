@@ -31,7 +31,17 @@
 ;                    ;                                                          ;
 ; $Ctrl+W            ; Disables the 'Close Window' shortcut in Explorer         ;
 ;                    ;                                                          ;
-; ~Ctrl+Alt+Numpad#  ; Runs the custom macro defined for Numpad0, ..., Numpad9  ;
+; ~Ctrl+Alt+Numpad0  ; Executes CustomMacro_0.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad1  ; Executes CustomMacro_1.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad2  ; Executes CustomMacro_2.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad3  ; Executes CustomMacro_3.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad4  ; Executes CustomMacro_4.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad5  ; Executes CustomMacro_5.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad6  ; Executes CustomMacro_6.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad7  ; Executes CustomMacro_7.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad8  ; Executes CustomMacro_8.bat accessible on the system path ;
+; ~Ctrl+Alt+Numpad9  ; Executes CustomMacro_9.bat accessible on the system path ;
+; Ctrl+Alt+NumpadAdd ; Executes CustomMacro_+.bat accessible on the system path ;
 ;--------------------------------------------------------------------------------
 
 
