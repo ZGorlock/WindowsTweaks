@@ -1,3 +1,8 @@
+SysInternals Suite:
+	A collection of utilities to help you manage, troubleshoot and diagnose your Windows and Linux systems and applications
+	Made by Mark Russinovich
+	https://learn.microsoft.com/en-us/sysinternals/downloads/
+
 MajorGeeks Windows Tweaks:
 	A collection of Windows tweaks by MajorGeeks
 	Made by MajorGeeks
