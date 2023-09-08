@@ -3,7 +3,7 @@ MajorGeeks Windows Tweaks:
 	Made by MajorGeeks
 	https://www.majorgeeks.com/files/details/majorgeeks_registry_tweaks.html
 
-Navigate to 'Other\MajorGeeks Windows Tweaks'
-Browse for desired tweak
-	Open the html file for a tutorial from MajorGeeks
-	Run the script to apply the tweak
+Winaero Tools:
+	A collection of apps created by the Winaero project
+	Made by Sergey Tkachenko
+	https://winaero.com/winaero-apps/
