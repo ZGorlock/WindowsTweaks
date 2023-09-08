@@ -3,6 +3,12 @@ MajorGeeks Windows Tweaks:
 	Made by MajorGeeks
 	https://www.majorgeeks.com/files/details/majorgeeks_registry_tweaks.html
 
+NirSoft Tools:
+	A unique collection of small and useful freeware utilities
+	Warning: Password protected because antivirus keeps quarantining files, (password in file name)
+	Made by Nir Sofer
+	https://www.nirsoft.net/system_tools.html
+
 Winaero Tools:
 	A collection of apps created by the Winaero project
 	Made by Sergey Tkachenko
