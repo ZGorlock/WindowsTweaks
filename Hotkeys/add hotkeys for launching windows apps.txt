@@ -1,0 +1,14 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'LaunchWindowsApps.ahk'
+
+This will add the following hotkeys:
+	
+	|--------------------|----------------------------------------------------------|
+	| Ctrl+Alt+Numpad[.] | Starts the Windows Snip & Sketch tool                    |
+	| Ctrl+Alt+Numpad[+] | Starts the Windows Calculator app                        |
+	| Ctrl+Alt+Numpad[/] | Starts the Windows Calendar app                          |
+	| Ctrl+Alt+Numpad[*] | Starts the Windows Mail app                              |
+	| Ctrl+Alt+Numpad[-] | Starts the Microsoft To Do app                           |
+	|--------------------|----------------------------------------------------------|

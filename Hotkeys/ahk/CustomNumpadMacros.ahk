@@ -11,7 +11,6 @@
 ; ~Ctrl+Alt+Numpad7  ; Executes CustomMacro_7.bat accessible on the system path ;
 ; ~Ctrl+Alt+Numpad8  ; Executes CustomMacro_8.bat accessible on the system path ;
 ; ~Ctrl+Alt+Numpad9  ; Executes CustomMacro_9.bat accessible on the system path ;
-; Ctrl+Alt+NumpadAdd ; Executes CustomMacro_+.bat accessible on the system path ;
 ;--------------------------------------------------------------------------------
 
 
@@ -28,9 +27,6 @@ SetTitleMatchMode RegEx
 
 
 ;--------------------------------------------------------------------------------
-
-
-#Include lib\Explorer.ahk
 
 
 CustomMacroBat(id) {
@@ -114,13 +110,6 @@ Return
 CustomMacro9:
 KeyWait Numpad9
 RunCustomMacro(9)
-Return
-
-
-^!NumpadAdd::
-CustomMacroPlus:
-KeyWait NumpadAdd
-RunCustomMacro("+")
 Return
 
 

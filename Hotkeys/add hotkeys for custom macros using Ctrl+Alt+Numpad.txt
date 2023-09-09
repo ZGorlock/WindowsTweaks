@@ -16,7 +16,6 @@ This will add the following hotkeys:
 	| ~Ctrl+Alt+Numpad7  | Executes CustomMacro_7.bat accessible on the system path |
 	| ~Ctrl+Alt+Numpad8  | Executes CustomMacro_8.bat accessible on the system path |
 	| ~Ctrl+Alt+Numpad9  | Executes CustomMacro_9.bat accessible on the system path |
-	| Ctrl+Alt+NumpadAdd | Executes CustomMacro_+.bat accessible on the system path |
 	|--------------------|----------------------------------------------------------|
 
 To define custom macros:
@@ -31,5 +30,4 @@ To define custom macros:
 		'CustomMacro_7.bat'
 		'CustomMacro_8.bat'
 		'CustomMacro_9.bat'
-		'CustomMacro_+.bat'
 	Place these bat files in a location that is accessible on the system path
