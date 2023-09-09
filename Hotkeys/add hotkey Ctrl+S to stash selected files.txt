@@ -13,5 +13,5 @@ This will add the following hotkeys:
 To define the stash location:
 	Edit the User Environment Variables
 	Add a new variable:
-		Set the name to: "STASH_DIR"
+		Set the name to: "StashDir"
 		Set the value to the path you want to serve as the stash location: "C:\Users\User\Stash"

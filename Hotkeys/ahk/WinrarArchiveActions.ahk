@@ -8,7 +8,7 @@
 ; ~Ctrl+Shift+Alt+I  ; Add selected file to winrar gzip archive and delete      ;
 ;                    ;                                                          ;
 ; ~Ctrl+Shift+O      ; Extract selected winrar archive                          ;
-; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete (NOT WORKING) ;
+; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete               ;
 ;--------------------------------------------------------------------------------
 
 
@@ -28,6 +28,7 @@ SetTitleMatchMode RegEx
 
 
 #Include lib\Explorer.ahk
+#Include lib\Filesystem.ahk
 #Include lib\String.ahk
 
 
@@ -98,7 +99,7 @@ if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	if Winrar_CheckFileIsArchive(ext) {
 		exe := WinrarExe()
-		Run "%exe%" x "%selectedItemPath%" -ibck "%dir%"
+		RunWait "%exe%" x "%selectedItemPath%" -ibck "%dir%"
 	}
 }
 Return
@@ -111,7 +112,10 @@ if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	if Winrar_CheckFileIsArchive(ext) {
 		exe := WinrarExe()
-		Run "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
+		RunWait "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
+		if Filesystem_FileExists(selectedItemPath) {
+			Filesystem_RecycleFile(selectedItemPath)
+		}
 	}
 }
 Return

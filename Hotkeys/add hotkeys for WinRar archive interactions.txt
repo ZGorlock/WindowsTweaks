@@ -13,7 +13,7 @@ This will add the following hotkeys:
 	| ~Ctrl+Shift+Alt+I  | Add selected file to winrar gzip archive and delete      |
 	|                    |                                                          |
 	| ~Ctrl+Shift+O      | Extract selected winrar archive                          |
-	| ~Ctrl+Shift+Alt+O  | Extract selected winrar archive and delete (NOT WORKING) |
+	| ~Ctrl+Shift+Alt+O  | Extract selected winrar archive and delete               |
 	|--------------------|----------------------------------------------------------|
 
 This assumes you have WinRAR installed at: 'C:\Program Files\WinRAR'

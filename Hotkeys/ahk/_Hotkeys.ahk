@@ -17,7 +17,7 @@
 ; ~Ctrl+Shift+I      ; Add selected file to winrar gzip archive                 ;
 ; ~Ctrl+Shift+Alt+I  ; Add selected file to winrar gzip archive and delete      ;
 ; ~Ctrl+Shift+O      ; Extract selected winrar archive                          ;
-; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete (NOT WORKING) ;
+; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete               ;
 ;                    ;                                                          ;
 ; ~Ctrl+S            ; Copy the selected file(s) to the defined stash location  ;
 ; ~Ctrl+Alt+S        ; Move the selected file(s) to the defined stash location  ;

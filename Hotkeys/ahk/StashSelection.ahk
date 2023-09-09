@@ -27,7 +27,7 @@ SetTitleMatchMode RegEx
 
 
 StashDir() {
-	EnvGet, stashDir, STASH_DIR
+	EnvGet, stashDir, StashDir
 	if stashDir {
 		stashDir := stashDir . "\"
 		stashDir := RegExReplace(stashDir, "[\\/]+", "\")
