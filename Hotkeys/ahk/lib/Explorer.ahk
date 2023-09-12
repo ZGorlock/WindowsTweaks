@@ -8,10 +8,13 @@
 #Include lib\String.ahk
 
 
-Explorer_IsActive(includeDesktop:=FALSE) {
-	winClass := Desktop_GetActiveWindowClass()
-	pattern := (includeDesktop ? "Progman|WorkerW|" : "") . "(Cabinet|Explore)WClass"
-	Return String_RegexMatches(winClass, pattern)
+Explorer_IsActive() {
+	Return String_RegexMatches(Desktop_GetActiveWindowClass(), "(Cabinet|Explore)WClass")
+}
+
+
+Explorer_OnDesktop() {
+	Return String_RegexMatches(Desktop_GetActiveWindowClass(), "Progman|WorkerW")
 }
 
 
@@ -19,9 +22,10 @@ Explorer_GetActiveView() {
 	if !Explorer_IsActive() {
 		Return
 	}
+	
 	shellWindows := ComObjCreate("Shell.Application").Windows
 	if (String_RegexMatches(Desktop_GetActiveWindowClass(), "Progman|WorkerW")) {
-		shellFolderView := shellWindows.Item(ComObject(VT_UI4 := 0x13, SWC_DESKTOP := 0x8)).Document
+		shellFolderView := shellWindows.Item(ComObject((VT_UI4 := 0x13), (SWC_DESKTOP := 0x8))).Document
 	} else {
 		hWnd := Desktop_GetActiveWindowId()
 		for window in shellWindows {
@@ -30,6 +34,7 @@ Explorer_GetActiveView() {
 			}
 		}
 	}
+	
     Return shellFolderView
 }
 
@@ -112,7 +117,7 @@ Explorer_RenameItem(itemPath) {
 
 Explorer_IsEnteringText() {
 	vCtlClassNN := Desktop_GetFocusedControlClass()
-	Return (SubStr(vCtlClassNN, 1, 4) = "Edit") || (SubStr(vCtlClassNN, 1, 26) = "Windows.UI.Core.CoreWindow")
+	Return String_StartsWith(vCtlClassNN, "Edit") || String_StartsWith(vCtlClassNN, "Windows.UI.Core.CoreWindow")
 }
 
 

@@ -23,18 +23,21 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+InvertSelection_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If InvertSelection_IsActive()
 
 
 ~^I::
 InvertSelection:
-if Explorer_IsActive() {
-	KeyWait Ctrl
-	Send !HSI
-}
+KeyWait Ctrl
+Send !HSI
 Return
 
 

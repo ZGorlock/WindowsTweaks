@@ -23,6 +23,11 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+BulkRenameHere_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 BulkRenameUtilityExe() {
 	Return "C:\Program Files\Bulk Rename Utility\Bulk Rename Utility.exe"
 }
@@ -31,7 +36,7 @@ BulkRenameUtilityExe() {
 ;--------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If BulkRenameHere_IsActive()
 
 
 +F2::

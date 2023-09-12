@@ -29,6 +29,11 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
+CustomNumpadMacros_IsActive() {
+	Return TRUE
+}
+
+
 CustomMacroBat(id) {
 	Return "CustomMacro_" . id . ".bat"
 }
@@ -41,6 +46,9 @@ RunCustomMacro(id) {
 
 
 ;--------------------------------------------------------------------------------
+
+
+#If CustomNumpadMacros_IsActive()
 
 
 ~^!Numpad0::
@@ -111,6 +119,9 @@ CustomMacro9:
 KeyWait Numpad9
 RunCustomMacro(9)
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

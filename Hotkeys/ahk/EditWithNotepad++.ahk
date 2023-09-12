@@ -24,6 +24,11 @@ SetTitleMatchMode RegEx
 #Include lib\Filesystem.ahk
 
 
+EditWithNotepadPlusPlus_IsActive() {
+	Return Explorer_IsActive() || Explorer_OnDesktop()
+}
+
+
 NotepadPlusPlusExe() {
 	Return "C:\Program Files\Notepad++\notepad++.exe"
 }
@@ -32,7 +37,7 @@ NotepadPlusPlusExe() {
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If EditWithNotepadPlusPlus_IsActive()
 
 
 F1::

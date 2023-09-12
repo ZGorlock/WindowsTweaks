@@ -24,6 +24,11 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
+LaunchWindowsApps_IsActive() {
+	Return TRUE
+}
+
+
 WindowsSnipAndSketchUri() {
 	Return "ms-screenclip:"
 }
@@ -55,6 +60,9 @@ LaunchWindowsApp(uri) {
 
 
 ;--------------------------------------------------------------------------------
+
+
+#If LaunchWindowsApps_IsActive()
 
 
 ^!NumpadDot::
@@ -95,6 +103,9 @@ KeyWait NumpadSub
 uri := MicrosoftToDoUri()
 LaunchWindowsApp(uri)
 Return
+
+
+#If
 
 
 ;--------------------------------------------------------------------------------

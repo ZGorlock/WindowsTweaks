@@ -23,10 +23,15 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+DisableCloseExplorerHotkey_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If DisableCloseExplorerHotkey_IsActive()
 
 
 $^W::

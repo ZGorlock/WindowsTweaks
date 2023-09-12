@@ -32,6 +32,11 @@ SetTitleMatchMode RegEx
 #Include lib\String.ahk
 
 
+WinrarArchiveActions_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 WinrarExe() {
 	Return "C:\Program Files\WinRAR\WinRAR.exe"
 }
@@ -45,7 +50,7 @@ Winrar_CheckFileIsArchive(ext) {
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If WinrarArchiveActions_IsActive()
 
 
 ~^+P::

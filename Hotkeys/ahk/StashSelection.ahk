@@ -26,6 +26,11 @@ SetTitleMatchMode RegEx
 #Include lib\Sound.ahk
 
 
+StashSelection_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 StashDir() {
 	EnvGet, stashDir, StashDir
 	if stashDir {
@@ -51,7 +56,7 @@ PlayCompletionSound() {
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If StashSelection_IsActive()
 
 
 ~^S::

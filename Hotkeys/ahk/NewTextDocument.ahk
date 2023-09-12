@@ -24,10 +24,15 @@ SetTitleMatchMode RegEx
 #Include lib\Filesystem.ahk
 
 
+NewTextDocument_IsActive() {
+	Return Explorer_IsActive() || Explorer_OnDesktop()
+}
+
+
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If NewTextDocument_IsActive()
 
 
 ~^+M::

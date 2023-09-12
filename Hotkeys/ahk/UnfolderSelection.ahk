@@ -27,6 +27,11 @@ SetTitleMatchMode RegEx
 #Include lib\String.ahk
 
 
+UnfolderSelection_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 EmptySubFolder(activeDir, subDir) {
 	subFiles := Filesystem_ListFiles(subDir)
 	for subIndex, subPath in subFiles {
@@ -54,7 +59,7 @@ UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If UnfolderSelection_IsActive()
 
 
 ~^+/::

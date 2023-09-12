@@ -24,6 +24,11 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+CommandPromptHere_IsActive() {
+	Return Explorer_IsActive() || Explorer_OnDesktop()
+}
+
+
 CmdExe() {
 	Return "C:\Windows\System32\cmd.exe"
 }
@@ -32,7 +37,7 @@ CmdExe() {
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If CommandPromptHere_IsActive()
 
 
 ~^+C::

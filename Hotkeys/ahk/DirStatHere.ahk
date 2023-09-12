@@ -23,6 +23,11 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+DirStatHere_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 WinDirStatExe() {
 	Return "C:\Program Files (x86)\WinDirStat\windirstat.exe"
 }
@@ -31,7 +36,7 @@ WinDirStatExe() {
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If DirStatHere_IsActive()
 
 
 +F3::

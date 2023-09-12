@@ -23,10 +23,15 @@ SetTitleMatchMode RegEx
 #Include lib\Explorer.ahk
 
 
+SelectNextFileAfterDelete_IsActive() {
+	Return Explorer_IsActive()
+}
+
+
 ;--------------------------------------------------------------------------------
 
 
-#If Explorer_IsActive()
+#If SelectNextFileAfterDelete_IsActive()
 
 
 ~Del::
