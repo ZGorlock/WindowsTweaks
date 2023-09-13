@@ -1,14 +1,14 @@
 ;--------------------------------------------------------------------------------
 ; WinrarArchiveActions.ahk
 ;--------------------------------------------------------------------------------
-; ~Ctrl+Shift+P      ; Add selected file to winrar rar archive                  ;
-; ~Ctrl+Shift+Alt+P  ; Add selected file to winrar rar archive and delete       ;
+; Ctrl+Shift+P       ; Add selected file to winrar rar archive                  ;
+; Ctrl+Shift+Alt+P   ; Add selected file to winrar rar archive and delete       ;
 ;                    ;                                                          ;
-; ~Ctrl+Shift+I      ; Add selected file to winrar gzip archive                 ;
-; ~Ctrl+Shift+Alt+I  ; Add selected file to winrar gzip archive and delete      ;
+; Ctrl+Shift+I       ; Add selected file to winrar gzip archive                 ;
+; Ctrl+Shift+Alt+I   ; Add selected file to winrar gzip archive and delete      ;
 ;                    ;                                                          ;
-; ~Ctrl+Shift+O      ; Extract selected winrar archive                          ;
-; ~Ctrl+Shift+Alt+O  ; Extract selected winrar archive and delete               ;
+; Ctrl+Shift+O       ; Extract selected winrar archive                          ;
+; Ctrl+Shift+Alt+O   ; Extract selected winrar archive and delete               ;
 ;--------------------------------------------------------------------------------
 
 

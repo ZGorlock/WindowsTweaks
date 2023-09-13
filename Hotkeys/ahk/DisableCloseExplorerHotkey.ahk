@@ -1,7 +1,7 @@
 ;--------------------------------------------------------------------------------
 ; DisableCloseExplorerHotkey.ahk
 ;--------------------------------------------------------------------------------
-; $Ctrl+W            ; Disables the 'Close Window' shortcut in Explorer         ;
+; Ctrl+W             ; Disables the 'Close Window' shortcut in Explorer         ;
 ;--------------------------------------------------------------------------------
 
 

@@ -1,8 +1,8 @@
 ;--------------------------------------------------------------------------------
 ; UnfolderSelection.ahk
 ;--------------------------------------------------------------------------------
-; ~Ctrl+Shift+/      ; Empty selected sub-folder(s) into the current directory  ;
-; ~Ctrl+Shift+Alt+/  ; Empty all sub-folders into the current directory         ;
+; Ctrl+Shift+/       ; Empty selected sub-folder(s) into the current directory  ;
+; Ctrl+Shift+Alt+/   ; Empty all sub-folders into the current directory         ;
 ;--------------------------------------------------------------------------------
 
 

@@ -6,7 +6,7 @@ Run 'NewTextDocument.ahk'
 This will add the following hotkeys:
 	
 	|--------------------|----------------------------------------------------------|
-	| ~Ctrl+Shift+M      | Create new .txt document in current directory            |
+	| Ctrl+Shift+M       | Create new .txt document in current directory            |
 	|--------------------|----------------------------------------------------------|
 
 

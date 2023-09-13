@@ -1,8 +1,8 @@
 ;--------------------------------------------------------------------------------
 ; StashSelection.ahk
 ;--------------------------------------------------------------------------------
-; ~Ctrl+S            ; Copy the selected file(s) to the defined stash location  ;
-; ~Ctrl+Alt+S        ; Move the selected file(s) to the defined stash location  ;
+; Ctrl+S             ; Copy the selected file(s) to the defined stash location  ;
+; Ctrl+Alt+S         ; Move the selected file(s) to the defined stash location  ;
 ;--------------------------------------------------------------------------------
 
 

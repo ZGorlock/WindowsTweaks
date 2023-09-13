@@ -1,8 +1,8 @@
 ;--------------------------------------------------------------------------------
 ; CommandPromptHere.ahk
 ;--------------------------------------------------------------------------------
-; ~Ctrl+Shift+C      ; Open command prompt in current directory                 ;
-; ~Ctrl+Shift+Alt+C  ; Open command prompt in current directory as Admin        ;
+; Ctrl+Shift+C       ; Open command prompt in current directory                 ;
+; Ctrl+Shift+Alt+C   ; Open command prompt in current directory as Admin        ;
 ;--------------------------------------------------------------------------------
 
 
