@@ -20,6 +20,16 @@ Array_Contains(arr, search) {
 }
 
 
+Array_GetFirst(arr) {
+	Return arr[1]
+}
+
+
+Array_GetLast(arr) {
+	Return arr[Array_Length(arr)]
+}
+
+
 Array_Length(arr) {
 	Return arr.Length()
 }
@@ -32,6 +42,15 @@ Array_IsEmpty(arr) {
 
 Array_IsNotEmpty(arr) {
 	Return !Array_IsEmpty(arr)
+}
+
+
+Array_Reverse(arr) {
+	reversed := []
+	for index, element in arr {
+		reversed.InsertAt(1, element)
+	}
+	Return reversed
 }
 
 

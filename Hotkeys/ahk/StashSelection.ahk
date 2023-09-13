@@ -21,13 +21,21 @@ SetTitleMatchMode RegEx
 ;--------------------------------------------------------------------------------
 
 
+#Include lib\Array.ahk
+#Include lib\Desktop.ahk
 #Include lib\Explorer.ahk
 #Include lib\Filesystem.ahk
 #Include lib\Sound.ahk
+#Include lib\String.ahk
 
 
 StashSelection_IsActive() {
-	Return Explorer_IsActive()
+	Return Explorer_IsActive() || ImageGlass_IsActive()
+}
+
+
+ImageGlass_IsActive() {
+	Return String_Equals(Desktop_GetActiveWindowProcessName(), "ImageGlass.exe")
 }
 
 
@@ -39,6 +47,28 @@ StashDir() {
 		Return stashDir
 	}
 	Return
+}
+
+
+GetStashSelection() {
+	selection := []
+	if Explorer_IsActive() {
+		selection := Explorer_GetSelectedItemPathList()
+		
+	} else if ImageGlass_IsActive() {
+		title := Desktop_GetActiveWindowTitle()
+		imageName := String_Trim(String_LSnip(title, String_IndexOf(title, "|") - 1))
+		
+		pid := Desktop_GetActiveWindowProcessId()
+		fileHandles := Desktop_GetFileHandles(pid)
+		imagePath := Array_GetFirst(fileHandles)
+		
+		image := imagePath . "\" . imageName
+		if Filesystem_FileExists(image) {
+			selection.Push(image)
+		}
+	}
+	Return selection
 }
 
 
@@ -59,9 +89,9 @@ PlayCompletionSound() {
 #If StashSelection_IsActive()
 
 
-~^S::
+^S::
 CopySelectionToStash:
-selectedFiles := Explorer_GetSelectedItemPathList()
+selectedFiles := GetStashSelection()
 stashDir := StashDir()
 if selectedFiles && stashDir {
 	Filesystem_CreateDir(stashDir)
@@ -73,9 +103,9 @@ if selectedFiles && stashDir {
 Return
 
 
-~^!S::
+^!S::
 MoveSelectionToStash:
-selectedFiles := Explorer_GetSelectedItemPathList()
+selectedFiles := GetStashSelection()
 stashDir := StashDir()
 if selectedFiles && stashDir {
 	Filesystem_CreateDir(stashDir)
