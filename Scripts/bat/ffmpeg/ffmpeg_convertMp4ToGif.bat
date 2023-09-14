@@ -21,7 +21,6 @@ goto :end
 	set fn=%~n1
 	
 	set mp4="!fn!.mp4"
-	set png="!fn!.png"
 	set gif="!fn!.gif"
 	
 	echo.
@@ -33,25 +32,24 @@ goto :end
 		echo Converting: !mp4!
 		echo         to: !gif!
 		
-		set filter=fps=25,scale=-1:-1:flags=lanczos
+		set "frate=fps=20"
+REM		set "frate=mpdecimate,setpts=N/FRAME_RATE/TB"
 		
-		set ffmpeg_cmd_1=ffmpeg -hide_banner -i !mp4! -vf "!filter!,palettegen" -y !png!
+REM		set "scale=scale=-1:-1:flags=lanczos"
+		set "scale=scale=if(gte(iw\,ih)\,min(1280\,iw)\,-2):if(lt(iw\,ih)\,min(1280\,ih)\,-2):flags=lanczos"
 		
-		set ffmpeg_cmd_2=ffmpeg -hide_banner -i !mp4! -i !png! -lavfi "!filter! [x]; [x][1:v] paletteuse" -y !gif!
+		set "split=split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse"
+		set filter=!frate!,!scale!,!split!
+		
+		set ffmpeg_cmd=ffmpeg -hide_banner -i !mp4! -vf "!filter!" -loop 0 -y !gif!
 		
 		echo.
-		echo !ffmpeg_cmd_1!
-		echo.
-		echo !ffmpeg_cmd_2!
+		echo !ffmpeg_cmd!
 		echo.
 		echo --------------------------------------------------
 		echo.
 		
-		!ffmpeg_cmd_1!
-		
-		!ffmpeg_cmd_2!
-		
-		del !png!
+		!ffmpeg_cmd!
 		
 	) else (
 		echo !mp4! does not exist
