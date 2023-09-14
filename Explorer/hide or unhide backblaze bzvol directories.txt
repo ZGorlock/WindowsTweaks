@@ -1,0 +1,17 @@
+This is to hide the Backblaze .bzvol directories in the root of each drive
+	The .bzvol directories are normally hidden files
+	But they will still be visible if you have set in Folder View Options:
+		"Hidden files and folders": "Show hidden files, folders, and drives"
+	
+	To hide them while continuing to see other hidden files, they can be marked as system files
+	Then they will be hidden as long as you have set in Folder View Options:
+		"Hide protected operating system files (Recommended)"
+
+Edit 'hide or unhide backblaze bzvol directories.bat'
+	To hide the .bzvol directories:
+		Remove the "REM" from the line below the line "REM [Hide]"
+	To unhide the .bzvol directories:
+		Replace the "REM" on the line below the line "REM [Hide]"
+		Remove the "REM" from the line below the line "REM [Unhide]"
+
+Run 'hide or unhide backblaze bzvol directories.bat'
