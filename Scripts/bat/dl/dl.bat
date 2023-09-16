@@ -2,7 +2,13 @@
 setlocal
 
 set url="%~1"
+
 set out="%~2"
+if '%out%'=='' (set "out=%DLOutput%")
+if '%out%'=='' (set "out=%Downloads%\.dl")
+if '%out%'=='' (set "out=%UserProfile%\Downloads\.dl")
+
+set env=dl
 
 echo.
 echo --------------------------------------------------
@@ -30,6 +36,8 @@ goto :end
 	if not exist %out% (mkdir %out%)
 	cd /D %out%
 	
+	if not '%env%'=='' (call conda activate %env%)
+	
 	if "%video%"=="true" (
 		echo Using yt-dlp...
 		yt-dlp -f mp4 -S res:720 %url%
@@ -37,6 +45,8 @@ goto :end
 		echo Using gallery-dl...
 		gallery-dl --verbose --dest %out% %url%
 	)
+	
+	if not '%env%'=='' (call conda deactivate)
 	
 	exit /b 0
 
