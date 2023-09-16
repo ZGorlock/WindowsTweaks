@@ -9,19 +9,25 @@ echo --------------------
 
 set url=https://use1-wap.tplinkcloud.com
 
-set username=%~1
-set password=%~2
+set toggle=%~1
 
-set uuid=%~3
-set deviceId=%~4
+set deviceId=%~2
 
-set toggle=%~5
+set username=%~3
+if '%username%'=='' (set username=%TPLinkUser%)
+
+set password=%~4
+if '%password%'=='' (set password=%TPLinkPass%)
+
+set uuid=%~5
+if '%uuid%'=='' (set uuid=%TPLinkUUID%)
 
 echo url          = %url%
+echo toggle       = %toggle%
+echo deviceId     = %deviceId%
 echo username     = %username%
 echo password     = %password%
 echo uuid         = %uuid%
-echo toggle       = %toggle%
 
 if "%toggle%"=="off" (set state=0) else (set state=1)
 
