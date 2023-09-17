@@ -44,7 +44,7 @@ DirStatHere:
 activePath := Explorer_GetActivePath()
 if activePath {
 	exe := WinDirStatExe()
-	Run "%exe%" "%activePath%"
+	Try Run "%exe%" "%activePath%"
 }
 Return
 

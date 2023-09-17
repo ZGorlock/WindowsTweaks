@@ -45,7 +45,7 @@ EditWithNotepad++:
 selectedItemPath := Explorer_GetSelectedItemPath()
 if Filesystem_IsFile(selectedItemPath) {
 	exe := NotepadPlusPlusExe()
-	Run "%exe%" "%selectedItemPath%"
+	Try Run "%exe%" "%selectedItemPath%"
 }
 Return
 

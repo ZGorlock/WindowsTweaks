@@ -59,7 +59,7 @@ selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	exe := WinrarExe()
-	Run "%exe%" a "%dir%\%nameNoExt%.rar" -m5 -ep1 -ibck "%selectedItemPath%"
+	Try Run "%exe%" a "%dir%\%nameNoExt%.rar" -m5 -ep1 -ibck "%selectedItemPath%"
 }
 Return
 
@@ -70,7 +70,7 @@ selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	exe := WinrarExe()
-	Run "%exe%" a "%dir%\%nameNoExt%.rar" -m5 -ep1 -df -dr -ibck "%selectedItemPath%"
+	Try Run "%exe%" a "%dir%\%nameNoExt%.rar" -m5 -ep1 -df -dr -ibck "%selectedItemPath%"
 }
 Return
 
@@ -81,7 +81,7 @@ selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	exe := WinrarExe()
-	Run "%exe%" a "%dir%\%nameNoExt%.%ext%.gz" -m5 -ep1 -ibck "%selectedItemPath%"
+	Try Run "%exe%" a "%dir%\%nameNoExt%.%ext%.gz" -m5 -ep1 -ibck "%selectedItemPath%"
 }
 Return
 
@@ -92,7 +92,7 @@ selectedItemPath := Explorer_GetSelectedItemPath()
 if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	exe := WinrarExe()
-	Run "%exe%" a "%dir%\%nameNoExt%.%ext%.gz" -m5 -ep1 -df -dr -ibck "%selectedItemPath%"
+	Try Run "%exe%" a "%dir%\%nameNoExt%.%ext%.gz" -m5 -ep1 -df -dr -ibck "%selectedItemPath%"
 }
 Return
 
@@ -104,7 +104,7 @@ if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	if Winrar_CheckFileIsArchive(ext) {
 		exe := WinrarExe()
-		RunWait "%exe%" x "%selectedItemPath%" -ibck "%dir%"
+		Try RunWait "%exe%" x "%selectedItemPath%" -ibck "%dir%"
 	}
 }
 Return
@@ -117,7 +117,7 @@ if selectedItemPath {
 	SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
 	if Winrar_CheckFileIsArchive(ext) {
 		exe := WinrarExe()
-		RunWait "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
+		Try RunWait "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
 		if Filesystem_FileExists(selectedItemPath) {
 			Filesystem_RecycleFile(selectedItemPath)
 		}

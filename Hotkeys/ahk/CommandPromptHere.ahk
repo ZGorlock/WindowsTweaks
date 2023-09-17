@@ -45,7 +45,7 @@ CommandPromptHere:
 activePath := Explorer_GetActivePath()
 if activePath {
 	exe := CmdExe()
-	Run "%exe%" /k cd /d "%activePath%"
+	Try Run "%exe%" /k cd /d "%activePath%"
 }
 Return
 
@@ -55,7 +55,7 @@ AdminCommandPromptHere:
 activePath := Explorer_GetActivePath()
 if activePath {
 	exe := CmdExe()
-	Run *RunAs "%exe%" /k cd /d "%activePath%"
+	Try Run *RunAs "%exe%" /k cd /d "%activePath%"
 }
 Return
 

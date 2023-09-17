@@ -44,7 +44,7 @@ BulkRenameHere:
 activePath := Explorer_GetActivePath()
 if activePath {
 	exe := BulkRenameUtilityExe()
-	Run "%exe%" "%activePath%"
+	Try Run "%exe%" "%activePath%"
 }
 Return
 
