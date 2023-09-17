@@ -1,3 +1,3 @@
 @echo off
 
-start chrome https://view.wyze.com/live
+start firefox https://view.wyze.com/live
