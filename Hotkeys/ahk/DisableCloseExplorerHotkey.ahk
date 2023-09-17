@@ -34,11 +34,8 @@ DisableCloseExplorerHotkey_IsActive() {
 #If DisableCloseExplorerHotkey_IsActive()
 
 
-$^W::
+^W::
 DisableCloseExplorerHotkey:
-if !Explorer_IsActive() {
-	Send ^w
-}
 Return
 
 

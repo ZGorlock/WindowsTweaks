@@ -51,72 +51,92 @@ RunCustomMacro(id) {
 #If CustomNumpadMacros_IsActive()
 
 
-~^!Numpad0::
+^!Numpad0::
+^!NumpadIns::
 CustomMacro0:
 KeyWait Numpad0
+KeyWait NumpadIns
 RunCustomMacro(0)
 Return
 
 
-~^!Numpad1::
+^!Numpad1::
+^!NumpadEnd::
 CustomMacro1:
 KeyWait Numpad1
+KeyWait NumpadEnd
 RunCustomMacro(1)
 Return
 
 
-~^!Numpad2::
+^!Numpad2::
+^!NumpadDown::
 CustomMacro2:
 KeyWait Numpad2
+KeyWait NumpadDown
 RunCustomMacro(2)
 Return
 
 
-~^!Numpad3::
+^!Numpad3::
+^!NumpadPgDn::
 CustomMacro3:
 KeyWait Numpad3
+KeyWait NumpadPgDn
 RunCustomMacro(3)
 Return
 
 
-~^!Numpad4::
+^!Numpad4::
+^!NumpadLeft::
 CustomMacro4:
 KeyWait Numpad4
+KeyWait NumpadLeft
 RunCustomMacro(4)
 Return
 
 
-~^!Numpad5::
+^!Numpad5::
+^!NumpadClear::
 CustomMacro5:
 KeyWait Numpad5
+KeyWait NumpadClear
 RunCustomMacro(5)
 Return
 
 
-~^!Numpad6::
+^!Numpad6::
+^!NumpadRight::
 CustomMacro6:
 KeyWait Numpad6
+KeyWait NumpadRight
 RunCustomMacro(6)
 Return
 
 
-~^!Numpad7::
+^!Numpad7::
+^!NumpadHome::
 CustomMacro7:
 KeyWait Numpad7
+KeyWait NumpadHome
 RunCustomMacro(7)
 Return
 
 
-~^!Numpad8::
+^!Numpad8::
+^!NumpadUp::
 CustomMacro8:
 KeyWait Numpad8
+KeyWait NumpadUp
 RunCustomMacro(8)
 Return
 
 
-~^!Numpad9::
+^!Numpad9::
+^!NumpadPgUp::
 CustomMacro9:
 KeyWait Numpad9
+KeyWait NumpadPgUp
 RunCustomMacro(9)
 Return
 

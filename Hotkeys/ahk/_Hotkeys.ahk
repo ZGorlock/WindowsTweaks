@@ -42,7 +42,8 @@
 ; Ctrl+Alt+Numpad8   ; Executes CustomMacro_8.bat accessible on the system path ;
 ; Ctrl+Alt+Numpad9   ; Executes CustomMacro_9.bat accessible on the system path ;
 ;                    ;                                                          ;
-; Ctrl+Alt+Numpad[.] ; Starts the Windows Snip & Sketch tool                    ;
+; Ctrl+Alt+Numpad[.] ; Starts the Windows Task Manager                          ;
+; Ctrl+Alt+Numpad[=] ; Starts the Windows Snip & Sketch tool                    ;
 ; Ctrl+Alt+Numpad[+] ; Starts the Windows Calculator app                        ;
 ; Ctrl+Alt+Numpad[/] ; Starts the Windows Calendar app                          ;
 ; Ctrl+Alt+Numpad[*] ; Starts the Windows Mail app                              ;

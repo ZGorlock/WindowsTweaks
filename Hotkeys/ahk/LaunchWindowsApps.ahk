@@ -1,7 +1,8 @@
 ;--------------------------------------------------------------------------------
 ; LaunchWindowsApps.ahk
 ;--------------------------------------------------------------------------------
-; Ctrl+Alt+Numpad[.] ; Starts the Windows Snip & Sketch tool                    ;
+; Ctrl+Alt+Numpad[.] ; Starts the Windows Task Manager                          ;
+; Ctrl+Alt+Numpad[=] ; Starts the Windows Snip & Sketch tool                    ;
 ; Ctrl+Alt+Numpad[+] ; Starts the Windows Calculator app                        ;
 ; Ctrl+Alt+Numpad[/] ; Starts the Windows Calendar app                          ;
 ; Ctrl+Alt+Numpad[*] ; Starts the Windows Mail app                              ;
@@ -26,6 +27,11 @@ SetTitleMatchMode RegEx
 
 LaunchWindowsApps_IsActive() {
 	Return TRUE
+}
+
+
+WindowsTaskManagerUri() {
+	Return "taskmgr"
 }
 
 
@@ -66,8 +72,18 @@ LaunchWindowsApp(uri) {
 
 
 ^!NumpadDot::
-LaunchScreenSnip:
+^!NumpadDel::
+LaunchTaskManager:
 KeyWait NumpadDot
+KeyWait NumpadDel
+uri := WindowsTaskManagerUri()
+LaunchWindowsApp(uri)
+Return
+
+
+^!NumpadEnter::
+LaunchScreenSnip:
+KeyWait NumpadEnter
 uri := WindowsSnipAndSketchUri()
 LaunchWindowsApp(uri)
 Return
