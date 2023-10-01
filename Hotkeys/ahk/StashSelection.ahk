@@ -90,27 +90,19 @@ PlayCompletionSound() {
 
 
 ^S::
-CopySelectionToStash:
-selectedFiles := GetStashSelection()
-stashDir := StashDir()
-if selectedFiles && stashDir {
-	Filesystem_CreateDir(stashDir)
-	for index, path in selectedFiles {
-		Filesystem_Copy(path, stashDir)
-	}
-	;PlayCompletionSound()
-}
-Return
-
-
 ^!S::
-MoveSelectionToStash:
+StashSelection:
+alt := GetKeyState("Alt")
 selectedFiles := GetStashSelection()
 stashDir := StashDir()
 if selectedFiles && stashDir {
 	Filesystem_CreateDir(stashDir)
 	for index, path in selectedFiles {
-		Filesystem_Move(path, stashDir)
+		if alt {
+			Filesystem_Move(path, stashDir)
+		} else {
+			Filesystem_Copy(path, stashDir)
+		}
 	}
 	;PlayCompletionSound()
 }

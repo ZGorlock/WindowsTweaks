@@ -63,23 +63,11 @@ UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
 
 
 ~^+/::
-EmptySelectedSubFolders:
-activeDir := Explorer_GetActivePath()
-selectedFolders := Explorer_GetSelectedItemPathList("D")
-if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
-	if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
-		for index, path in selectedFolders {
-			EmptySubFolder(activeDir, path)
-		}
-	}
-}
-Return
-
-
 ~^+!/::
-EmptyAllSubFolders:
+UnfolderSelection:
+alt := GetKeyState("Alt")
 activeDir := Explorer_GetActivePath()
-selectedFolders := Filesystem_ListDirs(activeDir)
+selectedFolders := alt ? Filesystem_ListDirs(activeDir) : Explorer_GetSelectedItemPathList("D")
 if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
 	if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
 		for index, path in selectedFolders {
