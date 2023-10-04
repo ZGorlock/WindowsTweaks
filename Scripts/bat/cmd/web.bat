@@ -1,3 +1,11 @@
 @echo off
+setlocal enabledelayedexpansion
 
-start /ABOVENORMAL "" "http://"
+set "url=%~1"
+
+if not "!url:~0,8!"=="https://" (
+	echo URL is not HTTPS: !url!
+	set "url=https://"
+)
+
+start /ABOVENORMAL "" "!url!"
