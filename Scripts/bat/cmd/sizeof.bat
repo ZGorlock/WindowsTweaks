@@ -1,21 +1,27 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if "%~1"=="" (
-	exit /b 0
-	
-) else if exist "%~1\*" (
+set "file=%~1"
+if "!file!"=="" (set "file=.")
+
+if exist "!file!\*" (
 	set "size=#"
 	set "temp=#"
-	for /f "tokens=3" %%x in ('dir /a:-d /s /w /-c "%~1"') do (
+	for /f "tokens=3" %%x in ('dir /a:-d /s /w /-c "!file!"') do (
 		set "size=!temp!"
 		set "temp=%%x"
 	)
     echo !size!
+	exit /b 0
 	
-) else if exist "%~1" (
-	echo %~z1
+) else if exist "!file!" (
+	set "size=#"
+	for %%x in (!file!) do (set "size=%%~zx")
+	echo !size!
+	exit /b 0
 	
 ) else (
-	exit /b 0
+	echo The specified path does not exist.
 )
+
+exit /b 1
