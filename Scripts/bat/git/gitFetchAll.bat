@@ -1,0 +1,3 @@
+@echo off
+
+gitFetch all
