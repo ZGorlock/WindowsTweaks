@@ -1,3 +1,3 @@
 @echo off
 
-git log --oneline
+git log --oneline %*
