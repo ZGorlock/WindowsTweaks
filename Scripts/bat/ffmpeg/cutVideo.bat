@@ -1,37 +1,38 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set file=%~1
-set startTime=%~2
-set stopTime=%~3
+set "file=%~1"
+set "startTime=%~2"
+set "stopTime=%~3"
 
-if "%stopTime%"=="" (
-	set stopTime=%startTime%
-	set startTime=0
+if "!stopTime!"=="" (
+	set "stopTime=!startTime!"
+	set "startTime=0"
 )
-if "%stopTime%"=="" (
+if "!stopTime!"=="" (
 	echo Start and stop time not provided
+	exit /b 1
+)
+
+
+:main
+	if "!file!"=="" (
+		for %%f in (*.mp4) do (call :cutMp4 "%%f" "!startTime!" "!stopTime!")
+	) else (
+		call :cutMp4 "!file!" "!startTime!" "!stopTime!"
+	)
+	
+	echo.
+	echo --------------------------------------------------
+	echo.
+	
 	goto :end
-)
-
-if "%file%"=="" (
-	for %%f in (*.mp4) do (call :cutMp4 "%%f" "%startTime%" "%stopTime%")
-) else (
-	call :cutMp4 "%file%" "%startTime%" "%stopTime%"
-)
-
-echo.
-echo --------------------------------------------------
-echo.
-
-goto :end
 
 
 :cutMp4
-	
-	set fn=%~n1
-	set start=%~2
-	set stop=%~3
+	set "fn=%~n1"
+	set "start=%~2"
+	set "stop=%~3"
 	
 	set mp4="!fn!.mp4"
 	set out="!fn!.new.mp4"
@@ -46,7 +47,7 @@ goto :end
 		echo    from: !start! - !stop!
 		echo      to: !out!
 		
-		set ffmpeg_cmd=ffmpeg -hide_banner -ss !start! -to !stop! -i !mp4! -map 0 -c copy -y !out!
+		set "ffmpeg_cmd=ffmpeg -hide_banner -ss !start! -to !stop! -i !mp4! -map 0 -c copy -y !out!"
 		
 		echo.
 		echo !ffmpeg_cmd!
@@ -55,12 +56,13 @@ goto :end
 		echo.
 		
 		!ffmpeg_cmd!
+		exit /b 0
 		
 	) else (
 		echo !mp4! does not exist
 	)
 	
-	exit /b 0
+	exit /b 1
 
 
 :end

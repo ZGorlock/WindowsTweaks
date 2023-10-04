@@ -1,24 +1,25 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set file=%~1
+set "file=%~1"
 
-if "%file%"=="" (
-	for %%f in (*.mkv) do (call :mkvToMp4 "%%f")
-) else (
-	call :mkvToMp4 "%file%"
-)
 
-echo.
-echo --------------------------------------------------
-echo.
-
-goto :end
+:main
+	if "!file!"=="" (
+		for %%f in (*.mkv) do (call :mkvToMp4 "%%f")
+	) else (
+		call :mkvToMp4 "!file!"
+	)
+	
+	echo.
+	echo --------------------------------------------------
+	echo.
+	
+	goto :end
 
 
 :mkvToMp4
-	
-	set fn=%~n1
+	set "fn=%~n1"
 	
 	set mkv="!fn!.mkv"
 	set mp4="!fn!.mp4"
@@ -32,7 +33,7 @@ goto :end
 		echo Converting: !mkv!
 		echo         to: !mp4!
 		
-		set ffmpeg_cmd=ffmpeg -hide_banner -i !mkv! -map 0:v:0 -map 0:a:0 -map 0:s:0 -c:v copy -c:a copy -c:s mov_text -y !mp4!
+		set "ffmpeg_cmd=ffmpeg -hide_banner -i !mkv! -map 0:v:0 -map 0:a:0 -map 0:s:0 -c:v copy -c:a copy -c:s mov_text -y !mp4!"
 		
 		echo.
 		echo !ffmpeg_cmd!
@@ -41,12 +42,13 @@ goto :end
 		echo.
 		
 		!ffmpeg_cmd!
+		exit /b 0
 		
 	) else (
 		echo !mkv! does not exist
 	)
 	
-	exit /b 0
+	exit /b 1
 
 
 :end

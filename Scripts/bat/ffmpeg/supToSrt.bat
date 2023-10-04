@@ -1,24 +1,25 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set file=%~1
+set "file=%~1"
 
-if "%file%"=="" (
-	for %%f in (*.sup) do (call :supToSrt "%%f")
-) else (
-	call :supToSrt "%file%"
-)
 
-echo.
-echo --------------------------------------------------
-echo.
-
-goto :end
+:main
+	if "!file!"=="" (
+		for %%f in (*.sup) do (call :supToSrt "%%f")
+	) else (
+		call :supToSrt "!file!"
+	)
+	
+	echo.
+	echo --------------------------------------------------
+	echo.
+	
+	goto :end
 
 
 :supToSrt
-	
-	set fn=%~n1
+	set "fn=%~n1"
 	
 	set sup="!fn!.sup"
 	set srt="!fn!.srt"
@@ -32,7 +33,7 @@ goto :end
 		echo Converting: !sup!
 		echo         to: !srt!
 		
-		set subedit_cmd=subedit /convert !sup! subrip /fps:25
+		set "subedit_cmd=subedit /convert !sup! subrip /fps:25"
 		
 		echo.
 		echo !subedit_cmd!
@@ -41,12 +42,13 @@ goto :end
 		echo.
 		
 		!subedit_cmd!
+		exit /b 0
 		
 	) else (
 		echo !sup! does not exist
 	)
 	
-	exit /b 0
+	exit /b 1
 
 
 :end
