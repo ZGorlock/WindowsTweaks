@@ -30,12 +30,27 @@ SetTitleMatchMode RegEx
 
 
 StashSelection_IsActive() {
-	Return Explorer_IsActive() || ImageGlass_IsActive()
+	Return Explorer_IsActive() || ImageGlass_IsActive() || IrfanView_IsActive() || VLC_IsActive() || XnView_IsActive()
 }
 
 
 ImageGlass_IsActive() {
 	Return String_Equals(Desktop_GetActiveWindowProcessName(), "ImageGlass.exe")
+}
+
+
+IrfanView_IsActive() {
+	Return String_Equals(Desktop_GetActiveWindowProcessName(), "i_view64.exe")
+}
+
+
+VLC_IsActive() {
+	Return String_Equals(Desktop_GetActiveWindowProcessName(), "vlc.exe")
+}
+
+
+XnView_IsActive() {
+	Return String_Equals(Desktop_GetActiveWindowProcessName(), "xnviewmp.exe")
 }
 
 
@@ -54,19 +69,80 @@ GetStashSelection() {
 	selection := []
 	if Explorer_IsActive() {
 		selection := Explorer_GetSelectedItemPathList()
-		
 	} else if ImageGlass_IsActive() {
-		title := Desktop_GetActiveWindowTitle()
-		imageName := String_Trim(String_LSnip(title, String_IndexOf(title, "|") - 1))
-		
-		pid := Desktop_GetActiveWindowProcessId()
-		fileHandles := Desktop_GetFileHandles(pid)
-		imagePath := Array_GetFirst(fileHandles)
-		
-		image := imagePath . "\" . imageName
-		if Filesystem_FileExists(image) {
-			selection.Push(image)
-		}
+		selection := ImageGlass_GetSelected()
+	} else if IrfanView_IsActive() {
+		selection := IrfanView_GetSelected()
+	} else if VLC_IsActive() {
+		selection := VLC_GetSelected()
+	} else if XnView_IsActive() {
+		selection := XnView_GetSelected()
+	}
+	Return selection
+}
+
+
+ImageGlass_GetSelected() {
+	selection := []
+	
+	title := Desktop_GetActiveWindowTitle()
+	fileName := String_Trim(String_LSnip(title, String_IndexOf(title, "|") - 1))
+	
+	pid := Desktop_GetActiveWindowProcessId()
+	fileHandles := Desktop_GetFileHandles(pid)
+	filePath := Array_GetFirst(fileHandles)
+	
+	file := filePath . "\" . fileName
+	
+	if Filesystem_FileExists(file) {
+		selection.Push(file)
+	}
+	Return selection
+}
+
+
+IrfanView_GetSelected() {
+	selection := []
+	
+	title := Desktop_GetActiveWindowTitle()
+	fileName := String_Trim(String_LSnip(title, String_IndexOf(title, " - IrfanView") - 1))
+	
+	pid := Desktop_GetActiveWindowProcessId()
+	fileHandles := Desktop_GetFileHandles(pid)
+	filePath := fileHandles[2]
+	
+	file := filePath . "\" . fileName
+	
+	if Filesystem_FileExists(file) {
+		selection.Push(file)
+	}
+	Return selection
+}
+
+
+VLC_GetSelected() {
+	selection := []
+	
+	title := Desktop_GetActiveWindowTitle()
+	fileUri := String_Trim(String_Remove(title, " - VLC media player"))
+	
+	file := String_Replace(String_Remove(fileUri, "file:///"), "/", "\")
+	
+	if Filesystem_FileExists(file) {
+		selection.Push(file)
+	}
+	Return selection
+}
+
+
+XnView_GetSelected() {
+	selection := []
+	
+	title := Desktop_GetActiveWindowTitle()
+	file := String_Trim(String_Remove(title, " - XnView MP"))
+	
+	if Filesystem_FileExists(file) {
+		selection.Push(file)
 	}
 	Return selection
 }
