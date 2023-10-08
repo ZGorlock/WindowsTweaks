@@ -21,6 +21,8 @@ if "!mode!"=="3" (set dim=720)
 if "!mode!"=="4" (set dim=1080)
 if "!mode!"=="5" (set dim=9999)
 
+goto :main
+
 
 :main
 	if "!file!"=="" (

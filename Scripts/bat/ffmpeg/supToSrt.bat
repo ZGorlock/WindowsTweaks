@@ -3,6 +3,8 @@ setlocal enabledelayedexpansion
 
 set "file=%~1"
 
+goto :main
+
 
 :main
 	if "!file!"=="" (

@@ -22,6 +22,8 @@ if "!args!"=="" (
 	set "args=-map 0 -c copy"
 )
 
+goto :main
+
 
 :main
 	if "!iFile!"=="" (

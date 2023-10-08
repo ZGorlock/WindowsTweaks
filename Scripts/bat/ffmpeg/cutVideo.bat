@@ -14,6 +14,8 @@ if "!stopTime!"=="" (
 	exit /b 1
 )
 
+goto :main
+
 
 :main
 	if "!file!"=="" (
