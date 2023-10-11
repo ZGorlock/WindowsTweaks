@@ -25,17 +25,17 @@ goto :main
 	set "fx=%~x1"
 	set "fx=!fx:.=!"
 	
-	set source="!fn!.!fx!"
+	set src="!fn!.!fx!"
 	
 	echo.
 	echo --------------------------------------------------
 	echo.
 	
-	if exist !source! (
+	if exist !src! (
 		
-		echo Source: !source!
+		echo Source: !src!
 		
-		set "ffprobe_cmd=ffprobe -hide_banner !source!"
+		set "ffprobe_cmd=ffprobe -hide_banner !src!"
 		
 		echo.
 		
@@ -43,7 +43,7 @@ goto :main
 		exit /b 0
 		
 	) else (
-		echo !source! does not exist
+		echo !src! does not exist
 	)
 	
 	exit /b 1

@@ -46,40 +46,40 @@ goto :main
 	
 	if "!iFile!"=="" (
 		if "!iFormat!"=="" (
-			set source="!fn!.!fx!"
+			set src="!fn!.!fx!"
 		) else if "!iFormat!"=="*" (
-			set source="!fn!.!fx!"
+			set src="!fn!.!fx!"
 		) else (
-			set source="!fn!.!iFormat!"
+			set src="!fn!.!iFormat!"
 		)
 	) else (
-		set source="!iFile!"
+		set src="!iFile!"
 	)
 	
 	if "!oFile!"=="" (
 		if "!oFormat!"=="" (
-			set target="!fn!.new.!fx!"
+			set out="!fn!.new.!fx!"
 		) else if "!oFormat!"=="*" (
-			set target="!fn!.new.!fx!"
+			set out="!fn!.new.!fx!"
 		) else if "!oFormat!"=="!fx!" (
-			set target="!fn!.new.!oFormat!"
+			set out="!fn!.new.!oFormat!"
 		) else (
-			set target="!fn!.!oFormat!"
+			set out="!fn!.!oFormat!"
 		)
 	) else (
-		set target="!oFile!"
+		set out="!oFile!"
 	)
 	
 	echo.
 	echo --------------------------------------------------
 	echo.
 	
-	if exist !source! (
+	if exist !src! (
 		
-		echo Converting: !source!
-		echo         to: !target!
+		echo Converting: !src!
+		echo         to: !out!
 		
-		set "ffmpeg_cmd=ffmpeg -hide_banner -i !source! !args! -y !target!"
+		set "ffmpeg_cmd=ffmpeg -hide_banner -i !src! !args! -y !out!"
 		
 		echo.
 		echo !ffmpeg_cmd!
@@ -91,7 +91,7 @@ goto :main
 		exit /b 0
 		
 	) else (
-		echo !source! does not exist
+		echo !src! does not exist
 	)
 	
 	exit /b 1

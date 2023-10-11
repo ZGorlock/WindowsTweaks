@@ -19,9 +19,9 @@ goto :main
 
 :main
 	if "!file!"=="" (
-		for %%f in (*.mp4) do (call :cutMp4 "%%f" "!startTime!" "!stopTime!")
+		for %%f in (*.mp4) do (call :cutVideo "%%f" "!startTime!" "!stopTime!")
 	) else (
-		call :cutMp4 "!file!" "!startTime!" "!stopTime!"
+		call :cutVideo "!file!" "!startTime!" "!stopTime!"
 	)
 	
 	echo.
@@ -31,25 +31,30 @@ goto :main
 	goto :end
 
 
-:cutMp4
+:cutVideo
 	set "fn=%~n1"
+	set "fx=%~x1"
+	set "fx=!fx:.=!"
+	
 	set "start=%~2"
 	set "stop=%~3"
 	
-	set mp4="!fn!.mp4"
-	set out="!fn!.new.mp4"
+	set src="!fn!.!fx!"
+	set out="!fn!.new.!fx!"
 	
 	echo.
 	echo --------------------------------------------------
 	echo.
 	
-	if exist !mp4! (
+	if exist !src! (
 		
-		echo Cutting: !mp4!
+		echo Cutting: !src!
 		echo    from: !start! - !stop!
 		echo      to: !out!
 		
-		set "ffmpeg_cmd=ffmpeg -hide_banner -ss !start! -to !stop! -i !mp4! -map 0 -c copy -y !out!"
+		call :getVideoCodec !src!
+		
+		set "ffmpeg_cmd=ffmpeg -hide_banner -ss !start! -to !stop! -i !src! -map 0 -c:v !vcodec! -c:a copy -c:s copy -y !out!"
 		
 		echo.
 		echo !ffmpeg_cmd!
@@ -61,10 +66,19 @@ goto :main
 		exit /b 0
 		
 	) else (
-		echo !mp4! does not exist
+		echo !src! does not exist
 	)
 	
 	exit /b 1
+
+
+:getVideoCodec
+	set vcodec=copy
+	
+	for /f "delims=" %%i in ('ffprobe -hide_banner -v quiet -i "%~1" -print_format "compact=p=0:nk=1" -select_streams v:0 -show_entries "stream=codec_name"') do (set vcodec=%%i)
+	if '!vcodec!'=='hevc' (set vcodec=libx265) else (set vcodec=libx264)
+	
+	exit /b 0
 
 
 :end

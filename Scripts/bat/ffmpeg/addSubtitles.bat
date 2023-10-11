@@ -8,9 +8,9 @@ goto :main
 
 :main
 	if "!file!"=="" (
-		for %%f in (*.mp4) do (call :addSubsToMp4 "%%f")
+		for %%f in (*.mp4) do (call :addSubtitles "%%f")
 	) else (
-		call :addSubsToMp4 "!file!"
+		call :addSubtitles "!file!"
 	)
 	
 	echo.
@@ -20,25 +20,27 @@ goto :main
 	goto :end
 
 
-:addSubsToMp4
+:addSubtitles
 	set "fn=%~n1"
+	set "fx=%~x1"
+	set "fx=!fx:.=!"
 	
-	set mp4="!fn!.mp4"
-	set srt="!fn!.srt"
-	set out="!fn!.new.mp4"
+	set src="!fn!.!fx!"
+	set sub="!fn!.srt"
+	set out="!fn!.new.!fx!"
 	
 	echo.
 	echo --------------------------------------------------
 	echo.
 	
-	if exist !mp4! (
-		if exist !srt! (
+	if exist !src! (
+		if exist !sub! (
 			
-			echo Subbing: !mp4!
-			echo    with: !srt!
+			echo Subbing: !src!
+			echo    with: !sub!
 			echo      to: !out!
 			
-			set "ffmpeg_cmd=ffmpeg -hide_banner -i !mp4! -i !srt! -map 0 -map 1 -c:v copy -c:a copy -c:s mov_text -y !out!"
+			set "ffmpeg_cmd=ffmpeg -hide_banner -i !src! -i !sub! -map 0 -map 1 -c:v copy -c:a copy -c:s mov_text -y !out!"
 			
 			echo.
 			echo !ffmpeg_cmd!
@@ -50,10 +52,10 @@ goto :main
 			exit /b 0
 			
 		) else (
-			echo !srt! does not exist
+			echo !sub! does not exist
 		)
 	) else (
-		echo !mp4! does not exist
+		echo !src! does not exist
 	)
 	
 	exit /b 1
