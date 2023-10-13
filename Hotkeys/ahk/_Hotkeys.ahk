@@ -3,6 +3,8 @@
 ;--------------------------------------------------------------------------------
 ; F1                 ; Open selected file in Notepad++                          ;
 ;                    ;                                                          ;
+; Shift+F1           ; Open XnView in current directory                         ;
+;                    ;                                                          ;
 ; Shift+F2           ; Open BulkRenameUtility in current directory              ;
 ;                    ;                                                          ;
 ; Shift+F3           ; Open WinDirStat in current directory                     ;
@@ -67,6 +69,8 @@ SetTitleMatchMode RegEx
 
 
 #Include EditWithNotepad++.ahk
+
+#Include XnViewHere.ahk
 #Include BulkRenameHere.ahk
 #Include DirStatHere.ahk
 

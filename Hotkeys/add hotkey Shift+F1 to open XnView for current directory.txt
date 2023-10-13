@@ -1,0 +1,13 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'XnViewHere.ahk'
+
+This will add the following hotkeys:
+	
+	|--------------------|----------------------------------------------------------|
+	| Shift+F1           | Open XnView in current directory                         |
+	|--------------------|----------------------------------------------------------|
+
+This assumes you have XnView MP installed at: 'C:\Program Files\XnViewMP'
+	You can download this program from: https://www.xnview.com/en/xnviewmp/
