@@ -6,7 +6,7 @@ Run 'BulkRenameHere.ahk'
 This will add the following hotkeys:
 	
 	|--------------------|----------------------------------------------------------|
-	| Shift+F2           | Open BulkRenameUtility in current directory              |
+	| Shift+F2           | Open Bulk Rename Utility in current directory            |
 	|--------------------|----------------------------------------------------------|
 
 This assumes you have Bulk Rename Utility installed at: 'C:\Program Files\Bulk Rename Utility'

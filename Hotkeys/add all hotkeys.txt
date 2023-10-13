@@ -11,9 +11,9 @@ This will add the following hotkeys:
 	|--------------------|----------------------------------------------------------|
 	| F1                 | Open selected file in Notepad++                          |
 	|                    |                                                          |
-	| Shift+F1           | Open XnView in current directory                         |
+	| Shift+F1           | Open XnView MP in current directory                      |
 	|                    |                                                          |
-	| Shift+F2           | Open BulkRenameUtility in current directory              |
+	| Shift+F2           | Open Bulk Rename Utility in current directory            |
 	|                    |                                                          |
 	| Shift+F3           | Open WinDirStat in current directory                     |
 	|                    |                                                          |
@@ -22,12 +22,12 @@ This will add the following hotkeys:
 	|                    |                                                          |
 	| Ctrl+Shift+M       | Create new .txt document in current directory            |
 	|                    |                                                          |
-	| Ctrl+Shift+P       | Add selected file to winrar rar archive                  |
-	| Ctrl+Shift+Alt+P   | Add selected file to winrar rar archive and delete       |
-	| Ctrl+Shift+I       | Add selected file to winrar gzip archive                 |
-	| Ctrl+Shift+Alt+I   | Add selected file to winrar gzip archive and delete      |
-	| Ctrl+Shift+O       | Extract selected winrar archive                          |
-	| Ctrl+Shift+Alt+O   | Extract selected winrar archive and delete               |
+	| Ctrl+Shift+P       | Add selected file to WinRAR rar archive                  |
+	| Ctrl+Shift+Alt+P   | Add selected file to WinRAR rar archive and delete       |
+	| Ctrl+Shift+I       | Add selected file to WinRAR gzip archive                 |
+	| Ctrl+Shift+Alt+I   | Add selected file to WinRAR gzip archive and delete      |
+	| Ctrl+Shift+O       | Extract selected WinRAR archive                          |
+	| Ctrl+Shift+Alt+O   | Extract selected WinRAR archive and delete               |
 	|                    |                                                          |
 	| Ctrl+S             | Copy the selected file(s) to the defined stash location  |
 	| Ctrl+Alt+S         | Move the selected file(s) to the defined stash location  |
