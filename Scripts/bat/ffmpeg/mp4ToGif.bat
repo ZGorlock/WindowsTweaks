@@ -7,6 +7,10 @@ if "!file:~0,1!"=="-" (
 	set "file=%~2"
 )
 
+if "!mode!"=="min" (set mode=1)
+if "!mode!"=="mid" (set mode=3)
+if "!mode!"=="max" (set mode=5)
+
 set fps=15
 if "!mode!"=="1" (set fps=10)
 if "!mode!"=="2" (set fps=10)
