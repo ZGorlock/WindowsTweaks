@@ -1,0 +1,20 @@
+Launch: Task Manager
+	Switch to the Details Tab
+	Right Click 'TextInputHost.exe'
+	Select End Task
+
+
+Navigate to: 'C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy'
+
+	Rename 'C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\InputApp\'
+		to 'C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\InputApp.bak\'
+
+	Rename 'C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe'
+		to 'C:\Windows\SystemApps\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\TextInputHost.exe.bak'
+
+
+//https://malwaretips.com/blogs/textinputhost-exe/
+//https://windowsreport.com/textinputhost-exe/
+//https://www.partitionwizard.com/news/textinputhost-exe.html
+//https://www.reddit.com/r/Windows10/comments/abx8ct/how_do_i_turn_off_the_microsoft_text_input/
+//https://www.reddit.com/r/Windows10/comments/mxtkfr/how_do_i_permanently_disable_textinputhostexe/

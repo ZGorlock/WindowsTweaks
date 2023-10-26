@@ -1,0 +1,38 @@
+Launch: Services
+Select: 'NVIDIA Telemetry Container
+Right Click the Service and Click Properties
+	If the Service is currently running:
+		Click 'Stop'
+		Wait for the Service to be Stopped
+	Set 'Startup type' to 'Disabled'
+	Click Ok
+
+
+Navigate to: 'C:\Program Files\NVIDIA Corporation\NvTelemetry'
+
+	Rename 'C:\Program Files\NVIDIA Corporation\NvTelemetry\NvTelemetryContainer.exe'
+		to 'C:\Program Files\NVIDIA Corporation\NvTelemetry\NvTelemetryContainer.exe.bak'
+
+	Rename 'C:\Program Files\NVIDIA Corporation\NvTelemetry\NvTelemetryBridge64.dll'
+		to 'C:\Program Files\NVIDIA Corporation\NvTelemetry\NvTelemetryBridge64.dll.bak'
+
+	Rename 'C:\Program Files\NVIDIA Corporation\NvTelemetry\NvTelemetryAPI64.dll'
+		to 'C:\Program Files\NVIDIA Corporation\NvTelemetry\NvTelemetryAPI64.dll.bak'
+
+	Rename 'C:\Program Files\NVIDIA Corporation\NvTelemetry\plugin\'
+		to 'C:\Program Files\NVIDIA Corporation\NvTelemetry\plugin.bak\'
+
+	Rename 'C:\Program Files\NVIDIA Corporation\NvTelemetry\plugins\'
+		to 'C:\Program Files\NVIDIA Corporation\NvTelemetry\plugins.bak\'
+
+
+Navigate to: 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_7e5fd280efaa5445'
+
+	Rename 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_7e5fd280efaa5445\NvTelemetry64.dll'
+		to 'C:\Windows\System32\DriverStore\FileRepository\nv_dispig.inf_amd64_7e5fd280efaa5445\NvTelemetry64.dll.bak'
+	
+	If you are unable to rename it then delete it
+
+
+//https://www.reddit.com/r/techsupport/comments/krfch1/how_do_i_stop_nvdias_nvtelemetry_its_currently/
+//https://github.com/NateShoffner/Disable-Nvidia-Telemetry/issues/19
