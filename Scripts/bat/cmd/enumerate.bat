@@ -1,11 +1,32 @@
 @echo off
 setlocal enabledelayedexpansion
 
-if '%~1'=='' (set "pattern=*") else (set "pattern=%~1")
-if '%~2'=='' (set "output=enum.txt") else (set "output=%~2")
+set "flags="
+set "pattern="
+set "output=enum.txt"
+set "overwrite="
+
+:readArgs
+	if not '%1'=='' (
+		set "arg=%~1"
+		if "!arg:~0,1!"=="/" (
+			if /i not "!arg!"=="/y" (
+				set "flags=!flags! !arg!"
+			) else (
+				set "overwrite=!arg!"
+			)
+		) else if not "!arg!"=="" (
+			if "!pattern!"=="" (
+				set "pattern=!arg!"
+			) else (
+				set "output=!arg!"
+			)
+		)
+		shift && goto readArgs
+	)
 
 if exist "!output!" (
-	if /i not '%~4'=='/y' (
+	if /i not "!overwrite!"=="/y" (
 		choice /c yn /n /m "Output file '!output!' already exists. Overwrite? [y/n]"
 		if ERRORLEVEL 2 (exit /b 1)
 	)
@@ -13,6 +34,6 @@ if exist "!output!" (
 )
 
 call touch "!output!"
-for /f "tokens=*" %%x in ('locate %~3 "!pattern!"') do (
-	if not "%%x"=="!output!" (echo %%x >> "!output!")
+for /f "tokens=*" %%x in ('locate !flags! "!pattern!"') do (
+	if not "%%x"=="!output!" if not "%%x"=="%cd%\!output!" (echo %%x >> "!output!")
 )
