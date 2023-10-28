@@ -13,37 +13,49 @@ if /i '%dir%'=='user'           (if not exist "%pwd%\user"           (set "loc=%
 if /i '%dir%'=='userdir'        (if not exist "%pwd%\userdir"        (set "loc=%UserProfile%"))
 if /i '%dir%'=='userhome'       (if not exist "%pwd%\userhome"       (set "loc=%UserProfile%"))
 
+if /i '%dir%'=='dl'             (if not exist "%pwd%\dl"             (set "loc=%Downloads%"))
+if /i '%dir%'=='download'       (if not exist "%pwd%\download"       (set "loc=%Downloads%"))
 if /i '%dir%'=='downloads'      (if not exist "%pwd%\downloads"      (set "loc=%Downloads%"))
 if /i '%dir%'=='mydownloads'    (if not exist "%pwd%\mydownloads"    (set "loc=%Downloads%"))
 
+if /i '%dir%'=='doc'            (if not exist "%pwd%\doc"            (set "loc=%MyDocuments%"))
 if /i '%dir%'=='docs'           (if not exist "%pwd%\docs"           (set "loc=%MyDocuments%"))
+if /i '%dir%'=='document'       (if not exist "%pwd%\document"       (set "loc=%MyDocuments%"))
 if /i '%dir%'=='documents'      (if not exist "%pwd%\documents"      (set "loc=%MyDocuments%"))
 if /i '%dir%'=='mydocs'         (if not exist "%pwd%\mydocs"         (set "loc=%MyDocuments%"))
 if /i '%dir%'=='mydocuments'    (if not exist "%pwd%\mydocuments"    (set "loc=%MyDocuments%"))
 
+if /i '%dir%'=='pic'            (if not exist "%pwd%\pic"            (set "loc=%MyPictures%"))
 if /i '%dir%'=='pics'           (if not exist "%pwd%\pics"           (set "loc=%MyPictures%"))
+if /i '%dir%'=='picture'        (if not exist "%pwd%\picture"        (set "loc=%MyPictures%"))
 if /i '%dir%'=='pictures'       (if not exist "%pwd%\pictures"       (set "loc=%MyPictures%"))
 if /i '%dir%'=='mypics'         (if not exist "%pwd%\mypics"         (set "loc=%MyPictures%"))
 if /i '%dir%'=='mypictures'     (if not exist "%pwd%\mypictures"     (set "loc=%MyPictures%"))
 
+if /i '%dir%'=='vid'            (if not exist "%pwd%\vid"            (set "loc=%MyVideos%"))
 if /i '%dir%'=='vids'           (if not exist "%pwd%\vids"           (set "loc=%MyVideos%"))
+if /i '%dir%'=='video'          (if not exist "%pwd%\video"          (set "loc=%MyVideos%"))
 if /i '%dir%'=='videos'         (if not exist "%pwd%\videos"         (set "loc=%MyVideos%"))
 if /i '%dir%'=='myvids'         (if not exist "%pwd%\myvids"         (set "loc=%MyVideos%"))
 if /i '%dir%'=='myvideos'       (if not exist "%pwd%\myvideos"       (set "loc=%MyVideos%"))
 
 if /i '%dir%'=='appdata'        (if not exist "%pwd%\appdata"        (set "loc=%AppData%\.."))
 
+if /i '%dir%'=='pdata'          (if not exist "%pwd%\pdata"          (set "loc=%ProgramData%"))
 if /i '%dir%'=='progdata'       (if not exist "%pwd%\progdata"       (set "loc=%ProgramData%"))
 if /i '%dir%'=='programdata'    (if not exist "%pwd%\programdata"    (set "loc=%ProgramData%"))
 
+if /i '%dir%'=='pfiles'         (if not exist "%pwd%\pfiles"         (set "loc=%ProgramFiles%"))
 if /i '%dir%'=='progfiles'      (if not exist "%pwd%\progfiles"      (set "loc=%ProgramFiles%"))
 if /i '%dir%'=='programfiles'   (if not exist "%pwd%\programfiles"   (set "loc=%ProgramFiles%"))
 
+if /i '%dir%'=='pfiles86'       (if not exist "%pwd%\pfiles86"       (set "loc=%ProgramFiles(x86)%"))
 if /i '%dir%'=='progfiles86'    (if not exist "%pwd%\progfiles86"    (set "loc=%ProgramFiles(x86)%"))
 if /i '%dir%'=='programfiles86' (if not exist "%pwd%\programfiles86" (set "loc=%ProgramFiles(x86)%"))
 
 if /i '%dir%'=='win'            (if not exist "%pwd%\win"            (set "loc=%SystemRoot%"))
 if /i '%dir%'=='windir'         (if not exist "%pwd%\windir"         (set "loc=%SystemRoot%"))
+if /i '%dir%'=='winhome'        (if not exist "%pwd%\winhome"        (set "loc=%SystemRoot%"))
 if /i '%dir%'=='windows'        (if not exist "%pwd%\windows"        (set "loc=%SystemRoot%"))
 
 endlocal && cd /d "%loc%"
