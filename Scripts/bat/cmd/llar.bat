@@ -1,3 +1,3 @@
 @echo off
 
-dir /a /s %*
+dir /x /a /s %*
