@@ -1,0 +1,24 @@
+Windows Registry Editor Version 5.00
+
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\Shell\BagMRU]
+
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\Shell\Bags]
+
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\BagMRU]
+
+[-HKEY_CURRENT_USER\Software\Microsoft\Windows\ShellNoRoam\Bags]
+
+[-HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\BagMRU]
+
+[-HKEY_CURRENT_USER\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags]
+
+[-HKEY_CURRENT_USER\Software\Classes\Wow6432Node\Local Settings\Software\Microsoft\Windows\Shell\BagMRU]
+
+[-HKEY_CURRENT_USER\Software\Classes\Wow6432Node\Local Settings\Software\Microsoft\Windows\Shell\Bags]
+
+
+;https://www.sevenforums.com/tutorials/15692-folder-view-settings-reset-all-default.html
+;https://www.sevenforums.com/general-discussion/415820-relationship-between-bags-bagmru-keys.html
+;https://www.thewindowsclub.com/reset-folder-view-in-windows
+;https://winaero.com/reset-folder-view-folders-windows-10/
+;https://www.jeroentielen.nl/explaining-the-bagsbagmru-registry-tree-trying/

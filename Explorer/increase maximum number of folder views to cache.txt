@@ -1,0 +1,32 @@
+The maximum folder views cache size is 5000 by default
+The cache size can be increased up to 20000
+This tweak will set the cache size to 20000 by default
+
+To make a backup of your folder views cache:
+	Run 'save backup of folder views cache.bat'
+
+To see the current size of the folder views cache:
+	Run 'view current number of cached folder views.ps1'
+
+To set a custom value for the cache size:
+	Using a text editor, Open: 'increase maximum number of folder views to cache.reg'
+		Edit the dword value of "BagMRU Size" to the hexidecimal of your custom value
+		Examples:
+				20000 =>	"BagMRU Size"=dword:00004e20
+				10000 =>	"BagMRU Size"=dword:00002710
+				 5000 =>	"BagMRU Size"=dword:00001388
+		Ensure the configured value is reasonable (between 5000 and 20000)
+		Then save the script
+
+Run 'increase maximum number of folder views to cache.reg'
+
+Run '..\Scripts\bat\restart_explorer.bat'
+
+Reboot
+
+To completely clear the folder views cache:
+	See 'reset all cached folder views.txt'
+
+
+//https://www.elevenforum.com/t/increase-folder-view-settings-cache-memory-size-in-windows-11.1277/
+//https://answers.microsoft.com/en-us/windows/forum/all/windows-10-keeps-resetting-my-folder-view/7959873f-28e4-4b36-b148-3882c594bf00
