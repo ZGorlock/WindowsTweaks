@@ -1,0 +1,29 @@
+Adding script directories to the system path allows you to access them from anywhere
+You can call them from the command line regardless of what directory you are currently in
+
+Navigate to 'bat'
+
+The following modular script packages are available:
+	
+	|----------|-------------------|------------------------------------------------|
+	| cmd      | Command Module    | Unix equivalents and custom commands           |
+	| dev      | Device Module     | Call and connect with external devices         |
+	| dir      | Directory Module  | Shortcuts to cd to common folder locations     |
+	| dl       | Download Module   | Download media with gallery-dl and yt-dlp      |
+	| git      | Git Module        | Shortcuts for working with git repositories    |
+	| med      | Media Module      | Convert and process media with ffmpeg          |
+	| win      | Windows Module    | Shortcuts to settings and system tools         |
+	|----------|-------------------|------------------------------------------------|
+
+To add a chosen package to the system path:
+	Edit the User Environment Variables
+	Edit the variable: 'Path'
+		Click New and enter the path to the script directory 
+		The script directory can be any of the following:
+			 * Point to the directory located in the downloaded repo directly
+			 * Copy the directory from the repo to another location of your choice
+			 * Create a junction from the directory in the repo to another location
+		Click Ok
+	Click Ok
+
+Reboot
