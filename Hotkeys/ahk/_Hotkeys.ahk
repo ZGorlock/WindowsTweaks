@@ -31,6 +31,9 @@
 ;                    ;                                                          ;
 ; Del                ; Selects the next file after deleting a file              ;
 ;                    ;                                                          ;
+; Mouse[Back]        ; Rejects the active popup dialog                          ;
+; Mouse[Forward]     ; Accepts the active popup dialog                          ;
+;                    ;                                                          ;
 ; Ctrl+W             ; Disables the 'Close Window' shortcut in Explorer         ;
 ;                    ;                                                          ;
 ; Ctrl+Alt+Numpad0   ; Executes CustomMacro_0.bat accessible on the system path ;
@@ -85,6 +88,7 @@ SetTitleMatchMode RegEx
 #Include InvertSelection.ahk
 #Include SelectNextFileAfterDelete.ahk
 
+#Include ResolvePopupModal.ahk
 #Include DisableCloseExplorerHotkey.ahk
 
 #Include CustomNumpadMacros.ahk

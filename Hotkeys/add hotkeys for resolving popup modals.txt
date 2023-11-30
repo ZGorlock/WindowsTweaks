@@ -1,0 +1,15 @@
+Read 'enable hotkeys.txt'
+
+Navigate to 'ahk'
+Run 'ResolvePopupModal.ahk'
+
+This will add the following hotkeys:
+	
+	|--------------------|----------------------------------------------------------|
+	| Mouse[Back]        | Rejects the active popup dialog                          |
+	| Mouse[Forward]     | Accepts the active popup dialog                          |
+	|--------------------|----------------------------------------------------------|
+
+Since popup dialogs can have a variety of options, the behavior is as follows:
+	Reject :	Equivalent to pressing the Escape key
+	Accept :	Equivalent to pressing the Enter key
