@@ -1,0 +1,4 @@
+Right Click: Recycle Bin
+Select Properties
+Uncheck: Display delete confirmation dialog
+Click Ok
