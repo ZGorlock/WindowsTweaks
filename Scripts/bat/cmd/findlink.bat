@@ -1,18 +1,25 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set "loc=%~1"
-if "!loc:~0,1!"=="/" (
-	set "flag=!loc:~1!"
-	set "loc=%~2"
-)
-if '!loc!'=='' (set loc=.)
+set "typeFilter="
+set "flags="
+set "location=."
 
-if /i '!flag:~-1!'=='D' (set "dirFilter=-Directory")
+:readArgs
+	if not '%1'=='' (
+		set "arg=%~1"
+		if "!arg:~0,1!"=="/" (
+			if /i '!arg!'=='/S' (set "typeFilter=-eq 'SymbolicLink'")
+			if /i '!arg!'=='/D' (set "typeFilter=-eq 'SymbolicLink'")
+			if /i '!arg!'=='/H' (set "typeFilter=-eq 'HardLink'")
+			if /i '!arg!'=='/J' (set "typeFilter=-eq 'Junction'")
+			if /i '!arg!'=='/D' (set "flags=!flags! -Directory")
+			if /i '!arg!'=='/R' (set "flags=!flags! -Recurse")
+			if /i '!arg!'=='/F' (set "flags=!flags! -Force")
+		) else if not "!arg!"=="" (
+			set "location=!arg!"
+		)
+		shift && goto readArgs
+	)
 
-if /i '!flag:~-1!'=='S' (set "typeFilter=-eq 'SymbolicLink'")
-if /i '!flag:~-1!'=='D' (set "typeFilter=-eq 'SymbolicLink'")
-if /i '!flag:~-1!'=='H' (set "typeFilter=-eq 'HardLink'")
-if /i '!flag:~-1!'=='J' (set "typeFilter=-eq 'Junction'")
-
-pshell "Get-ChildItem '!loc!' -Recurse -Force !dirFilter! | ?{$_.LinkType !typeFilter!} | Select-Object FullName,LinkType,@{ Name="Targets"; Expression={$_.Target -join "`t"} } | Format-Table | Out-String -Width 9999"
+pshell "Get-ChildItem '!location!' !flags! | ?{$_.LinkType !typeFilter!} | Select-Object @{ Name='FullName'; Expression={$_.FullName + '  '} }, @{ Name='LinkType'; Expression={$_.LinkType + '  '} }, @{ Name='Targets'; Expression={$_.Target -join ', '} } | Format-Table -Property FullName, LinkType, Targets -AutoSize | Out-String -Width 9999"

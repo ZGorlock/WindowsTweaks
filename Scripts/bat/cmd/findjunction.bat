@@ -1,3 +1,3 @@
 @echo off
 
-findlink /J %*
+findlink /J /F %*
