@@ -1,0 +1,9 @@
+Run 'sort file explorer entries numerically.reg'
+
+Launch: Group Policy Editor
+Set:
+	Computer Configuration / Administrative Templates / Windows Components / File Explorer
+		Turn off numerical sorting in File Explorer: Disabled
+
+
+//https://www.makeuseof.com/windows-file-explorer-change-numerical-sorting/

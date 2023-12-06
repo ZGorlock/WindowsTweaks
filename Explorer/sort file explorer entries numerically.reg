@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoStrCmpLogical"=dword:00000000
+
+
+;https://www.makeuseof.com/windows-file-explorer-change-numerical-sorting/
