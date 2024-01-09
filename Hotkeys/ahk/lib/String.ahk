@@ -4,38 +4,38 @@
 
 
 String_Length(str) {
-	Return StrLen(str)
+	return StrLen(str)
 }
 
 
 String_IsEmpty(str) {
-	Return !String_Length(str)
+	return !String_Length(str)
 }
 
 
 String_IsNotEmpty(str) {
-	Return !String_IsEmpty(str)
+	return !String_IsEmpty(str)
 }
 
 
 String_IsBlank(str) {
-	Return String_IsEmpty(String_Trim(str))
+	return String_IsEmpty(String_Trim(str))
 }
 
 
 String_IsNotBlank(str) {
-	Return !String_IsBlank(str)
+	return !String_IsBlank(str)
 }
 
 
-String_SubStr(str, start, len:=0) {
-	Return SubStr(str, start, len)
+String_SubStr(str, start, len := 0) {
+	return SubStr(str, start, len)
 }
 
 
-String_Fill(len, fill:=" ") {
+String_Fill(len, fill := " ") {
 	VarSetCapacity(newStr, len, Asc(fill))
-	Return newStr
+	return newStr
 }
 
 
@@ -43,328 +43,333 @@ String_Join(sep, parts*) {
 	for index, part in parts {
 		str .= (String_IsEmpty(str) ? sep : "") . part
 	}
-	Return str
+	return str
 }
 
 
 String_Concat(parts*) {
-	Return String_Join("", parts)
+	return String_Join("", parts)
 }
 
 
 String_Wrap(sep, prefix, suffix, parts*) {
-	Return (prefix . String_Join(sep, parts) . suffix)
+	return prefix . String_Join(sep, parts) . suffix
 }
 
 
 String_Split(str, delim) {
-	Return StrSplit(str, delim)
+	return StrSplit(str, delim)
 }
 
 
 String_SplitLines(str) {
 	str := String_Replace(str, "`r`n", "`n")
-	Return String_Split(str, "`n")
+	return String_Split(str, "`n")
 }
 
 
 String_UnsplitLines(lines) {
 	str := String_Replace(str, "`r`n", "`n")
-	Return String_Join("`n", str)
+	return String_Join("`n", str)
 }
 
 
 String_Append(str, suffix) {
-	Return (str . suffix)
+	return str . suffix
 }
 
 
 String_Prepend(str, prefix) {
-	Return (prefix . str)
+	return prefix . str
 }
 
 
 String_Trim(str) {
-	Return Trim(str)
+	return Trim(str)
 }
 
 
 String_LTrim(str) {
-	Return LTrim(str)
+	return LTrim(str)
 }
 
 
 String_RTrim(str) {
-	Return RTrim(str)
+	return RTrim(str)
 }
 
 
-String_Pad(str, len, pad:=" ") {
+String_Pad(str, len, pad := " ") {
 	padding := String_Fill(len, pad)
-	Return padding . str . padding
+	return padding . str . padding
 }
 
 
-String_LPad(str, len, pad:=" ") {
+String_LPad(str, len, pad := " ") {
 	padding := String_Fill(len, pad)
-	Return padding . str
+	return padding . str
 }
 
 
-String_RPad(str, len, pad:=" ") {
+String_RPad(str, len, pad := " ") {
 	padding := String_Fill(len, pad)
-	Return str . padding
+	return str . padding
 }
 
 
 String_LSnip(str, len) {
-	Return String_SubStr(str, 1, len)
+	return String_SubStr(str, 1, len)
 }
 
 
 String_RSnip(str, len) {
-	Return String_SubStr(str, (String_Length(str) - len), len)
+	return String_SubStr(str, (String_Length(str) - len), len)
 }
 
 
 String_LShear(str, len) {
-	Return String_SubStr(str, (len + 1))
+	return String_SubStr(str, (len + 1))
 }
 
 
 String_RShear(str, len) {
-	Return String_SubStr(str, 1, (String_Length(str) - len))
+	return String_SubStr(str, 1, (String_Length(str) - len))
 }
 
 
 String_ToLowercase(str) {
 	StringLower, newStr, str
-	Return newStr
+	return newStr
 }
 
 
 String_ToUppercase(str) {
 	StringUpper, newStr, str
-	Return newStr
+	return newStr
 }
 
 
 String_ToTitlecase(str) {
 	StringUpper, newStr, str, T
-	Return newStr
+	return newStr
 }
 
 
-String_IndexOf(str, search, caseSensative:=FALSE) {
-	Return InStr(str, search, caseSensative)
+String_IndexOf(str, search, caseSensitive := FALSE) {
+	return InStr(str, search, caseSensitive)
 }
 
 
-String_IndexOf_CaseSensative(str, search) {
-	Return String_IndexOf(str, search, TRUE)
+String_IndexOf_CaseSensitive(str, search) {
+	return String_IndexOf(str, search, TRUE)
 }
 
 
-String_Equals(str, test, caseSensative:=FALSE) {
-	Return caseSensative ? (str == test) : (str = test)
+String_Equals(str, test, caseSensitive := FALSE) {
+	return caseSensitive ? (str == test) : (str = test)
 }
 
 
-String_Equals_CaseSensative(str, test) {
-	Return String_Equals(str, test, TRUE)
+String_Equals_CaseSensitive(str, test) {
+	return String_Equals(str, test, TRUE)
 }
 
 
-String_NotEquals(str, test, caseSensative:=FALSE) {
-	Return caseSensative ? (str !== test) : (str != test)
+String_NotEquals(str, test, caseSensitive := FALSE) {
+	return caseSensitive ? (str !== test) : (str != test)
 }
 
 
-String_NotEquals_CaseSensative(str, test) {
-	Return String_NotEquals(str, test, TRUE)
+String_NotEquals_CaseSensitive(str, test) {
+	return String_NotEquals(str, test, TRUE)
 }
 
 
-String_Contains(str, search, caseSensative:=FALSE) {
-	Return String_IndexOf(str, search, caseSensative) ? TRUE : FALSE
+String_Contains(str, search, caseSensitive := FALSE) {
+	return String_IndexOf(str, search, caseSensitive) ? TRUE : FALSE
 }
 
 
-String_Contains_CaseSensative(str, search) {
-	Return String_Contains(str, search, TRUE)
+String_Contains_CaseSensitive(str, search) {
+	return String_Contains(str, search, TRUE)
 }
 
 
-String_NotContains(str, search, caseSensative:=FALSE) {
-	Return !String_Contains(str, search, caseSensative)
+String_NotContains(str, search, caseSensitive := FALSE) {
+	return !String_Contains(str, search, caseSensitive)
 }
 
 
-String_NotContains_CaseSensative(str, search) {
-	Return String_NotContains(str, search, TRUE)
+String_NotContains_CaseSensitive(str, search) {
+	return String_NotContains(str, search, TRUE)
 }
 
 
-String_StartsWith(str, prefix, caseSensative:=FALSE) {
-	Return String_Equals(String_LSnip(str, String_Length(prefix)), prefix, caseSensative)
+String_StartsWith(str, prefix, caseSensitive := FALSE) {
+	return String_Equals(String_LSnip(str, String_Length(prefix)), prefix, caseSensitive)
 }
 
 
-String_StartsWith_CaseSensative(str, prefix) {
-	Return String_StartsWith(str, prefix, TRUE)
+String_StartsWith_CaseSensitive(str, prefix) {
+	return String_StartsWith(str, prefix, TRUE)
 }
 
 
-String_NotStartsWith(str, prefix, caseSensative:=FALSE) {
-	Return !String_StartsWith(str, prefix, caseSensative)
+String_NotStartsWith(str, prefix, caseSensitive := FALSE) {
+	return !String_StartsWith(str, prefix, caseSensitive)
 }
 
 
-String_NotStartsWith_CaseSensative(str, prefix) {
-	Return String_NotStartsWith(str, prefix, TRUE)
+String_NotStartsWith_CaseSensitive(str, prefix) {
+	return String_NotStartsWith(str, prefix, TRUE)
 }
 
 
-String_EndsWith(str, suffix, caseSensative:=FALSE) {
-	Return String_Equals(String_RSnip(str, String_Length(suffix)), suffix, caseSensative)
+String_EndsWith(str, suffix, caseSensitive := FALSE) {
+	return String_Equals(String_RSnip(str, String_Length(suffix)), suffix, caseSensitive)
 }
 
 
-String_EndsWith_CaseSensative(str, suffix) {
-	Return String_EndsWith(str, suffix, TRUE)
+String_EndsWith_CaseSensitive(str, suffix) {
+	return String_EndsWith(str, suffix, TRUE)
 }
 
 
-String_NotEndsWith(str, suffix, caseSensative:=FALSE) {
-	Return !String_EndsWith(str, suffix, caseSensative)
+String_NotEndsWith(str, suffix, caseSensitive := FALSE) {
+	return !String_EndsWith(str, suffix, caseSensitive)
 }
 
 
-String_NotEndsWith_CaseSensative(str, suffix) {
-	Return String_NotEndsWith(str, suffix, TRUE)
+String_NotEndsWith_CaseSensitive(str, suffix) {
+	return String_NotEndsWith(str, suffix, TRUE)
 }
 
 
-String_Replace(str, search, replace, caseSensative:=FALSE) {
-	if (caseSensative) {
+String_Replace(str, search, replace, caseSensitive := FALSE) {
+	if (caseSensitive) {
+		caseSense := A_StringCaseSense
 		StringCaseSense On
 	}
-	Return StrReplace(str, search, replace)
+	result := StrReplace(str, search, replace)
+	if (caseSensitive) {
+		StringCaseSense % caseSense
+	}
+	return result
 }
 
 
-String_Replace_CaseSensative(str, search, replace) {
-	Return String_Replace(str, search, replace, TRUE)
+String_Replace_CaseSensitive(str, search, replace) {
+	return String_Replace(str, search, replace, TRUE)
 }
 
 
-String_Remove(str, remove, caseSensative:=FALSE) {
-	Return String_Replace(str, remove, "", caseSensative)
+String_Remove(str, remove, caseSensitive := FALSE) {
+	return String_Replace(str, remove, "", caseSensitive)
 }
 
 
-String_Remove_CaseSensative(str, remove) {
-	Return String_Remove(str, remove, TRUE)
+String_Remove_CaseSensitive(str, remove) {
+	return String_Remove(str, remove, TRUE)
 }
 
-String_RegexMatches(str, pattern, caseSensative:=FALSE) {
-	regex := (caseSensative ? "-i)" : "i)") . "^(?:" . pattern . ")$"
-	Return RegExMatch(str, regex)
-}
-
-
-String_RegexMatches_CaseSensative(str, pattern) {
-	Return String_RegexMatches(str, pattern, TRUE)
+String_RegexMatches(str, pattern, caseSensitive := FALSE) {
+	regex := (caseSensitive ? "-i)" : "i)") . "^(?:" . pattern . ")$"
+	return RegExMatch(str, regex)
 }
 
 
-String_NotRegexMatches(str, pattern, caseSensative:=FALSE) {
-	Return !String_RegexMatches(str, pattern, caseSensative)
+String_RegexMatches_CaseSensitive(str, pattern) {
+	return String_RegexMatches(str, pattern, TRUE)
 }
 
 
-String_NotRegexMatches_CaseSensative(str, pattern) {
-	Return String_NotRegexMatches(str, pattern, TRUE)
+String_NotRegexMatches(str, pattern, caseSensitive := FALSE) {
+	return !String_RegexMatches(str, pattern, caseSensitive)
 }
 
 
-String_RegexContains(str, pattern, caseSensative:=FALSE) {
-	Return String_RegexMatches(str, (".*" . pattern . ".*"), caseSensative)
+String_NotRegexMatches_CaseSensitive(str, pattern) {
+	return String_NotRegexMatches(str, pattern, TRUE)
 }
 
 
-String_RegexContains_CaseSensative(str, pattern) {
-	Return String_RegexContains(str, pattern, TRUE)
+String_RegexContains(str, pattern, caseSensitive := FALSE) {
+	return String_RegexMatches(str, (".*" . pattern . ".*"), caseSensitive)
 }
 
 
-String_NotRegexContains(str, pattern, caseSensative:=FALSE) {
-	Return !String_RegexContains(str, pattern, caseSensative)
+String_RegexContains_CaseSensitive(str, pattern) {
+	return String_RegexContains(str, pattern, TRUE)
 }
 
 
-String_NotRegexContains_CaseSensative(str, pattern) {
-	Return String_NotRegexContains(str, pattern, TRUE)
+String_NotRegexContains(str, pattern, caseSensitive := FALSE) {
+	return !String_RegexContains(str, pattern, caseSensitive)
 }
 
 
-String_RegexStartsWith(str, pattern, caseSensative:=FALSE) {
-	Return String_RegexMatches(str, (pattern . ".*"), caseSensative)
+String_NotRegexContains_CaseSensitive(str, pattern) {
+	return String_NotRegexContains(str, pattern, TRUE)
 }
 
 
-String_RegexStartsWith_CaseSensative(str, pattern) {
-	Return String_RegexStartsWith(str, pattern, TRUE)
+String_RegexStartsWith(str, pattern, caseSensitive := FALSE) {
+	return String_RegexMatches(str, (pattern . ".*"), caseSensitive)
 }
 
 
-String_NotRegexStartsWith(str, pattern, caseSensative:=FALSE) {
-	Return !String_RegexStartsWith(str, pattern, caseSensative)
+String_RegexStartsWith_CaseSensitive(str, pattern) {
+	return String_RegexStartsWith(str, pattern, TRUE)
 }
 
 
-String_NotRegexStartsWith_CaseSensative(str, pattern) {
-	Return String_NotRegexStartsWith(str, pattern, TRUE)
+String_NotRegexStartsWith(str, pattern, caseSensitive := FALSE) {
+	return !String_RegexStartsWith(str, pattern, caseSensitive)
 }
 
 
-String_RegexEndsWith(str, pattern, caseSensative:=FALSE) {
-	Return String_RegexMatches(str, (".*" . pattern), caseSensative)
+String_NotRegexStartsWith_CaseSensitive(str, pattern) {
+	return String_NotRegexStartsWith(str, pattern, TRUE)
 }
 
 
-String_RegexEndsWith_CaseSensative(str, pattern) {
-	Return String_RegexEndsWith(str, pattern, TRUE)
+String_RegexEndsWith(str, pattern, caseSensitive := FALSE) {
+	return String_RegexMatches(str, (".*" . pattern), caseSensitive)
 }
 
 
-String_NotRegexEndsWith(str, pattern, caseSensative:=FALSE) {
-	Return !String_RegexEndsWith(str, pattern, caseSensative)
+String_RegexEndsWith_CaseSensitive(str, pattern) {
+	return String_RegexEndsWith(str, pattern, TRUE)
 }
 
 
-String_NotRegexEndsWith_CaseSensative(str, pattern) {
-	Return String_NotRegexEndsWith(str, pattern, TRUE)
+String_NotRegexEndsWith(str, pattern, caseSensitive := FALSE) {
+	return !String_RegexEndsWith(str, pattern, caseSensitive)
 }
 
 
-String_RegexReplace(str, pattern, replace, caseSensative:=FALSE) {
-	Return RegExReplace(str, ((caseSensative ? "-i)" : "i)") . pattern), replace)
+String_NotRegexEndsWith_CaseSensitive(str, pattern) {
+	return String_NotRegexEndsWith(str, pattern, TRUE)
 }
 
 
-String_RegexReplace_CaseSensative(str, pattern, replace) {
-	Return String_RegexReplace(str, pattern, replace, TRUE)
+String_RegexReplace(str, pattern, replace, caseSensitive := FALSE) {
+	return RegExReplace(str, ((caseSensitive ? "-i)" : "i)") . pattern), replace)
 }
 
 
-String_RegexRemove(str, pattern, caseSensative:=FALSE) {
-	Return String_RegexReplace(str, pattern, "", caseSensative)
+String_RegexReplace_CaseSensitive(str, pattern, replace) {
+	return String_RegexReplace(str, pattern, replace, TRUE)
 }
 
 
-String_RegexRemove_CaseSensative(str, pattern) {
-	Return String_RegexRemove(str, pattern, TRUE)
+String_RegexRemove(str, pattern, caseSensitive := FALSE) {
+	return String_RegexReplace(str, pattern, "", caseSensitive)
+}
+
+
+String_RegexRemove_CaseSensitive(str, pattern) {
+	return String_RegexRemove(str, pattern, TRUE)
 }
 
 

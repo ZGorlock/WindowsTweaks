@@ -10,58 +10,53 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\_Config.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
 LaunchWindowsApps_IsActive() {
-	Return TRUE
+	return TRUE
 }
 
 
-WindowsTaskManagerUri() {
-	Return "taskmgr"
+LaunchWindowsApps_WindowsTaskManagerUri() {
+	return "taskmgr"
 }
 
 
-WindowsSnipAndSketchUri() {
-	Return "ms-screenclip:"
+LaunchWindowsApps_WindowsSnipAndSketchUri() {
+	return "ms-screenclip:"
 }
 
 
-WindowsCalculatorUri() {
-	Return "calculator:"
+LaunchWindowsApps_WindowsCalculatorUri() {
+	return "calculator:"
 }
 
 
-WindowsCalendarUri() {
-	Return "outlookcal:"
+LaunchWindowsApps_WindowsCalendarUri() {
+	return "outlookcal:"
 }
 
 
-WindowsMailUri() {
-	Return "outlookmail:"
+LaunchWindowsApps_WindowsMailUri() {
+	return "outlookmail:"
 }
 
 
-MicrosoftToDoUri() {
-	Return "shell:appsFolder\Microsoft.Todos_8wekyb3d8bbwe!App"
+LaunchWindowsApps_MicrosoftToDoUri() {
+	return "shell:appsFolder\Microsoft.Todos_8wekyb3d8bbwe!App"
 }
 
 
-LaunchWindowsApp(uri) {
-	Try Run "%uri%"
+LaunchWindowsApps_LaunchApp(uri) {
+	if (uri) {
+		try {
+			Run "%uri%"
+		}
+	}
 }
 
 
@@ -74,51 +69,63 @@ LaunchWindowsApp(uri) {
 ^!NumpadDot::
 ^!NumpadDel::
 LaunchTaskManager:
-KeyWait NumpadDot
-KeyWait NumpadDel
-uri := WindowsTaskManagerUri()
-LaunchWindowsApp(uri)
-Return
+{
+	KeyWait NumpadDot
+	KeyWait NumpadDel
+	uri := LaunchWindowsApps_WindowsTaskManagerUri()
+	LaunchWindowsApps_LaunchApp(uri)
+	return
+}
 
 
 ^!NumpadEnter::
 LaunchScreenSnip:
-KeyWait NumpadEnter
-uri := WindowsSnipAndSketchUri()
-LaunchWindowsApp(uri)
-Return
+{
+	KeyWait NumpadEnter
+	uri := LaunchWindowsApps_WindowsSnipAndSketchUri()
+	LaunchWindowsApps_LaunchApp(uri)
+	return
+}
 
 
 ^!NumpadAdd::
 LaunchCalculator:
-KeyWait NumpadAdd
-uri := WindowsCalculatorUri()
-LaunchWindowsApp(uri)
-Return
+{
+	KeyWait NumpadAdd
+	uri := LaunchWindowsApps_WindowsCalculatorUri()
+	LaunchWindowsApps_LaunchApp(uri)
+	return
+}
 
 
 ^!NumpadDiv::
 LaunchCalendar:
-KeyWait NumpadDiv
-uri := WindowsCalendarUri()
-LaunchWindowsApp(uri)
-Return
+{
+	KeyWait NumpadDiv
+	uri := LaunchWindowsApps_WindowsCalendarUri()
+	LaunchWindowsApps_LaunchApp(uri)
+	return
+}
 
 
 ^!NumpadMult::
 LaunchMail:
-KeyWait NumpadMult
-uri := WindowsMailUri()
-LaunchWindowsApp(uri)
-Return
+{
+	KeyWait NumpadMult
+	uri := LaunchWindowsApps_WindowsMailUri()
+	LaunchWindowsApps_LaunchApp(uri)
+	return
+}
 
 
 ^!NumpadSub::
 LaunchMicrosoftToDo:
-KeyWait NumpadSub
-uri := MicrosoftToDoUri()
-LaunchWindowsApp(uri)
-Return
+{
+	KeyWait NumpadSub
+	uri := LaunchWindowsApps_MicrosoftToDoUri()
+	LaunchWindowsApps_LaunchApp(uri)
+	return
+}
 
 
 #If

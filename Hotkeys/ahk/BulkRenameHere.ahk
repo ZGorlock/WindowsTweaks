@@ -5,35 +5,25 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
+#Include lib\_Config.ahk
 
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\Explorer.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
-#Include lib\Explorer.ahk
-
-
 BulkRenameHere_IsActive() {
-	Return Explorer_IsActive()
+	return Explorer_IsActive()
 }
 
 
-BulkRenameUtilityExe() {
-	Return "C:\Program Files\Bulk Rename Utility\Bulk Rename Utility.exe"
+BulkRenameHere_BulkRenameUtilityExe() {
+	return "C:\Program Files\Bulk Rename Utility\Bulk Rename Utility.exe"
 }
 
 
-;--------------------------------------------------
+;--------------------------------------------------------------------------------
 
 
 #If BulkRenameHere_IsActive()
@@ -41,15 +31,20 @@ BulkRenameUtilityExe() {
 
 +F2::
 BulkRenameHere:
-activePath := Explorer_GetActivePath()
-if activePath {
-	exe := BulkRenameUtilityExe()
-	Try Run "%exe%" "%activePath%"
+{
+	activePath := Explorer_GetActivePath()
+	if (activePath) {
+		
+		exe := BulkRenameHere_BulkRenameUtilityExe()
+		try {
+			Run "%exe%" "%activePath%"
+		}
+	}
+	return
 }
-Return
 
 
 #If
 
 
-;--------------------------------------------------
+;--------------------------------------------------------------------------------

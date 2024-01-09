@@ -5,32 +5,22 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
-
-
-;--------------------------------------------------------------------------------
-
+#Include lib\_Config.ahk
 
 #Include lib\Explorer.ahk
 #Include lib\Filesystem.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 EditWithNotepadPlusPlus_IsActive() {
-	Return Explorer_IsActive() || Explorer_OnDesktop()
+	return Explorer_IsActive() || Explorer_OnDesktop()
 }
 
 
-NotepadPlusPlusExe() {
-	Return "C:\Program Files\Notepad++\notepad++.exe"
+EditWithNotepadPlusPlus_NotepadPlusPlusExe() {
+	return "C:\Program Files\Notepad++\notepad++.exe"
 }
 
 
@@ -41,13 +31,18 @@ NotepadPlusPlusExe() {
 
 
 F1::
-EditWithNotepad++:
-selectedItemPath := Explorer_GetSelectedItemPath()
-if Filesystem_IsFile(selectedItemPath) {
-	exe := NotepadPlusPlusExe()
-	Try Run "%exe%" "%selectedItemPath%"
+EditWithNotepadPlusPlus:
+{
+	selectedItemPath := Explorer_GetSelectedItemPath()
+	if (Filesystem_IsFile(selectedItemPath)) {
+		
+		exe := EditWithNotepadPlusPlus_NotepadPlusPlusExe()
+		try {
+			Run "%exe%" "%selectedItemPath%"
+		}
+	}
+	return
 }
-Return
 
 
 #If

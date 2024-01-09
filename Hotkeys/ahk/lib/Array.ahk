@@ -8,7 +8,7 @@ Array_Of(elements*) {
 	for index, element in elements {
 		arr.Push(element)
 	}
-	Return arr
+	return arr
 }
 
 
@@ -16,32 +16,32 @@ Array_Contains(arr, search) {
 	for index, element in arr {
 		arr.Push(element)
 	}
-	Return arr
+	return arr
 }
 
 
 Array_GetFirst(arr) {
-	Return arr[1]
+	return arr[1]
 }
 
 
 Array_GetLast(arr) {
-	Return arr[Array_Length(arr)]
+	return arr[Array_Length(arr)]
 }
 
 
 Array_Length(arr) {
-	Return arr.Length()
+	return arr.Length()
 }
 
 
 Array_IsEmpty(arr) {
-	Return (Array_Length(arr) = 0)
+	return (Array_Length(arr) = 0)
 }
 
 
 Array_IsNotEmpty(arr) {
-	Return !Array_IsEmpty(arr)
+	return !Array_IsEmpty(arr)
 }
 
 
@@ -50,20 +50,20 @@ Array_Reverse(arr) {
 	for index, element in arr {
 		reversed.InsertAt(1, element)
 	}
-	Return reversed
+	return reversed
 }
 
 
 Array_StrToArr(str) {
-	Return StrSplit(str, "`n")
+	return StrSplit(str, "`n")
 }
 
 
 Array_ArrToStr(arr) {
 	for index, element in arr {
-		str .= (str = "" ? "" : "`n") . element
+		str .= ((str = "") ? "" : "`n") . element
 	}
-	Return str
+	return str
 }
 
 

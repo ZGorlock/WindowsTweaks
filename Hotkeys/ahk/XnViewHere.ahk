@@ -5,31 +5,21 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
+#Include lib\_Config.ahk
 
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\Explorer.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
-#Include lib\Explorer.ahk
-
-
 XnViewHere_IsActive() {
-	Return Explorer_IsActive()
+	return Explorer_IsActive()
 }
 
 
-XnViewExe() {
-	Return "C:\Program Files\XnViewMP\xnviewmp.exe"
+XnViewHere_XnViewMpExe() {
+	return "C:\Program Files\XnViewMP\xnviewmp.exe"
 }
 
 
@@ -41,12 +31,17 @@ XnViewExe() {
 
 +F1::
 XnViewHere:
-activePath := Explorer_GetActivePath()
-if activePath {
-	exe := XnViewExe()
-	Try Run "%exe%" "%activePath%"
+{
+	activePath := Explorer_GetActivePath()
+	if (activePath) {
+		
+		exe := XnViewHere_XnViewMpExe()
+		try {
+			Run "%exe%" "%activePath%"
+		}
+	}
+	return
 }
-Return
 
 
 #If

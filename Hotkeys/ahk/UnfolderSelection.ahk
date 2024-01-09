@@ -6,20 +6,7 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
-
-
-;--------------------------------------------------------------------------------
-
+#Include lib\_Config.ahk
 
 #Include lib\Array.ahk
 #Include lib\Explorer.ahk
@@ -27,12 +14,15 @@ SetTitleMatchMode RegEx
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 UnfolderSelection_IsActive() {
-	Return Explorer_IsActive()
+	return Explorer_IsActive()
 }
 
 
-EmptySubFolder(activeDir, subDir) {
+UnfolderSelection_EmptySubFolder(activeDir, subDir) {
 	subFiles := Filesystem_ListFiles(subDir)
 	for subIndex, subPath in subFiles {
 		destPath := String_Replace(subPath, subDir, activeDir)
@@ -46,13 +36,13 @@ EmptySubFolder(activeDir, subDir) {
 }
 
 
-UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
+UnfolderSelection_ConfirmationPrompt(activeDir, selectedFolders) {
 	prompt := "Hotkey is about empty the following directories to the current directory:" . "`n" . "`n" . Array_ArrToStr(selectedFolders) . "`n" . "`n" . "Do you wish to continue?" 
 	MsgBox, 260, , % prompt
 	IfMsgBox, Yes
-		Return TRUE
+		return TRUE
 	Else
-		Return FALSE
+		return FALSE
 }
 
 
@@ -65,17 +55,22 @@ UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
 ~^+/::
 ~^+!/::
 UnfolderSelection:
-alt := GetKeyState("Alt")
-activeDir := Explorer_GetActivePath()
-selectedFolders := alt ? Filesystem_ListDirs(activeDir) : Explorer_GetSelectedItemPathList("D")
-if activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders) {
-	if UnfolderSelectionConfirmationPrompt(activeDir, selectedFolders) {
-		for index, path in selectedFolders {
-			EmptySubFolder(activeDir, path)
+{
+	alt := GetKeyState("Alt")
+	
+	activeDir := Explorer_GetActivePath()
+	selectedFolders := alt ? Filesystem_ListDirs(activeDir) : Explorer_GetSelectedItemPathList("D")
+	if (activeDir && selectedFolders && Array_IsNotEmpty(selectedFolders)) {
+		
+		if (UnfolderSelection_ConfirmationPrompt(activeDir, selectedFolders)) {
+			
+			for index, path in selectedFolders {
+				UnfolderSelection_EmptySubFolder(activeDir, path)
+			}
 		}
 	}
+	return
 }
-Return
 
 
 #If

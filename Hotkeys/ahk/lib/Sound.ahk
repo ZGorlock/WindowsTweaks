@@ -5,10 +5,10 @@
 
 Sound_GetWMP() {
 	static WMP
-	if (!isobject(WMP)) {
+	if (!IsObject(WMP)) {
 		WMP := ComObjCreate("WMPlayer.OCX.7")
 	}
-	Return WMP
+	return WMP
 }
 
 
@@ -16,15 +16,16 @@ Sound_PlayMedia(mediaFilePath, volume := 100) {
 	WMP := Sound_GetWMP()
 	WMP.Settings.Volume := volume
 	WMP.url := mediaFilePath
-	Return WMP
+	return WMP
 }
 
 
 Sound_PlayMediaAndWait(mediaFilePath, volume := 100) {
 	WMP := Sound_PlayMedia(mediaFilePath, volume)
-	while WMP.PlayState != 1
+	while (WMP.PlayState != (WMPPlayState_wmppsStopped := 1)) {
 		Sleep, 10
-	Return WMP
+	}
+	return WMP
 }
 
 

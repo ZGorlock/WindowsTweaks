@@ -14,34 +14,31 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\_Config.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
 CustomNumpadMacros_IsActive() {
-	Return TRUE
+	return TRUE
 }
 
 
-CustomMacroBat(id) {
-	Return "CustomMacro_" . id . ".bat"
+CustomNumpadMacros_CustomMacroBat(id) {
+	if (id) {
+		return "CustomMacro_" . id . ".bat"
+	}
 }
 
 
-RunCustomMacro(id) {
-	bat := CustomMacroBat(id)
-	Try Run "%bat%", , Hide
+CustomNumpadMacros_RunMacro(id) {
+	bat := CustomNumpadMacros_CustomMacroBat(id)
+	if (bat) {
+		try {
+			Run "%bat%", , Hide
+		}
+	}
 }
 
 
@@ -54,91 +51,111 @@ RunCustomMacro(id) {
 ^!Numpad0::
 ^!NumpadIns::
 CustomMacro0:
-KeyWait Numpad0
-KeyWait NumpadIns
-RunCustomMacro(0)
-Return
+{
+	KeyWait Numpad0
+	KeyWait NumpadIns
+	CustomNumpadMacros_RunMacro(0)
+	return
+}
 
 
 ^!Numpad1::
 ^!NumpadEnd::
 CustomMacro1:
-KeyWait Numpad1
-KeyWait NumpadEnd
-RunCustomMacro(1)
-Return
+{
+	KeyWait Numpad1
+	KeyWait NumpadEnd
+	CustomNumpadMacros_RunMacro(1)
+	return
+}
 
 
 ^!Numpad2::
 ^!NumpadDown::
 CustomMacro2:
-KeyWait Numpad2
-KeyWait NumpadDown
-RunCustomMacro(2)
-Return
+{
+	KeyWait Numpad2
+	KeyWait NumpadDown
+	CustomNumpadMacros_RunMacro(2)
+	return
+}
 
 
 ^!Numpad3::
 ^!NumpadPgDn::
 CustomMacro3:
-KeyWait Numpad3
-KeyWait NumpadPgDn
-RunCustomMacro(3)
-Return
+{
+	KeyWait Numpad3
+	KeyWait NumpadPgDn
+	CustomNumpadMacros_RunMacro(3)
+	return
+}
 
 
 ^!Numpad4::
 ^!NumpadLeft::
 CustomMacro4:
-KeyWait Numpad4
-KeyWait NumpadLeft
-RunCustomMacro(4)
-Return
+{
+	KeyWait Numpad4
+	KeyWait NumpadLeft
+	CustomNumpadMacros_RunMacro(4)
+	return
+}
 
 
 ^!Numpad5::
 ^!NumpadClear::
 CustomMacro5:
-KeyWait Numpad5
-KeyWait NumpadClear
-RunCustomMacro(5)
-Return
+{
+	KeyWait Numpad5
+	KeyWait NumpadClear
+	CustomNumpadMacros_RunMacro(5)
+	return
+}
 
 
 ^!Numpad6::
 ^!NumpadRight::
 CustomMacro6:
-KeyWait Numpad6
-KeyWait NumpadRight
-RunCustomMacro(6)
-Return
+{
+	KeyWait Numpad6
+	KeyWait NumpadRight
+	CustomNumpadMacros_RunMacro(6)
+	return
+}
 
 
 ^!Numpad7::
 ^!NumpadHome::
 CustomMacro7:
-KeyWait Numpad7
-KeyWait NumpadHome
-RunCustomMacro(7)
-Return
+{
+	KeyWait Numpad7
+	KeyWait NumpadHome
+	CustomNumpadMacros_RunMacro(7)
+	return
+}
 
 
 ^!Numpad8::
 ^!NumpadUp::
 CustomMacro8:
-KeyWait Numpad8
-KeyWait NumpadUp
-RunCustomMacro(8)
-Return
+{
+	KeyWait Numpad8
+	KeyWait NumpadUp
+	CustomNumpadMacros_RunMacro(8)
+	return
+}
 
 
 ^!Numpad9::
 ^!NumpadPgUp::
 CustomMacro9:
-KeyWait Numpad9
-KeyWait NumpadPgUp
-RunCustomMacro(9)
-Return
+{
+	KeyWait Numpad9
+	KeyWait NumpadPgUp
+	CustomNumpadMacros_RunMacro(9)
+	return
+}
 
 
 #If

@@ -12,20 +12,7 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
-
-
-;--------------------------------------------------------------------------------
-
+#Include lib\_Config.ahk
 
 #Include lib\Array.ahk
 #Include lib\Explorer.ahk
@@ -33,18 +20,21 @@ SetTitleMatchMode RegEx
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 WinrarArchiveActions_IsActive() {
-	Return Explorer_IsActive()
+	return Explorer_IsActive()
 }
 
 
-WinrarExe() {
-	Return "C:\Program Files\WinRAR\WinRAR.exe"
+WinrarArchiveActions_WinrarExe() {
+	return "C:\Program Files\WinRAR\WinRAR.exe"
 }
 
 
-Winrar_CheckFileIsArchive(ext) {
-	Return String_RegexMatches(ext, "rar|zip|cab|arj|lzh|tar|gz|zst|ace|uue|bz2|jar|iso|7z|z|zipx")
+WinrarArchiveActions_CheckFileIsArchive(ext) {
+	return String_RegexMatches(ext, "rar|zip|cab|arj|lzh|tar|gz|zst|ace|uue|bz2|jar|iso|7z|z|zipx")
 }
 
 
@@ -57,76 +47,97 @@ Winrar_CheckFileIsArchive(ext) {
 ~^+P::
 ~^+!P::
 ArchiveWithWinrar:
-alt := GetKeyState("Alt")
-selectedItemPathList := Explorer_GetSelectedItemPathList()
-if selectedItemPathList {
+{
+	alt := GetKeyState("Alt")
 	
-	fileList := ""
-	for i, selectedItemPath in selectedItemPathList {
-		fileList .= (String_IsEmpty(inclusions) ? "" : " ") . """" . selectedItemPath . """"
+	selectedItemPathList := Explorer_GetSelectedItemPathList()
+	if (selectedItemPathList && Array_IsNotEmpty(selectedItemPathList)) {
+		
+		fileList := ""
+		for index, selectedItemPath in selectedItemPathList {
+			fileList .= (String_IsEmpty(inclusions) ? "" : " ") . """" . selectedItemPath . """"
+		}
+		
+		SplitPath % Array_GetFirst(selectedItemPathList), name, dir, ext, nameNoExt, drive
+		baseName := (Array_Length(selectedItemPathList) = 1) ? nameNoExt : dir
+		baseName := String_RegexRemove(baseName, "^(.+\\)+")
+		archive := Filesystem_GetUnusedFilename(dir, baseName, "rar")
+		
+		exe := WinrarArchiveActions_WinrarExe()
+		if (alt) {
+			try {
+				RunWait "%exe%" a "%archive%" -m5 -ep1 -df -dr -ibck %fileList%
+			}
+		} else {
+			try {
+				RunWait "%exe%" a "%archive%" -m5 -ep1 -ibck %fileList%
+			}
+		}
 	}
-	
-	SplitPath % Array_GetFirst(selectedItemPathList), name, dir, ext, nameNoExt, drive
-	baseName := (Array_Length(selectedItemPathList) = 1) ? nameNoExt : dir
-	baseName := String_RegexRemove(baseName, "^(.+\\)+")
-	archive := Filesystem_GetUnusedFilename(dir, baseName, "rar")
-	
-	exe := WinrarExe()
-	if alt {
-		Try RunWait "%exe%" a "%archive%" -m5 -ep1 -df -dr -ibck %fileList%
-	} else {
-		Try RunWait "%exe%" a "%archive%" -m5 -ep1 -ibck %fileList%
-	}
+	return
 }
-Return
 
 
 ~^+I::
 ~^+!I::
 GZipWithWinrar:
-alt := GetKeyState("Alt")
-selectedItemPathList := Explorer_GetSelectedItemPathList()
-if selectedItemPathList {
+{
+	alt := GetKeyState("Alt")
 	
-	for i, selectedItemPath in selectedItemPathList {
-		SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
-		archive := Filesystem_GetUnusedFilename(dir, name, "gz")
+	selectedItemPathList := Explorer_GetSelectedItemPathList()
+	if (selectedItemPathList && Array_IsNotEmpty(selectedItemPathList)) {
 		
-		exe := WinrarExe()
-		if alt {
-			Try RunWait "%exe%" a "%archive%" -m5 -ep1 -df -dr -ibck "%selectedItemPath%"
-		} else {
-			Try RunWait "%exe%" a "%archive%" -m5 -ep1 -ibck "%selectedItemPath%"
+		for index, selectedItemPath in selectedItemPathList {
+			SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
+			archive := Filesystem_GetUnusedFilename(dir, name, "gz")
+			
+			exe := WinrarArchiveActions_WinrarExe()
+			if (alt) {
+				try {
+					RunWait "%exe%" a "%archive%" -m5 -ep1 -df -dr -ibck "%selectedItemPath%"
+				}
+			} else {
+				try {
+					RunWait "%exe%" a "%archive%" -m5 -ep1 -ibck "%selectedItemPath%"
+				}
+			}
 		}
 	}
+	return
 }
-Return
 
 
 ~^+O::
 ~^+!O::
 ExtractWithWinrar:
-alt := GetKeyState("Alt")
-selectedItemPathList := Explorer_GetSelectedItemPathList()
-if selectedItemPathList {
+{
+	alt := GetKeyState("Alt")
 	
-	for i, selectedItemPath in selectedItemPathList {
-		SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
-		if Winrar_CheckFileIsArchive(ext) {
-			
-			exe := WinrarExe()
-			if alt {
-				Try RunWait "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
-				if Filesystem_FileExists(selectedItemPath) {
-					Filesystem_RecycleFile(selectedItemPath)
+	selectedItemPathList := Explorer_GetSelectedItemPathList()
+	if (selectedItemPathList && Array_IsNotEmpty(selectedItemPathList)) {
+		
+		for index, selectedItemPath in selectedItemPathList {
+			SplitPath selectedItemPath, name, dir, ext, nameNoExt, drive
+			if (WinrarArchiveActions_CheckFileIsArchive(ext)) {
+				
+				exe := WinrarArchiveActions_WinrarExe()
+				if (alt) {
+					try {
+						RunWait "%exe%" x "%selectedItemPath%" -df -dr -ibck "%dir%"
+					}
+					if (Filesystem_FileExists(selectedItemPath)) {
+						Filesystem_RecycleFile(selectedItemPath)
+					}
+				} else {
+					try {
+						RunWait "%exe%" x "%selectedItemPath%" -ibck "%dir%"
+					}
 				}
-			} else {
-				Try RunWait "%exe%" x "%selectedItemPath%" -ibck "%dir%"
 			}
 		}
 	}
+	return
 }
-Return
 
 
 #If

@@ -8,19 +8,22 @@
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 Explorer_IsActive() {
-	Return String_RegexMatches(Desktop_GetActiveWindowClass(), "(Cabinet|Explore)WClass")
+	return String_RegexMatches(Desktop_GetActiveWindowClass(), "(Cabinet|Explore)WClass")
 }
 
 
 Explorer_OnDesktop() {
-	Return String_RegexMatches(Desktop_GetActiveWindowClass(), "Progman|WorkerW")
+	return String_RegexMatches(Desktop_GetActiveWindowClass(), "Progman|WorkerW")
 }
 
 
 Explorer_GetActiveView() {
-	if !Explorer_IsActive() {
-		Return
+	if (!Explorer_IsActive()) {
+		return
 	}
 	
 	shellWindows := ComObjCreate("Shell.Application").Windows
@@ -29,79 +32,83 @@ Explorer_GetActiveView() {
 	} else {
 		hWnd := Desktop_GetActiveWindowId()
 		for window in shellWindows {
-			if (hWnd = window.HWND) && (shellFolderView := window.Document) {
+			if ((hWnd = window.HWND) && (shellFolderView := window.Document)) {
 				break
 			}
 		}
 	}
 	
-    Return shellFolderView
+	return shellFolderView
 }
 
 
 Explorer_GetActivePath() {
-	Return Explorer_GetActiveView().Folder.Self.Path
+	return Explorer_GetActiveView().Folder.Self.Path
 }
 
 
-Explorer_GetItemList(type:="") {
+Explorer_GetItemList(type := "") {
 	items := []
-	for item in Explorer_GetActiveView().Folder.Items {
-		if Filesystem_IsType(item.Path, type) {
+	folderItems := Explorer_GetActiveView().Folder.Items
+	for item in folderItems {
+		if (Filesystem_IsType(item.Path, type)) {
 			items.Push(item)
 		}
 	}
-	Return items
+	return items
 }
 
 
-Explorer_GetItemPathList(type:="") {
+Explorer_GetItemPathList(type := "") {
 	paths := []
-	for index, item in Explorer_GetItemList(type) {
+	itemList := Explorer_GetItemList(type)
+	for index, item in itemList {
 		paths.Push(item.Path)
 	}
-	Return paths
+	return paths
 }
 
 
-Explorer_CountItems(type:="") {
-	Return Explorer_GetItemList(type).Length()
+Explorer_CountItems(type := "") {
+	return Explorer_GetItemList(type).Length()
 }
 
 
-Explorer_GetSelectedItemList(type:="") {
+Explorer_GetSelectedItemList(type := "") {
 	items := []
-	for item in Explorer_GetActiveView().SelectedItems {
-		if Filesystem_IsType(item.Path, type) {
+	selectedItems := Explorer_GetActiveView().SelectedItems
+	for item in selectedItems {
+		if (Filesystem_IsType(item.Path, type)) {
 			items.Push(item)
 		}
 	}
-	Return items
+	return items
 }
 
 
-Explorer_GetSelectedItemPathList(type:="") {
+Explorer_GetSelectedItemPathList(type := "") {
 	paths := []
-	for index, item in Explorer_GetSelectedItemList(type) {
+	selectedItemList := Explorer_GetSelectedItemList(type)
+	for index, item in selectedItemList {
 		paths.Push(item.Path)
 	}
-	Return paths
+	return paths
 }
 
 
-Explorer_CountSelectedItems(type:="") {
-	Return Explorer_GetSelectedItemList(type).Length()
+Explorer_CountSelectedItems(type := "") {
+	return Explorer_GetSelectedItemList(type).Length()
 }
 
 
 Explorer_GetSelectedItem() {
 	selectedItems := Explorer_GetSelectedItemList()
-	Return selectedItems.Length() > 1 ? "" : selectedItems[1]
+	return (selectedItems.Length() > 1) ? "" : selectedItems[1]
 }
 
 
 Explorer_GetSelectedItemPath() {
-	Return Explorer_GetSelectedItem().Path
+	return Explorer_GetSelectedItem().Path
 }
 
 
@@ -117,25 +124,25 @@ Explorer_RenameItem(itemPath) {
 
 Explorer_IsEnteringText() {
 	vCtlClassNN := Desktop_GetFocusedControlClass()
-	Return String_StartsWith(vCtlClassNN, "Edit") || String_StartsWith(vCtlClassNN, "Windows.UI.Core.CoreWindow")
+	return String_StartsWith(vCtlClassNN, "Edit") || String_StartsWith(vCtlClassNN, "Windows.UI.Core.CoreWindow")
 }
 
 
 Explorer_IsRenamingItem() {
 	vCtlStyle := Desktop_GetFocusedControlStyle()
-	Return Explorer_IsEnteringText() && ((vCtlStyle = 0x50000080) || (vCtlStyle = 0x540000C5))
+	return Explorer_IsEnteringText() && ((vCtlStyle = 0x50000080) || (vCtlStyle = 0x540000C5))
 }
 
 
 Explorer_IsTypingInSearchBar() {
 	vCtlStyle := Desktop_GetFocusedControlStyle()
-	Return Explorer_IsEnteringText() && (vCtlStyle = 0x48000080)
+	return Explorer_IsEnteringText() && (vCtlStyle = 0x48000080)
 }
 
 
 Explorer_IsTypingInAddressBar() {
 	vCtlStyle := Desktop_GetFocusedControlStyle()
-	Return Explorer_IsEnteringText() && (vCtlStyle = 0x54000080)
+	return Explorer_IsEnteringText() && (vCtlStyle = 0x54000080)
 }
 
 

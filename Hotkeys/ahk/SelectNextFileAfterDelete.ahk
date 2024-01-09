@@ -5,26 +5,16 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
+#Include lib\_Config.ahk
 
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\Explorer.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
-#Include lib\Explorer.ahk
-
-
 SelectNextFileAfterDelete_IsActive() {
-	Return Explorer_IsActive()
+	return Explorer_IsActive()
 }
 
 
@@ -36,11 +26,13 @@ SelectNextFileAfterDelete_IsActive() {
 
 ~Del::
 SelectNextFileAfterDelete:
-if !Explorer_IsEnteringText() {
-	KeyWait Del
-	Send {Space}
+{
+	if (!Explorer_IsEnteringText()) {
+		KeyWait Del
+		Send {Space}
+	}
+	return
 }
-Return
 
 
 #If

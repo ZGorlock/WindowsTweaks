@@ -6,20 +6,7 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
-
-
-;--------------------------------------------------------------------------------
-
+#Include lib\_Config.ahk
 
 #Include lib\Array.ahk
 #Include lib\Desktop.ahk
@@ -29,60 +16,63 @@ SetTitleMatchMode RegEx
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 StashSelection_IsActive() {
-	Return Explorer_IsActive() || ImageGlass_IsActive() || IrfanView_IsActive() || VLC_IsActive() || XnView_IsActive()
+	return Explorer_IsActive() || StashSelection_ImageGlass_IsActive() || StashSelection_IrfanView_IsActive() || StashSelection_VLC_IsActive() || StashSelection_XnView_IsActive()
 }
 
 
-ImageGlass_IsActive() {
-	Return String_Equals(Desktop_GetActiveWindowProcessName(), "ImageGlass.exe")
+StashSelection_ImageGlass_IsActive() {
+	return String_Equals(Desktop_GetActiveWindowProcessName(), "ImageGlass.exe")
 }
 
 
-IrfanView_IsActive() {
-	Return String_Equals(Desktop_GetActiveWindowProcessName(), "i_view64.exe")
+StashSelection_IrfanView_IsActive() {
+	return String_Equals(Desktop_GetActiveWindowProcessName(), "i_view64.exe")
 }
 
 
-VLC_IsActive() {
-	Return String_Equals(Desktop_GetActiveWindowProcessName(), "vlc.exe")
+StashSelection_VLC_IsActive() {
+	return String_Equals(Desktop_GetActiveWindowProcessName(), "vlc.exe")
 }
 
 
-XnView_IsActive() {
-	Return String_Equals(Desktop_GetActiveWindowProcessName(), "xnviewmp.exe")
+StashSelection_XnView_IsActive() {
+	return String_Equals(Desktop_GetActiveWindowProcessName(), "xnviewmp.exe")
 }
 
 
-StashDir() {
+StashSelection_StashDir() {
 	EnvGet, stashDir, StashDir
-	if stashDir {
+	if (stashDir) {
 		stashDir := stashDir . "\"
 		stashDir := RegExReplace(stashDir, "[\\/]+", "\")
-		Return stashDir
+		return stashDir
 	}
-	Return
+	return
 }
 
 
-GetStashSelection() {
+StashSelection_GetSelected() {
 	selection := []
-	if Explorer_IsActive() {
+	if (Explorer_IsActive()) {
 		selection := Explorer_GetSelectedItemPathList()
-	} else if ImageGlass_IsActive() {
-		selection := ImageGlass_GetSelected()
-	} else if IrfanView_IsActive() {
-		selection := IrfanView_GetSelected()
-	} else if VLC_IsActive() {
-		selection := VLC_GetSelected()
-	} else if XnView_IsActive() {
-		selection := XnView_GetSelected()
+	} else if (StashSelection_ImageGlass_IsActive()) {
+		selection := StashSelection_ImageGlass_GetSelected()
+	} else if (StashSelection_IrfanView_IsActive()) {
+		selection := StashSelection_IrfanView_GetSelected()
+	} else if (StashSelection_VLC_IsActive()) {
+		selection := StashSelection_VLC_GetSelected()
+	} else if (StashSelection_XnView_IsActive()) {
+		selection := StashSelection_XnView_GetSelected()
 	}
-	Return selection
+	return selection
 }
 
 
-ImageGlass_GetSelected() {
+StashSelection_ImageGlass_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
@@ -94,14 +84,14 @@ ImageGlass_GetSelected() {
 	
 	file := filePath . "\" . fileName
 	
-	if Filesystem_FileExists(file) {
+	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
 	}
-	Return selection
+	return selection
 }
 
 
-IrfanView_GetSelected() {
+StashSelection_IrfanView_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
@@ -113,14 +103,14 @@ IrfanView_GetSelected() {
 	
 	file := filePath . "\" . fileName
 	
-	if Filesystem_FileExists(file) {
+	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
 	}
-	Return selection
+	return selection
 }
 
 
-VLC_GetSelected() {
+StashSelection_VLC_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
@@ -128,33 +118,33 @@ VLC_GetSelected() {
 	
 	file := String_Replace(String_Remove(fileUri, "file:///"), "/", "\")
 	
-	if Filesystem_FileExists(file) {
+	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
 	}
-	Return selection
+	return selection
 }
 
 
-XnView_GetSelected() {
+StashSelection_XnView_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
 	file := String_Trim(String_Remove(title, " - XnView MP"))
 	
-	if Filesystem_FileExists(file) {
+	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
 	}
-	Return selection
+	return selection
 }
 
 
-CompletionWav() {
-	Return "C:\Windows\Media\Windows Message Nudge.wav"
+StashSelection_CompletionWav() {
+	return "C:\Windows\Media\Windows Message Nudge.wav"
 }
 
 
-PlayCompletionSound() {
-	wav := CompletionWav()
+StashSelection_PlayCompletionSound() {
+	wav := StashSelection_CompletionWav()
 	Sound_PlayMedia(wav, 50)
 }
 
@@ -168,21 +158,27 @@ PlayCompletionSound() {
 ^S::
 ^!S::
 StashSelection:
-alt := GetKeyState("Alt")
-selectedFiles := GetStashSelection()
-stashDir := StashDir()
-if selectedFiles && stashDir {
-	Filesystem_CreateDir(stashDir)
-	for index, path in selectedFiles {
-		if alt {
-			Filesystem_Move(path, stashDir)
-		} else {
-			Filesystem_Copy(path, stashDir)
+{
+	alt := GetKeyState("Alt")
+	
+	stashDir := StashSelection_StashDir()
+	selectedFiles := StashSelection_GetSelected()
+	if (stashDir && selectedFiles && Array_IsNotEmpty(selectedFiles)) {
+		if (!Filesystem_FileExists(stashDir)) {
+			Filesystem_CreateDir(stashDir)
 		}
+		
+		for index, path in selectedFiles {
+			if (alt) {
+				Filesystem_Move(path, stashDir)
+			} else {
+				Filesystem_Copy(path, stashDir)
+			}
+		}
+		;StashSelection_PlayCompletionSound()
 	}
-	;PlayCompletionSound()
+	return
 }
-Return
 
 
 #If

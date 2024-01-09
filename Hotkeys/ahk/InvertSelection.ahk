@@ -5,26 +5,16 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
+#Include lib\_Config.ahk
 
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\Explorer.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
-#Include lib\Explorer.ahk
-
-
 InvertSelection_IsActive() {
-	Return Explorer_IsActive()
+	return Explorer_IsActive()
 }
 
 
@@ -36,9 +26,11 @@ InvertSelection_IsActive() {
 
 ~^I::
 InvertSelection:
-KeyWait Ctrl
-Send !HSI
-Return
+{
+	KeyWait Ctrl
+	Send !HSI
+	return
+}
 
 
 #If

@@ -6,8 +6,11 @@
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 Clipboard_GetText() {
-	Return Clipboard
+	return Clipboard
 }
 
 
@@ -22,17 +25,17 @@ Clipboard_Clear() {
 
 
 Clipboard_ContainsText() {
-	Return String_IsNotEmpty(Clipboard_GetText())
+	return String_IsNotEmpty(Clipboard_GetText())
 }
 
 
 Clipboard_DoesNotContainText() {
-	Return !Clipboard_ContainsText()
+	return !Clipboard_ContainsText()
 }
 
 
 Clipboard_Get() {
-	Return ClipboardAll
+	return ClipboardAll
 }
 
 

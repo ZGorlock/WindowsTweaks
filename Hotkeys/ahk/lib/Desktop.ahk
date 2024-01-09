@@ -6,63 +6,66 @@
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 Desktop_GetActiveWindowId() {
-	Return WinExist("A")
+	return WinExist("A")
 }
 
 
 Desktop_GetActiveWindowClass() {
 	WinGetClass, winClass, A
-	Return winClass
+	return winClass
 }
 
 
 Desktop_GetActiveWindowProcessName() {
 	WinGet, winProcessName, ProcessName, A
-	Return winProcessName
+	return winProcessName
 }
 
 
 Desktop_GetActiveWindowProcessPath() {
 	WinGet, winProcessPath, ProcessPath, A
-	Return winProcessPath
+	return winProcessPath
 }
 
 
 Desktop_GetActiveWindowProcessId() {
 	WinGet, winPid, PID, A
-	Return winPid
+	return winPid
 }
 
 
 Desktop_GetActiveWindowTitle() {
 	WinGetTitle, winTitle, A
-	Return winTitle
+	return winTitle
 }
 
 
 Desktop_GetMousePosition(byref mouseX, byref mouseY) {
 	CoordMode, Mouse, Screen
 	MouseGetPos, mouseX, mouseY
-	Return
+	return
 }
 
 
 Desktop_GetFocusedControlClass() {
 	ControlGetFocus, controlClass, A
-	Return controlClass
+	return controlClass
 }
 
 
 Desktop_GetFocusedControlStyle() {
 	ControlGet, controlStyle, Style, , % Desktop_GetFocusedControlClass(), A
-	Return controlStyle
+	return controlStyle
 }
 
 
 Desktop_GetFocusedControlExtendedStyle() {
 	ControlGet, controlExStyle, ExStyle, , % Desktop_GetFocusedControlClass(), A
-	Return controlExStyle
+	return controlExStyle
 }
 
 
@@ -71,17 +74,17 @@ Desktop_GetFileHandles(pid) {
 	
 	handles := []
 	res := size := 1
-	while res != 0 {
+	while (res != 0) {
 		VarSetCapacity(buff, size, 0)
 		res := DllCall("ntdll\NtQuerySystemInformation", "Int", (SystemExtendedHandleInformation := 0x40), "Ptr", &buff, "UInt", size, "UIntP", size, "UInt")
 	}
 	handleCount := NumGet(buff)
 	
-	Loop % handleCount {
+	loop % handleCount {
 		offset := (A_PtrSize * 2) + (((A_PtrSize * 3) + 16) * (A_Index - 1))
-		processId := NumGet(buff, (offset := offset + A_PtrSize), "UInt")
+		processId := NumGet(buff, (offset += A_PtrSize), "UInt")
 		if (pid = processId) {
-			handleValue := NumGet(buff, (offset := offset + A_PtrSize))
+			handleValue := NumGet(buff, (offset += A_PtrSize))
 			DllCall("DuplicateHandle", "Ptr", hProcess, "Ptr", handleValue, "Ptr", DllCall("GetCurrentProcess"), "PtrP", lpTargetHandle, "UInt", 0, "UInt", 0, "UInt", (DUPLICATE_SAME_ACCESS := 0x2))
 			
 			VarSetCapacity(filePath, 1026)
@@ -94,7 +97,7 @@ Desktop_GetFileHandles(pid) {
 	}
 	DllCall("CloseHandle", "Ptr", hProcess)
 	
-	Return handles
+	return handles
 }
 
 

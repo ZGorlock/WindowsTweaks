@@ -6,26 +6,17 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
-
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
-
-
-;--------------------------------------------------------------------------------
-
+#Include lib\_Config.ahk
 
 #Include lib\Desktop.ahk
 #Include lib\String.ahk
 
 
+;--------------------------------------------------------------------------------
+
+
 ResolvePopupModal_IsActive() {
-	Return String_Equals(Desktop_GetActiveWindowClass(), "#32770")
+	return String_Equals(Desktop_GetActiveWindowClass(), "#32770")
 }
 
 
@@ -37,14 +28,18 @@ ResolvePopupModal_IsActive() {
 
 XButton1::
 RejectPopupModal:
-Send {Escape}
-Return
+{
+	Send {Escape}
+	return
+}
 
 
 XButton2::
 AcceptPopupModal:
-Send {Enter}
-Return
+{
+	Send {Enter}
+	return
+}
 
 
 #If

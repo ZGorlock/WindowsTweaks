@@ -6,31 +6,22 @@
 ;--------------------------------------------------------------------------------
 
 
-#Requires AutoHotkey v1.1
 
-#Persistent
-#SingleInstance Force
-#NoTrayIcon
-#NoEnv
+#Include lib\_Config.ahk
 
-SetKeyDelay, 0, 50
-SetBatchLines 10ms
-SetTitleMatchMode RegEx
+#Include lib\Explorer.ahk
 
 
 ;--------------------------------------------------------------------------------
 
 
-#Include lib\Explorer.ahk
-
-
 CommandPromptHere_IsActive() {
-	Return Explorer_IsActive() || Explorer_OnDesktop()
+	return Explorer_IsActive() || Explorer_OnDesktop()
 }
 
 
-CmdExe() {
-	Return "C:\Windows\System32\cmd.exe"
+CommandPromptHere_CmdExe() {
+	return "C:\Windows\System32\cmd.exe"
 }
 
 
@@ -41,23 +32,27 @@ CmdExe() {
 
 
 ~^+C::
-CommandPromptHere:
-activePath := Explorer_GetActivePath()
-if activePath {
-	exe := CmdExe()
-	Try Run "%exe%" /k cd /d "%activePath%"
-}
-Return
-
-
 ~^+!C::
-AdminCommandPromptHere:
-activePath := Explorer_GetActivePath()
-if activePath {
-	exe := CmdExe()
-	Try Run *RunAs "%exe%" /k cd /d "%activePath%"
+CommandPromptHere:
+{
+	alt := GetKeyState("Alt")
+	
+	activePath := Explorer_GetActivePath()
+	if (activePath) {
+		
+		exe := CommandPromptHere_CmdExe()
+		if (alt) {
+			try {
+				Run *RunAs "%exe%" /k cd /d "%activePath%"
+			}
+		} else {
+			try {
+				Run "%exe%" /k cd /d "%activePath%"
+			}
+		}
+	}
+	return
 }
-Return
 
 
 #If
