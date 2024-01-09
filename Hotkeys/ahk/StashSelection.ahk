@@ -145,7 +145,7 @@ StashSelection_CompletionWav() {
 
 StashSelection_PlayCompletionSound() {
 	wav := StashSelection_CompletionWav()
-	Sound_PlayMedia(wav, 50)
+	Sound_Play(wav)
 }
 
 
