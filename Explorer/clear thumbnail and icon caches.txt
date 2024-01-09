@@ -1,0 +1,12 @@
+This will delete the Windows thumbnail cache and icon cache
+	The caches will be rebuilt as needed by Windows Explorer
+
+This will automatically restart the computer after running
+	Ensure your work is saved and your programs are closed
+
+Run 'clear thumbnail and icon caches.bat' as Admin
+
+
+//https://www.winability.com/how-to-erase-icon-thumbnail-cache-windows-8/
+//https://www.tenforums.com/tutorials/5645-rebuild-icon-cache-windows-10-a.html
+//https://www.tenforums.com/tutorials/5655-clear-reset-thumbnail-cache-windows-10-a.html

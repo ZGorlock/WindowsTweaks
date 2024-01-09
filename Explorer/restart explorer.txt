@@ -1,0 +1,4 @@
+This will shutdown and then restart Windows Explorer
+	All File Explorer windows will be closed
+
+Run 'restart explorer.bat' as Admin
