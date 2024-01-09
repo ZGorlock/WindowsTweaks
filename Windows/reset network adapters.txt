@@ -1,0 +1,9 @@
+This will 
+
+Run 'reset network adapters.bat' as Admin
+
+Restart computer
+
+
+//https://www.intel.com/content/www/us/en/support/articles/000058982/wireless/intel-killer-wi-fi-products.html
+//https://www.minitool.com/news/reset-tcp-ip-windows-10.html
