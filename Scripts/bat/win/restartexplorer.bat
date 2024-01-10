@@ -1,3 +1,4 @@
 @echo off
 
-resetexplorer
+taskkill /f /im explorer.exe
+start explorer.exe
