@@ -7,7 +7,7 @@
 
 #Persistent
 #SingleInstance Force
-;#NoTrayIcon
+#NoTrayIcon
 #NoEnv
 
 #InstallKeybdHook
