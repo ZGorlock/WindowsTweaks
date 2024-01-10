@@ -76,13 +76,14 @@ StashSelection_ImageGlass_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
-	fileName := String_Trim(String_LSnip(title, String_IndexOf(title, "|") - 1))
+	file := String_Trim(String_LSnip(title, String_IndexOf(title, "|") - 1))
 	
-	pid := Desktop_GetActiveWindowProcessId()
-	fileHandles := Desktop_GetFileHandles(pid)
-	filePath := Array_GetFirst(fileHandles)
-	
-	file := filePath . "\" . fileName
+	if (!Filesystem_FileExists(file)) {
+		pid := Desktop_GetActiveWindowProcessId()
+		fileHandles := Desktop_GetFileHandles(pid)
+		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Windows\")
+		file := Array_GetLast(fileHandles) . "\" . file
+	}
 	
 	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
@@ -95,13 +96,14 @@ StashSelection_IrfanView_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
-	fileName := String_Trim(String_LSnip(title, String_IndexOf(title, " - IrfanView") - 1))
+	file := String_Trim(String_LSnip(title, String_IndexOf(title, " - IrfanView") - 1))
 	
-	pid := Desktop_GetActiveWindowProcessId()
-	fileHandles := Desktop_GetFileHandles(pid)
-	filePath := fileHandles[2]
-	
-	file := filePath . "\" . fileName
+	if (!Filesystem_FileExists(file)) {
+		pid := Desktop_GetActiveWindowProcessId()
+		fileHandles := Desktop_GetFileHandles(pid)
+		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Windows\")
+		file := Array_GetLast(fileHandles) . "\" . file
+	}
 	
 	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
@@ -114,9 +116,16 @@ StashSelection_VLC_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
-	fileUri := String_Trim(String_Remove(title, " - VLC media player"))
-	
+	file := String_Trim(String_Remove(title, " - VLC media player"))
 	file := String_Replace(String_Remove(fileUri, "file:///"), "/", "\")
+	
+	if (!Filesystem_FileExists(file)) {
+		pid := Desktop_GetActiveWindowProcessId()
+		fileHandles := Desktop_GetFileHandles(pid)
+		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Windows\")
+		fileHandles := Array_FilterNotContains(fileHandles, "\AppData\")
+		file := Array_GetLast(fileHandles)
+	}
 	
 	if (Filesystem_FileExists(file)) {
 		selection.Push(file)
