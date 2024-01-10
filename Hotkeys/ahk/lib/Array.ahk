@@ -54,6 +54,61 @@ Array_Reverse(arr) {
 }
 
 
+Array_FilterNotBlank(arr) {
+	filtered := []
+	for index, element in arr {
+		if (String_IsNotBlank(element)) {
+			filtered.Push(element)
+		}
+	}
+	return filtered
+}
+
+
+Array_FilterContains(arr, prefix, caseSensitive := FALSE) {
+	filtered := []
+	for index, element in arr {
+		if (String_Contains(element, prefix, caseSensitive)) {
+			filtered.Push(element)
+		}
+	}
+	return filtered
+}
+
+
+Array_FilterNotContains(arr, prefix, caseSensitive := FALSE) {
+	filtered := []
+	for index, element in arr {
+		if (!String_Contains(element, prefix, caseSensitive)) {
+			filtered.Push(element)
+		}
+	}
+	return filtered
+}
+
+
+Array_FilterStartsWith(arr, prefix, caseSensitive := FALSE) {
+	filtered := []
+	for index, element in arr {
+		if (String_StartsWith(element, prefix, caseSensitive)) {
+			filtered.Push(element)
+		}
+	}
+	return filtered
+}
+
+
+Array_FilterNotStartsWith(arr, prefix, caseSensitive := FALSE) {
+	filtered := []
+	for index, element in arr {
+		if (!String_StartsWith(element, prefix, caseSensitive)) {
+			filtered.Push(element)
+		}
+	}
+	return filtered
+}
+
+
 Array_StrToArr(str) {
 	return StrSplit(str, "`n")
 }
