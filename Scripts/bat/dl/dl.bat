@@ -1,22 +1,43 @@
 @echo off
-setlocal enabledelayedexpansion
 
-set "url=%~1"
+if not '%~1'=='~' (
+	setlocal enabledelayedexpansion
+	call "%~nx0" "~" %*
+	goto :end
+)
+shift /1
 
-set "out=%~2"
-if '!out!'=='' (set "out=%DLOutput%")
-if '!out!'=='' (set "out=%Downloads%\.dl")
-if '!out!'=='' (set "out=%UserProfile%\Downloads\.dl")
+goto :init
 
-set env=dl
 
-set listen=false
-
-echo.
-echo --------------------------------------------------
-echo.
-
-goto :main
+:init
+	if '%~1'=='~' (exit /b 1)
+	
+	set "input=%~1"
+	
+	set "out=%~2"
+	if '!out!'=='' (set "out=%DLOutput%")
+	if '!out!'=='' (set "out=%Downloads%\.dl")
+	if '!out!'=='' (set "out=%UserProfile%\Downloads\.dl")
+	
+	set "galleryDl=gallery-dl"
+	set "youtubeDl=yt-dlp"
+::	set "youtubeDl=youtube-dl"
+	set "defaultDl=wget"
+	set "autoDlExe=true"
+	set "exec="
+	set "args="
+	
+	set "condaEnv=dl"
+	set "env="
+	
+	set "run=false"
+	set "url="
+	
+	call :logSeparator
+	title %~n0
+	
+	goto :main
 
 
 :main
@@ -27,102 +48,309 @@ goto :main
 
 
 :input
-	if not '!listen!'=='true' (goto :end)
+	if not '!run!'=='true' (exit /b 0)
 	
-	echo.
-	echo --------------------------------------------------
-	echo.
+	call :logSeparator
+	title %~n0
 	
-	set url=
-	set /p url=: 
+	set /p  "input=: " ^
+	 || set "input="
+	
+	if not '!input!'=='' (set "input=!input: =!")
+	if not '!input!'=='' (title %~n0 - !input!)
 	
 	goto :main
 
 
 :command
-	if '!url!'=='start'   (call :start)
-	if '!url!'=='server'  (call :start)
-	if '!url!'=='listen'  (call :start)
-	if '!url!'=='loop'    (call :start)
+	if '!input!'=='~' (exit /b 1)
 	
-	if '!url!'=='stop'    (call :stop)
-	if '!url!'=='quit'    (call :stop)
-	if '!url!'=='exit'    (call :stop)
-	if '!url!'=='end'     (call :stop)
-	if '!url!'=='break'   (call :stop)
-	if '!url!'==''        (call :stop)
+	if /i '!input!'=='start'    (call :startThread)
+	if /i '!input!'=='run'      (call :startThread)
+	if /i '!input!'=='server'   (call :startThread)
+	if /i '!input!'=='listen'   (call :startThread)
+	if /i '!input!'=='loop'     (call :startThread)
 	
-	if '!url!'=='open'    (call :open)
-	if '!url!'=='explore' (call :open)
-	if '!url!'=='pop'     (call :open)
-	if '!url!'=='dir'     (call :open)
+	if /i '!input!'=='stop'     (call :stopThread)
+	if /i '!input!'=='exit'     (call :stopThread)
+	if /i '!input!'=='end'      (call :stopThread)
+	if /i '!input!'=='quit'     (call :stopThread)
+	if /i '!input!'=='break'    (call :stopThread)
+	if /i '!input!'=='x'        (call :stopThread)
+	if /i '!input!'==''         (call :stopThread)
+	
+	if /i '!input!'=='open'     (call :openOutput)
+	if /i '!input!'=='browse'   (call :openOutput)
+	if /i '!input!'=='explore'  (call :openOutput)
+	if /i '!input!'=='explorer' (call :openOutput)
+	if /i '!input!'=='pop'      (call :openOutput)
+	if /i '!input!'=='dir'      (call :openOutput)
+	
+	if '!input!'=='!input://=!' (set "input=")
 	
 	exit /b 0
 
 
-:start
-	if '!listen!'=='true' (exit /b 1)
+:startThread
+	if '!run!'=='true' (exit /b 1)
 	
 	echo Listening...
-	set listen=true
+	set "run=true"
 	
 	exit /b 0
 
 
-:stop
-	if '!listen!'=='false' (exit /b 1)
+:stopThread
+	if not '!run!'=='true' (exit /b 1)
 	
 	echo Done
-	set listen=false
+	set "run=false"
 	
 	exit /b 0
 
 
-:open
-	if not exist "!out!" (mkdir "!out!")
+:openOutput
+	if '!out!'=='' (exit /b 1)
+	call :initOutput
 	
+	if not exist "!out!" (exit /b 1)
 	echo !out!
+	
 	explorer "!out!"
 	
 	exit /b 0
 
 
 :process
-	if '!url!'==''          (exit /b 1)
-	if '!url!'=='!url://=!' (exit /b 1)
+	if '!input!'=='' (exit /b 0)
+	call :initProcessor
 	
-	if not exist "!out!" (mkdir "!out!")
-	cd /D "!out!"
+	if '!input!'=='!input://=!' (exit /b 1)
+	set "url=!input!"
+	set "input="
 	
 	call :download
+	
+	set "url="
 	
 	exit /b 0
 
 
 :download
-	set video=false
-	if not '!url!'=='!url:/video=!'      (set video=true)
-	if not '!url!'=='!url:/view_video=!' (set video=true)
-	if not '!url!'=='!url:/watch=!'      (set video=true)
-	if not '!url!'=='!url:/playlist=!'   (set video=true)
-	if not '!url!'=='!url:/episode=!'    (set video=true)
+	if '!url!'=='' (exit /b 1)
+	call :initDownloader
 	
-	if not '!env!'=='' (call conda activate !env!)
+	if '!exec!'==''            (exit /b 1)
+	if '!exec!'=='!galleryDl!' (call :galleryDl)
+	if '!exec!'=='!youtubeDl!' (call :youtubeDl)
+	if '!exec!'=='!defaultDl!' (call :defaultDl)
 	
-	if '!video!'=='true' (
-		echo Using yt-dlp...
-		yt-dlp -f mp4 -S res:720 -o "!out!\%%(title)s.%%(ext)s" "!url!"
-	) else (
-		echo Using gallery-dl...
-		gallery-dl --verbose --dest "!out!" "!url!"
+	if not '!args!'=='' (set "args=!args:  =!")
+	if     '!args!'=='' (exit /b 1)
+	
+	title %~n0 [!exec!] - !url!
+	echo !exec! !args!
+	
+	!exec! !args!
+	
+	set "exec="
+	set "args="
+	
+	exit /b 0
+
+
+:galleryDl
+	if not '!exec!'=='!galleryDl!' (exit /b 1)
+	if not '!args!'==''            (exit /b 1)
+	if      '!url!'==''            (exit /b 1)
+	if      '!out!'==''            (exit /b 1)
+	
+	set "args= "
+	set "args=!args! --verbose"
+	set "args=!args! --dest "!out!""
+	set "args=!args! "!url!""
+	
+	exit /b 0
+
+
+:youtubeDl
+	if not '!exec!'=='!youtubeDl!' (exit /b 1)
+	if not '!args!'==''            (exit /b 1)
+	if      '!url!'==''            (exit /b 1)
+	if      '!out!'==''            (exit /b 1)
+	
+	set "args= "
+	set "args=!args! -f mp4"
+	set "args=!args! -S res:720"
+	set "args=!args! -o "!out!\%%(title)s.%%(ext)s""
+	set "args=!args! "!url!""
+	
+	exit /b 0
+
+
+:defaultDl
+	if not '!exec!'=='!defaultDl!' (exit /b 1)
+	if not '!args!'==''            (exit /b 1)
+	if      '!url!'==''            (exit /b 1)
+	if      '!out!'==''            (exit /b 1)
+	
+	set "args= "
+	set "args=!args! --verbose"
+::	set "args=!args! --debug"
+::	set "args=!args! --quiet"
+	set "args=!args! --no-hsts"
+	set "args=!args! --https-only"
+	set "args=!args! --force-directories"
+	set "args=!args! -P "!out!""
+	set "args=!args! "!url!""
+	
+	exit /b 0
+
+
+:initDownloader
+	set "video=false"
+	if not '!url!'=='!url:/video=!'      (set "video=true")
+	if not '!url!'=='!url:/view_video=!' (set "video=true")
+	if not '!url!'=='!url:/watch=!'      (set "video=true")
+	if not '!url!'=='!url:/playlist=!'   (set "video=true")
+	if not '!url!'=='!url:/episode=!'    (set "video=true")
+	
+	set "exec="
+	set "args="
+	if not '!galleryDl!'=='' (set "exec=!galleryDl!")
+	if not '!youtubeDl!'=='' (
+		if  '!exec!'==''     (set "exec=!youtubeDl!")
+		if '!video!'=='true' (set "exec=!youtubeDl!")
+	)
+	if not '!defaultDl!'=='' (
+		if '!exec!'==''      (set "exec=!defaultDl!")
 	)
 	
-	if not '!env!'=='' (call conda deactivate)
+	if '!exec!'=='' (
+		echo Downloader not available for: !url!
+		exit /b 1
+	)
+	echo Using !exec!...
+	
+	exit /b 0
+
+
+:initProcessor
+	call :initOutput
+	call :initExe
+	
+	call :setupEnv
+	
+	exit /b 0
+
+
+:initOutput
+	if '!out!'=='' (exit /b 1)
+	
+	if not exist "!out!" (mkdir "!out!")
+	if not exist "!out!" (
+		echo Output directory does not exist: !out!
+		exit /b 1
+	)
+	
+	cd /d "!out!"
+	
+	exit /b 0
+
+
+:initExe
+	if not '!exec!'=='' (exit /b 1)
+	
+	if not '!defaultDl!'=='' (
+		call :loadExe "!defaultDl!"
+		set "defaultDl=!exec!"
+		set "exec="
+	)
+	
+	if not '!galleryDl!'=='' (
+		if '!galleryDl!'=='gallery-dl' (
+			call :loadExe "gallery-dl" "https://github.com/mikf/gallery-dl/releases/latest/download/gallery-dl.exe"
+		) else (
+			call :loadExe "!galleryDl!"
+		)
+		set "galleryDl=!exec!"
+		set "exec="
+	)
+	
+	if not '!youtubeDl!'=='' (
+		if '!youtubeDl!'=='yt-dlp' (
+			call :loadExe "yt-dlp" "https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp.exe"
+		) else if '!youtubeDl!'=='youtube-dl' (
+			call :loadExe "youtube-dl" "https://github.com/ytdl-org/youtube-dl/releases/latest/download/youtube-dl.exe"
+		) else (
+			call :loadExe "!youtubeDl!"
+		)
+		set "youtubeDl=!exec!"
+		set "exec="
+	)
+	
+	exit /b 0
+
+
+:loadExe
+	set "exec="
+	
+	if '%~1'=='' (exit /b 1)
+	for /f "tokens=*" %%f in ('where "%~1" 2^>nul') do (
+		set "exec=%%~nf"
+		exit /b 0
+	)
+	
+	if not '!autoDlExe!'=='true' (exit /b 1)
+	if     '!defaultDl!'==''     (exit /b 1)
+	
+	if '%~2'=='' (exit /b 1)
+	!defaultDl! -q -P "%~dp0." "%~2"
+	
+	if exist "%~dp0%~1.exe" (
+		set "exec=%~1"
+		exit /b 0
+	)
+	
+	exit /b 1
+
+
+:setupEnv
+	if not      '!env!'=='' (exit /b 1)
+	if     '!condaEnv!'=='' (exit /b 1)
+	
+	set "env=!condaEnv!"
+	call conda activate "!env!"
+	
+	exit /b 0
+
+
+:shutdownEnv
+	if '!env!'==''     (exit /b 1)
+	if '!run!'=='true' (exit /b 1)
+	
+	set "env="
+	call conda deactivate
+	
+	exit /b 0
+
+
+:logSeparator
+	echo.
+	echo --------------------------------------------------
+	echo.
 	
 	exit /b 0
 
 
 :end
-	echo.
-	echo --------------------------------------------------
-	echo.
+	call :stopThread
+	call :shutdownEnv
+	
+	call :logSeparator
+	for %%f in (%comspec%) do (title %%~nf)
+	
+	endlocal
+::	pause
+	
+	exit /b
