@@ -1,3 +1,10 @@
 @echo off
+setlocal
 
-explorer %SystemRoot%
+set loc=%WinDir%
+
+if '%loc%'=='' (
+	systemroot
+) else (
+	explorer %loc%
+)

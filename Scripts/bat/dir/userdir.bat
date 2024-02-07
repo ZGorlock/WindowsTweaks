@@ -1,3 +1,3 @@
 @echo off
 
-explorer %USERPROFILE%
+explorer %UserProfile%
