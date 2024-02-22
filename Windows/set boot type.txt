@@ -1,0 +1,15 @@
+This will configure the boot type that will be used the next time the system is restarted
+
+To reset the boot type to normal:
+	Run 'set boot type to default.bat' as Admin
+
+To set the boot type to safe mode:
+	Choose one of the following, depending on the desired capabilities:
+		Safe	Shell	Network		Run as Admin
+		X							'set boot type to safe mode.bat'
+		X				X			'set boot type to safe mode with networking.bat'
+		X		X					'set boot type to safe mode with command prompt.bat'
+		X		X		X			'set boot type to safe mode with command prompt and networking.bat'
+
+
+:: https://www.digitalcitizen.life/4-ways-boot-safe-mode-windows-10/

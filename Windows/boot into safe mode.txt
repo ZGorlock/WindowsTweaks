@@ -1,0 +1,27 @@
+Run 'boot into safe mode.bat' as Admin
+
+Alternatively:
+	Run 'msconfig.exe'
+		Switch to the 'Boot' tab
+		Under Boot options:
+			Enable 'Safe boot'
+		Click 'Ok'
+	Restart computer
+
+Alternatively:
+	Open the default Windows 10 start menu
+		Hold Shift
+		Click Power
+			Click Restart
+	On Boot Screen:
+		Select 'Troubleshoot'
+		Select 'Advanced options'
+		Select 'Startup Settings'
+		Click Restart
+	On Startup Screen:
+		Select the entry for 'Enable Safe Mode'
+
+
+// https://www.tenforums.com/tutorials/2304-boot-into-safe-mode-windows-10-a.html
+// https://support.microsoft.com/en-us/windows/start-your-pc-in-safe-mode-in-windows-92c27cff-db89-8644-1ce4-b3e5e56fe234
+// https://www.digitalcitizen.life/4-ways-boot-safe-mode-windows-10/
