@@ -1,5 +1,5 @@
 ;--------------------------------------------------------------------------------
-; EditWithNotepad++.ahk
+; EditWithNotepad.ahk
 ;--------------------------------------------------------------------------------
 ; F1                 ; Open selected file in Notepad++                          ;
 ;--------------------------------------------------------------------------------
@@ -14,12 +14,12 @@
 ;--------------------------------------------------------------------------------
 
 
-EditWithNotepadPlusPlus_IsActive() {
+EditWithNotepad_IsActive() {
 	return Explorer_IsActive() || Explorer_OnDesktop()
 }
 
 
-EditWithNotepadPlusPlus_NotepadPlusPlusExe() {
+EditWithNotepad_NotepadPlusPlusExe() {
 	return "C:\Program Files\Notepad++\notepad++.exe"
 }
 
@@ -27,16 +27,16 @@ EditWithNotepadPlusPlus_NotepadPlusPlusExe() {
 ;--------------------------------------------------------------------------------
 
 
-#If EditWithNotepadPlusPlus_IsActive()
+#If EditWithNotepad_IsActive()
 
 
 F1::
-EditWithNotepadPlusPlus:
+EditWithNotepad:
 {
 	selectedItemPath := Explorer_GetSelectedItemPath()
 	if (Filesystem_IsFile(selectedItemPath)) {
 		
-		exe := EditWithNotepadPlusPlus_NotepadPlusPlusExe()
+		exe := EditWithNotepad_NotepadPlusPlusExe()
 		try {
 			Run "%exe%" "%selectedItemPath%"
 		}

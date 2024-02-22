@@ -65,7 +65,7 @@
 ;--------------------------------------------------------------------------------
 
 
-#Include EditWithNotepad++.ahk
+#Include EditWithNotepad.ahk
 
 #Include XnViewHere.ahk
 #Include BulkRenameHere.ahk
