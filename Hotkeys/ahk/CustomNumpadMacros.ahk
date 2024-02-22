@@ -1,16 +1,16 @@
 ;--------------------------------------------------------------------------------
 ; CustomNumpadMacros.ahk
 ;--------------------------------------------------------------------------------
-; Ctrl+Alt+Numpad0   ; Executes CustomMacro_0.bat accessible on the system path ;
-; Ctrl+Alt+Numpad1   ; Executes CustomMacro_1.bat accessible on the system path ;
-; Ctrl+Alt+Numpad2   ; Executes CustomMacro_2.bat accessible on the system path ;
-; Ctrl+Alt+Numpad3   ; Executes CustomMacro_3.bat accessible on the system path ;
-; Ctrl+Alt+Numpad4   ; Executes CustomMacro_4.bat accessible on the system path ;
-; Ctrl+Alt+Numpad5   ; Executes CustomMacro_5.bat accessible on the system path ;
-; Ctrl+Alt+Numpad6   ; Executes CustomMacro_6.bat accessible on the system path ;
-; Ctrl+Alt+Numpad7   ; Executes CustomMacro_7.bat accessible on the system path ;
-; Ctrl+Alt+Numpad8   ; Executes CustomMacro_8.bat accessible on the system path ;
-; Ctrl+Alt+Numpad9   ; Executes CustomMacro_9.bat accessible on the system path ;
+; Ctrl+Alt+Numpad0   ; Executes CustomMacro_0.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad1   ; Executes CustomMacro_1.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad2   ; Executes CustomMacro_2.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad3   ; Executes CustomMacro_3.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad4   ; Executes CustomMacro_4.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad5   ; Executes CustomMacro_5.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad6   ; Executes CustomMacro_6.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad7   ; Executes CustomMacro_7.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad8   ; Executes CustomMacro_8.bat located in the usr\ directory ;
+; Ctrl+Alt+Numpad9   ; Executes CustomMacro_9.bat located in the usr\ directory ;
 ;--------------------------------------------------------------------------------
 
 
@@ -25,9 +25,16 @@ CustomNumpadMacros_IsActive() {
 }
 
 
-CustomNumpadMacros_CustomMacroBat(id) {
-	if (id) {
-		return "CustomMacro_" . id . ".bat"
+CustomNumpadMacros_CustomMacroBatPath() {
+	return "usr\"
+}
+
+
+CustomNumpadMacros_CustomMacroBat(id := -1) {
+	if (id >= 0) {
+		path := CustomNumpadMacros_CustomMacroBatPath()
+		bat := "CustomMacro_" . id . ".bat"
+		return path . "\" . bat
 	}
 }
 
