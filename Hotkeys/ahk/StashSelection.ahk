@@ -47,8 +47,7 @@ StashSelection_XnView_IsActive() {
 StashSelection_StashDir() {
 	EnvGet, stashDir, StashDir
 	if (stashDir) {
-		stashDir := stashDir . "\"
-		stashDir := RegExReplace(stashDir, "[\\/]+", "\")
+		stashDir := Filesystem_DirPath(stashDir)
 		return stashDir
 	}
 	return
@@ -82,7 +81,7 @@ StashSelection_ImageGlass_GetSelected() {
 		pid := Desktop_GetActiveWindowProcessId()
 		fileHandles := Desktop_GetFileHandles(pid)
 		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Windows\")
-		file := Array_GetLast(fileHandles) . "\" . file
+		file := Filesystem_Path(Array_GetLast(fileHandles), file)
 	}
 	
 	if (Filesystem_FileExists(file)) {
@@ -102,7 +101,7 @@ StashSelection_IrfanView_GetSelected() {
 		pid := Desktop_GetActiveWindowProcessId()
 		fileHandles := Desktop_GetFileHandles(pid)
 		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Windows\")
-		file := Array_GetLast(fileHandles) . "\" . file
+		file := Filesystem_Path(Array_GetLast(fileHandles), file)
 	}
 	
 	if (Filesystem_FileExists(file)) {
@@ -117,7 +116,7 @@ StashSelection_VLC_GetSelected() {
 	
 	title := Desktop_GetActiveWindowTitle()
 	file := String_Trim(String_Remove(title, " - VLC media player"))
-	file := String_Replace(String_Remove(fileUri, "file:///"), "/", "\")
+	file := Filesystem_Path(fileUri)
 	
 	if (!Filesystem_FileExists(file)) {
 		pid := Desktop_GetActiveWindowProcessId()

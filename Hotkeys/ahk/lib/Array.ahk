@@ -3,6 +3,12 @@
 ;--------------------------------------------------------------------------------
 
 
+#Include lib\String.ahk
+
+
+;--------------------------------------------------------------------------------
+
+
 Array_Of(elements*) {
 	arr := []
 	for index, element in elements {
@@ -110,15 +116,12 @@ Array_FilterNotStartsWith(arr, prefix, caseSensitive := FALSE) {
 
 
 Array_StrToArr(str) {
-	return StrSplit(str, "`n")
+	return String_SplitLines(str)
 }
 
 
 Array_ArrToStr(arr) {
-	for index, element in arr {
-		str .= ((str = "") ? "" : "`n") . element
-	}
-	return str
+	return String_UnsplitLines(arr)
 }
 
 

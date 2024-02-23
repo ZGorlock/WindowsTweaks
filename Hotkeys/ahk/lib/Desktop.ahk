@@ -3,7 +3,7 @@
 ;--------------------------------------------------------------------------------
 
 
-#Include lib\String.ahk
+#Include lib\Filesystem.ahk
 
 
 ;--------------------------------------------------------------------------------
@@ -89,7 +89,7 @@ Desktop_GetFileHandles(pid) {
 			
 			VarSetCapacity(filePath, 1026)
 			if ((DllCall("GetFileType", "Ptr", lpTargetHandle) = (FILE_TYPE_DISK := 0x1)) && DllCall("GetFinalPathNameByHandle", "Ptr", lpTargetHandle, "Str", filePath, "UInt", 512, "UInt", 0)) {
-				handle := String_RegexRemove(filePath, "^\\\\\?\\")
+				handle := Filesystem_Path(filePath)
 				handles.Push(handle)
 			}
 			DllCall("CloseHandle", "Ptr", lpTargetHandle)

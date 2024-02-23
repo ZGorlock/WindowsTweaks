@@ -16,6 +16,8 @@
 
 #Include lib\_Config.ahk
 
+#Include lib\Filesystem.ahk
+
 
 ;--------------------------------------------------------------------------------
 
@@ -34,7 +36,7 @@ CustomNumpadMacros_CustomMacroBat(id := -1) {
 	if (id >= 0) {
 		path := CustomNumpadMacros_CustomMacroBatPath()
 		bat := "CustomMacro_" . id . ".bat"
-		return path . "\" . bat
+		return Filesystem_Path(path, bat)
 	}
 }
 

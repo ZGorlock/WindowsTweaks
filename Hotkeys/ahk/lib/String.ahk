@@ -39,21 +39,22 @@ String_Fill(len, fill := " ") {
 }
 
 
-String_Join(sep, parts*) {
-	for index, part in parts {
-		str .= (String_IsEmpty(str) ? sep : "") . part
+String_Join(sep, tokens*) {
+	for index, token in tokens {
+		substr := IsObject(token) ? String_Join(sep, token*) : token
+		str .= (String_IsNotEmpty(str) ? sep : "") . substr
 	}
 	return str
 }
 
 
-String_Concat(parts*) {
-	return String_Join("", parts)
+String_Concat(tokens*) {
+	return String_Join("", tokens)
 }
 
 
-String_Wrap(sep, prefix, suffix, parts*) {
-	return prefix . String_Join(sep, parts) . suffix
+String_Wrap(sep, prefix, suffix, tokens*) {
+	return prefix . String_Join(sep, tokens) . suffix
 }
 
 
@@ -69,8 +70,7 @@ String_SplitLines(str) {
 
 
 String_UnsplitLines(lines) {
-	str := String_Replace(str, "`r`n", "`n")
-	return String_Join("`n", str)
+	return String_Join("`n", lines)
 }
 
 

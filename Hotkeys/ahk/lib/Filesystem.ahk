@@ -209,7 +209,7 @@ Filesystem_CopyFile(path, dest, overwrite := FALSE) {
 
 Filesystem_CopyDir(path, dest, overwrite := FALSE) {
 	SplitPath path, name, dir, ext, nameNoExt, drive
-	FileCopyDir, % path, % (dest . "\" . name), % overwrite
+	FileCopyDir, % path, % Filesystem_Path(dest, name), % overwrite
 }
 
 
@@ -229,7 +229,7 @@ Filesystem_MoveFile(path, dest, overwrite := FALSE) {
 
 Filesystem_MoveDir(path, dest, overwrite := FALSE) {
 	SplitPath path, name, dir, ext, nameNoExt, drive
-	FileMoveDir, % path, % (dest . "\" . name), % overwrite
+	FileMoveDir, % path, % Filesystem_Path(dest, name), % overwrite
 }
 
 
@@ -242,10 +242,24 @@ Filesystem_Move(path, dest, overwrite := FALSE) {
 }
 
 
+Filesystem_Path(parts*) {
+	path := String_Join("\", parts)
+	path := String_RegexReplace(path, "[\\/]+", "\")
+	path := String_RegexRemove(path, "^(?:\\|\?|\w{2,}:)+")
+	path := String_RegexRemove(path, "\\$")
+	return path
+}
+
+
+Filesystem_DirPath(parts*) {
+	return Filesystem_Path(parts) . "\"
+}
+
+
 Filesystem_GetUnusedFilename(path, name, ext) {
-	file := path . "\" . name . "." . ext
+	file := Filesystem_Path(path, (name . "." . ext))
 	while (FileExist(file)) {
-		file := path . "\" . name . " (" . (A_Index + 1) . ")." . ext
+		file := Filesystem_Path(path, (name . " (" . (A_Index + 1) . ")." . ext))
 	}
 	return file
 }
