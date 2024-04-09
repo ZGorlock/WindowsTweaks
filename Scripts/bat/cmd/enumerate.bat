@@ -35,5 +35,5 @@ if exist "!output!" (
 
 call touch "!output!"
 for /f "tokens=*" %%x in ('locate !flags! "!pattern!"') do (
-	if not "%%x"=="!output!" if not "%%x"=="%cd%\!output!" (echo %%x >> "!output!")
+	if not "%%x"=="!output!" if not "%%x"=="%cd%\!output!" (>> "!output!" echo %%x)
 )
