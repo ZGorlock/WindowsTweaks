@@ -91,6 +91,11 @@ goto :init
 	if /i '!input!'=='pop'      (call :openOutput)
 	if /i '!input!'=='dir'      (call :openOutput)
 	
+	if /i '!input!'=='cls'      (call :clearConsole)
+	if /i '!input!'=='clear'    (call :clearConsole)
+	if /i '!input!'=='refresh'  (call :clearConsole)
+	if /i '!input!'=='reset'    (call :clearConsole)
+	
 	if '!input!'=='!input://=!' (set "input=")
 	
 	exit /b 0
@@ -122,6 +127,13 @@ goto :init
 	echo !out!
 	
 	explorer "!out!"
+	
+	exit /b 0
+
+
+:clearConsole
+	cls
+	title %~n0
 	
 	exit /b 0
 
