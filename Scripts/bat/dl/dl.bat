@@ -24,7 +24,12 @@ goto :init
 	set "youtubeDl=yt-dlp"
 ::	set "youtubeDl=youtube-dl"
 	set "defaultDl=wget"
-	set "autoDlExe=true"
+	
+	set "directYtDl=false"
+	set "autoDlExe=false"
+	set "updateExe=false"
+	set "forceUpdate=false"
+	
 	set "exec="
 	set "args="
 	
@@ -167,6 +172,8 @@ goto :init
 	
 	set "args= "
 	set "args=!args! --verbose"
+::	set "args=!args! --filter "date ^<^= datetime(2016, 9, 25)""
+::	set "args=!args! --no-download"
 	set "args=!args! --dest "!out!""
 	set "args=!args! "!url!""
 	
@@ -180,9 +187,13 @@ goto :init
 	if      '!out!'==''            (exit /b 1)
 	
 	set "args= "
-	set "args=!args! -f mp4"
-	set "args=!args! -S res:720"
-	set "args=!args! -o "!out!\%%(title)s.%%(ext)s""
+	set "args=!args! --verbose"
+::	set "args=!args! --quiet"
+::	set "args=!args! --retries 100"
+::	set "args=!args! --limit-rate 1000K"
+	set "args=!args! --format bestvideo[height<=?720]+bestaudio/best"
+	set "args=!args! --merge-output-format mp4"
+	set "args=!args! --output "!out!\%%(title)s.%%(ext)s""
 	set "args=!args! "!url!""
 	
 	exit /b 0
@@ -200,6 +211,7 @@ goto :init
 ::	set "args=!args! --quiet"
 	set "args=!args! --no-hsts"
 	set "args=!args! --https-only"
+	set "args=!args! --server-response"
 	set "args=!args! --force-directories"
 	set "args=!args! -P "!out!""
 	set "args=!args! "!url!""
@@ -219,7 +231,7 @@ goto :init
 	set "args="
 	if not '!galleryDl!'=='' (set "exec=!galleryDl!")
 	if not '!youtubeDl!'=='' (
-		if  '!exec!'==''     (set "exec=!youtubeDl!")
+		if '!exec!'==''      (set "exec=!youtubeDl!")
 		if '!video!'=='true' (set "exec=!youtubeDl!")
 	)
 	if not '!defaultDl!'=='' (
@@ -288,6 +300,9 @@ goto :init
 		set "youtubeDl=!exec!"
 		set "exec="
 	)
+	if not '!directYtDl!'=='true' (
+		set "youtubeDl="
+	)
 	
 	exit /b 0
 
@@ -296,19 +311,36 @@ goto :init
 	set "exec="
 	
 	if '%~1'=='' (exit /b 1)
-	for /f "tokens=*" %%f in ('where "%~1" 2^>nul') do (
-		set "exec=%%~nf"
-		exit /b 0
-	)
-	
-	if not '!autoDlExe!'=='true' (exit /b 1)
-	if     '!defaultDl!'==''     (exit /b 1)
-	
-	if '%~2'=='' (exit /b 1)
-	!defaultDl! -q -P "%~dp0." "%~2"
-	
 	if exist "%~dp0%~1.exe" (
 		set "exec=%~1"
+	)
+	
+	if '!updateExe!'=='true' (
+		if exist "%~dp0%~1.exe" (
+			set "exec=%~1"
+			if '!forceUpdate!'=='true' (
+				!exec! --update
+				if not '!env!'=='' (
+					py -3 -m pip install --upgrade !exec![eager]
+				)
+			)
+			
+		) else (
+			if '!autoDlExe!'=='true' (
+				if not '!defaultDl!'=='' (
+					if not '%~2'=='' (
+						!defaultDl! -q -P "%~dp0." "%~2"
+					)
+				)
+				if not '!env!'=='' (
+					py -3 -m pip install --upgrade !exec![eager]
+				)
+			)
+		)
+	)
+	
+	for /f "tokens=*" %%f in ('where "%~1" 2^>nul') do (
+		set "exec=%%~nf"
 		exit /b 0
 	)
 	
