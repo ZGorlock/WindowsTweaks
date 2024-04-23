@@ -4,10 +4,10 @@ setlocal
 set lftp="C:\cygwin64\bin\lftp"
 
 set server=%~1
-FOR /F "tokens=1,2* delims=:/" %%G IN ("%server%") DO (
-	set "protocol=%%G"
-	set "host=%%H"
-	set "resource=%%I"
+for /f "tokens=1,2* delims=:/" %%g in ("%server%") do (
+	set "protocol=%%g"
+	set "host=%%h"
+	set "resource=%%i"
 )
 
 set dest=%~2
