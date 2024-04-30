@@ -37,6 +37,7 @@ goto :init
 	set "env="
 	
 	set "run=false"
+	set "log=true"
 	set "url="
 	
 	call :logSeparator
@@ -69,6 +70,10 @@ goto :init
 
 :command
 	if '!input!'=='~' (exit /b 1)
+	
+	if /i '!log!'=='true' (
+		>> "%~dp0dl.log" echo:!input!
+	)
 	
 	if /i '!input!'=='start'    (call :startThread)
 	if /i '!input!'=='run'      (call :startThread)
