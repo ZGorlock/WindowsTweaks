@@ -1,6 +1,6 @@
 @echo off
 
-if not '%~1'=='~' (
+if not "%~1"=="~" (
 	setlocal enabledelayedexpansion
 	call "%~nx0" "~" %*
 	goto :end
@@ -11,7 +11,7 @@ goto :init
 
 
 :init
-	if '%~1'=='~' (exit /b 1)
+	if "%~1"=="~" (exit /b 1)
 	
 	set "input=%~1"
 	
@@ -53,7 +53,7 @@ goto :init
 
 
 :input
-	if not '!run!'=='true' (exit /b 0)
+	if /i not '!run!'=='true' (exit /b 0)
 	
 	call :logSeparator
 	title %~n0
@@ -102,7 +102,7 @@ goto :init
 
 
 :startThread
-	if '!run!'=='true' (exit /b 1)
+	if /i '!run!'=='true' (exit /b 1)
 	
 	echo Listening...
 	set "run=true"
@@ -111,7 +111,7 @@ goto :init
 
 
 :stopThread
-	if not '!run!'=='true' (exit /b 1)
+	if /i not '!run!'=='true' (exit /b 1)
 	
 	echo Done
 	set "run=false"
@@ -162,7 +162,7 @@ goto :init
 	if '!exec!'=='!youtubeDl!' (call :youtubeDl)
 	if '!exec!'=='!defaultDl!' (call :defaultDl)
 	
-	if not '!args!'=='' (set "args=!args:  =!")
+	if not '!args!'=='' (set "args=!args:~1!")
 	if     '!args!'=='' (exit /b 1)
 	
 	title %~n0 [!exec!] - !url!
@@ -182,7 +182,7 @@ goto :init
 	if      '!url!'==''            (exit /b 1)
 	if      '!out!'==''            (exit /b 1)
 	
-	set "args= "
+	set "args="
 	set "args=!args! --verbose"
 ::	set "args=!args! --filter "date ^<^= datetime(2016, 9, 25)""
 ::	set "args=!args! --no-download"
@@ -198,7 +198,7 @@ goto :init
 	if      '!url!'==''            (exit /b 1)
 	if      '!out!'==''            (exit /b 1)
 	
-	set "args= "
+	set "args="
 	set "args=!args! --verbose"
 ::	set "args=!args! --quiet"
 ::	set "args=!args! --retries 100"
@@ -217,7 +217,7 @@ goto :init
 	if      '!url!'==''            (exit /b 1)
 	if      '!out!'==''            (exit /b 1)
 	
-	set "args= "
+	set "args="
 	set "args=!args! --verbose"
 ::	set "args=!args! --debug"
 ::	set "args=!args! --quiet"
@@ -232,22 +232,28 @@ goto :init
 
 
 :initDownloader
-	set "video=false"
-	if not '!url!'=='!url:/video=!'      (set "video=true")
-	if not '!url!'=='!url:/view_video=!' (set "video=true")
-	if not '!url!'=='!url:/watch=!'      (set "video=true")
-	if not '!url!'=='!url:/playlist=!'   (set "video=true")
-	if not '!url!'=='!url:/episode=!'    (set "video=true")
-	
 	set "exec="
 	set "args="
-	if not '!galleryDl!'=='' (set "exec=!galleryDl!")
-	if not '!youtubeDl!'=='' (
-		if '!exec!'==''      (set "exec=!youtubeDl!")
-		if '!video!'=='true' (set "exec=!youtubeDl!")
-	)
+	
 	if not '!defaultDl!'=='' (
-		if '!exec!'==''      (set "exec=!defaultDl!")
+		if /i "!url:~-4,1!"=="."                   (set "exec=!defaultDl!")
+		if /i "!url:~-3,1!"=="."                   (set "exec=!defaultDl!")
+		if /i "!url:~-2,1!"=="."                   (set "exec=!defaultDl!")
+		if '!exec!'=='' (
+			if /i not '!url!'=='!url:.html=!'      (set "exec=!defaultDl!")
+			if /i not '!url!'=='!url:.php?=!'      (set "exec=!defaultDl!")
+		)
+	)
+	
+	if not '!youtubeDl!'=='' (
+		if '!exec!'=='' (
+			if /i not '!url!'=='!url:youtube.com=!' (set "exec=!youtubeDl!")
+			if /i not '!url!'=='!url:youtu.be=!'    (set "exec=!youtubeDl!")
+		)
+	)
+	
+	if not '!galleryDl!'=='' (
+		if '!exec!'==''                             (set "exec=!galleryDl!")
 	)
 	
 	if '!exec!'=='' (
@@ -312,7 +318,7 @@ goto :init
 		set "youtubeDl=!exec!"
 		set "exec="
 	)
-	if not '!directYtDl!'=='true' (
+	if /i not '!directYtDl!'=='true' (
 		set "youtubeDl="
 	)
 	
@@ -322,15 +328,15 @@ goto :init
 :loadExe
 	set "exec="
 	
-	if '%~1'=='' (exit /b 1)
+	if "%~1"=="" (exit /b 1)
 	if exist "%~dp0%~1.exe" (
 		set "exec=%~1"
 	)
 	
-	if '!updateExe!'=='true' (
+	if /i '!updateExe!'=='true' (
 		if exist "%~dp0%~1.exe" (
 			set "exec=%~1"
-			if '!forceUpdate!'=='true' (
+			if /i '!forceUpdate!'=='true' (
 				!exec! --update
 				if not '!env!'=='' (
 					py -3 -m pip install --upgrade !exec![eager]
@@ -338,9 +344,9 @@ goto :init
 			)
 			
 		) else (
-			if '!autoDlExe!'=='true' (
+			if /i '!autoDlExe!'=='true' (
 				if not '!defaultDl!'=='' (
-					if not '%~2'=='' (
+					if not "%~2"=="" (
 						!defaultDl! -q -P "%~dp0." "%~2"
 					)
 				)
@@ -360,7 +366,7 @@ goto :init
 
 
 :setupEnv
-	if not      '!env!'=='' (exit /b 1)
+	if not '!env!'==''      (exit /b 1)
 	if     '!condaEnv!'=='' (exit /b 1)
 	
 	set "env=!condaEnv!"
@@ -370,8 +376,8 @@ goto :init
 
 
 :shutdownEnv
-	if '!env!'==''     (exit /b 1)
-	if '!run!'=='true' (exit /b 1)
+	if    '!env!'==''     (exit /b 1)
+	if /i '!run!'=='true' (exit /b 1)
 	
 	set "env="
 	call conda deactivate
