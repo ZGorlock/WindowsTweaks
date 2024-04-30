@@ -72,7 +72,7 @@
 #Include DirStatHere.ahk
 
 #Include CommandPromptHere.ahk
-#Include NewTextDocument.ahk
+#Include NewTextDocumentHere.ahk
 
 #Include WinrarArchiveActions.ahk
 

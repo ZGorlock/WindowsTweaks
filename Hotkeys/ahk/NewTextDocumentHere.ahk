@@ -1,5 +1,5 @@
 ;--------------------------------------------------------------------------------
-; NewTextDocument.ahk
+; NewTextDocumentHere.ahk
 ;--------------------------------------------------------------------------------
 ; Ctrl+Shift+M       ; Create new .txt document in current directory            ;
 ;--------------------------------------------------------------------------------
@@ -14,7 +14,7 @@
 ;--------------------------------------------------------------------------------
 
 
-NewTextDocument_IsActive() {
+NewTextDocumentHere_IsActive() {
 	return Explorer_IsActive() || Explorer_OnDesktop()
 }
 
@@ -22,11 +22,11 @@ NewTextDocument_IsActive() {
 ;--------------------------------------------------------------------------------
 
 
-#If NewTextDocument_IsActive()
+#If NewTextDocumentHere_IsActive()
 
 
 ~^+M::
-NewTextDocument:
+NewTextDocumentHere:
 {
 	activeDir := Explorer_GetActivePath()
 	if (activeDir) {

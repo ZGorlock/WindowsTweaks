@@ -1,7 +1,7 @@
 Read 'enable hotkeys.txt'
 
 Navigate to 'ahk'
-Run 'NewTextDocument.ahk'
+Run 'NewTextDocumentHere.ahk'
 
 This will add the following hotkeys:
 	
