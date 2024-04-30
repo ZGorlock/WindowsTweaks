@@ -23,6 +23,7 @@ goto :init
 	set "galleryDl=gallery-dl"
 	set "youtubeDl=yt-dlp"
 ::	set "youtubeDl=youtube-dl"
+	set "githubDl=gitSave"
 	set "defaultDl=wget"
 	
 	set "directYtDl=false"
@@ -165,6 +166,7 @@ goto :init
 	if '!exec!'==''            (exit /b 1)
 	if '!exec!'=='!galleryDl!' (call :galleryDl)
 	if '!exec!'=='!youtubeDl!' (call :youtubeDl)
+	if '!exec!'=='!githubDl!'  (call :githubDl)
 	if '!exec!'=='!defaultDl!' (call :defaultDl)
 	
 	if not '!args!'=='' (set "args=!args:~1!")
@@ -216,6 +218,19 @@ goto :init
 	exit /b 0
 
 
+:githubDl
+	if not '!exec!'=='!githubDl!' (exit /b 1)
+	if not '!args!'==''           (exit /b 1)
+	if      '!url!'==''           (exit /b 1)
+	if      '!out!'==''           (exit /b 1)
+	
+	set "args="
+	set "args=!args! "!url!""
+	set "args=!args! "!out!""
+	
+	exit /b 0
+
+
 :defaultDl
 	if not '!exec!'=='!defaultDl!' (exit /b 1)
 	if not '!args!'==''            (exit /b 1)
@@ -247,6 +262,13 @@ goto :init
 		if '!exec!'=='' (
 			if /i not '!url!'=='!url:.html=!'      (set "exec=!defaultDl!")
 			if /i not '!url!'=='!url:.php?=!'      (set "exec=!defaultDl!")
+		)
+	)
+	
+	if not '!githubDl!'=='' (
+		if /i "!url:~-4!"==".git"                  (set "exec=!githubDl!")
+		if '!exec!'=='' (
+			if /i not '!url!'=='!url:github.com=!' (set "exec=!githubDl!")
 		)
 	)
 	
