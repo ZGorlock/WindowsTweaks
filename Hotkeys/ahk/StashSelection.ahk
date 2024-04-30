@@ -75,12 +75,14 @@ StashSelection_ImageGlass_GetSelected() {
 	selection := []
 	
 	title := Desktop_GetActiveWindowTitle()
-	file := String_Trim(String_LSnip(title, String_IndexOf(title, "|") - 1))
+	file := String_Trim(String_LSnip(title, String_IndexOf(title, "︱") - 1))
 	
 	if (!Filesystem_FileExists(file)) {
 		pid := Desktop_GetActiveWindowProcessId()
 		fileHandles := Desktop_GetFileHandles(pid)
 		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Windows\")
+		fileHandles := Array_FilterNotStartsWith(fileHandles, "C:\Program Files")
+		fileHandles := Array_FilterNotContains(fileHandles, "\AppData\")
 		file := Filesystem_Path(Array_GetLast(fileHandles), file)
 	}
 	
