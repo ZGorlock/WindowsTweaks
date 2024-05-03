@@ -5,7 +5,7 @@ set "flags=/b"
 set "pattern=*"
 
 :readArgs
-	if not '%1'=='' (
+	if not "%~1"=="" (
 		set "arg=%~1"
 		if "!arg:~0,1!"=="/" (
 			set "flags=!flags! !arg!"

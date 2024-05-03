@@ -6,7 +6,7 @@ set "flags="
 set "location=."
 
 :readArgs
-	if not '%1'=='' (
+	if not "%~1"=="" (
 		set "arg=%~1"
 		if "!arg:~0,1!"=="/" (
 			if /i '!arg!'=='/S' (set "typeFilter=-eq 'SymbolicLink'")

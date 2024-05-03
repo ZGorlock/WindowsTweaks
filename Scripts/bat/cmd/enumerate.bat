@@ -7,7 +7,7 @@ set "output=enum.txt"
 set "overwrite="
 
 :readArgs
-	if not '%1'=='' (
+	if not "%~1"=="" (
 		set "arg=%~1"
 		if "!arg:~0,1!"=="/" (
 			if /i not "!arg!"=="/y" (
