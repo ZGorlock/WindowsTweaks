@@ -1,3 +1,3 @@
 @echo off
 
-admin
+admin %*

@@ -1,6 +1,14 @@
 @echo off
-setlocal
+setlocal enabledelayedexpansion
 
-set cmd="C:\Windows\System32\cmd.exe"
+set "cmd=C:\Windows\System32\cmd.exe"
+set "arg=/c"
+set "dir=%cd%"
 
-powershell Start-Process %cmd% '/k cd /d %cd%' -Verb RunAs
+set "run=%~1"
+if '!run!'=='' (
+	set "run=echo:admin:"
+	set "arg=/k"
+)
+
+powershell Start-Process "!cmd!" '!arg! cd /d "!dir!" "&" !run!' -Verb RunAs
