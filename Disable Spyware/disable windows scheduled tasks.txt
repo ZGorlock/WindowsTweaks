@@ -1,0 +1,53 @@
+Run 'disable windows scheduled tasks.bat' as Admin
+
+Alternatively:
+	Launch: Task Scheduler
+	Navigate to Task Scheduler Library / Microsoft / Windows
+	Disable the following tasks:
+		Application Experience
+			Microsoft Compatibility Appraiser
+			ProgramDataUpdater
+        	StartupAppTask
+        CloudExperienceHost
+        	CreateObjectTask 
+        Customer Experience Improvement Program
+        	Consolidator
+        	UsbCeip
+        Defrag
+        	ScheduledDefrag
+        Diagnosis
+        	Scheduled
+        DiskCleanup
+        	SilentCleanup
+        DiskDiagnostic
+        	Microsoft-Windows-DiskDiagnosticDataCollector
+        HelloFace
+        	FODCleanupTask
+        Location
+        	Notifications
+        	WindowsActionDialog
+        Management
+        	Provisioning
+        		Cellular
+        Maps
+        	MapsToastTask
+			MapsUpdateTask
+        Mobile Broadband Accounts
+        	MNO Metadata Parser
+        Ras
+        	MobilityManager
+        RemoteAssistance
+        	RemoteAssistanceTask
+        Servicing
+        	StartComponentCleanup
+        Speech
+        	SpeechModelDownloadTask
+        Windows Error Reporting
+        	QueueReporting
+        Windows Media Sharing
+        	UpdateLibrary
+        XblGameSave
+        	XblGameSaveTask
+
+
+//https://www.tenforums.com/customization/180514-project-scheduled-tasks-can-disabled-without-drastic-impact.html#post2259535

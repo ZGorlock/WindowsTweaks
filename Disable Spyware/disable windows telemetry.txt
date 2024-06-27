@@ -24,7 +24,7 @@ Set:
 		Configure collection of browsing data for Desktop Analytics: Enabled / Do not allow sending intranet or internet history
 
 Launch: Task Scheduler
-Navigate to Task Scheduler Library / Windows
+Navigate to Task Scheduler Library / Microsoft / Windows
 Disable the following tasks:
 	Application Experience
 		Microsoft Compatibility Appraiser
