@@ -18,3 +18,8 @@ Winaero Tools:
 	A collection of apps created by the Winaero project
 	Made by Sergey Tkachenko
 	https://winaero.com/winaero-apps/
+
+Windows Server 2003 Resource Kit Tools:
+	A collection of utilities to assist experienced users in diagnosing and resolving computer problems, and to enhance the management capabilities of the operating system
+	Made by Microsoft
+	http://web.archive.org/web/20150327014146/http://www.microsoft.com/en-us/download/details.aspx?id=17657
